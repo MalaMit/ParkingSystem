@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.AdminPanelAccessController">
+   <children>
+      <Pane layoutX="197.0" prefHeight="48.0" prefWidth="827.0" style="-fx-background-color: #303030;">
+         <children>
+            <Separator layoutY="44.0" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="11.0" prefWidth="827.0" style="-fx-background-color: gold;" />
+            <Label layoutX="767.0" layoutY="12.0" text="Logout" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="730.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icon_exit.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="713.0" layoutY="2.0" onAction="#logOutAdmin" prefHeight="39.0" prefWidth="108.0" text=" " textFill="#303030" />
+         </children>
+      </Pane>
+      <Pane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #303030;">
+         <children>
+            <Label layoutX="74.0" layoutY="75.0" text="Employees" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="75.0" layoutY="207.0" text="Parking Spots" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="15.0" />
+               </font>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+            <Label layoutX="80.0" layoutY="359.0" text="Clients" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="72.0" layoutY="504.0" text="Admin Accounts" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="48.0" fitWidth="64.0" layoutX="20.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icon_User.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutY="-1.0" onAction="#employeesAction" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+            <ImageView fitHeight="48.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="200.0">
+               <image>
+                  <Image url="@../icon/icon_parking.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutY="156.0" onAction="#parkingSpotsAction" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+            <ImageView fitHeight="48.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="350.0">
+               <image>
+                  <Image url="@../icon/icon_client.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutY="309.0" onAction="#clientsAction" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+            <ImageView fitHeight="48.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="490.0">
+               <image>
+                  <Image url="@../icon/icon_admin.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutY="447.0" onAction="#adminAccountsAction" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+         </children>
+      </Pane>
+      <Separator layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="10.0" style="-fx-background-color: gold;" />
+      <StackPane fx:id="adminMainStakPain" layoutX="204.0" layoutY="60.0" prefHeight="547.0" prefWidth="814.0" style="-fx-background-color: transparent;" />
+   </children>
+</AnchorPane>

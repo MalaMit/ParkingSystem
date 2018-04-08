@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.AdminLoginPanelController">
+	<children>
+		<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;">
+			<children>
+				<TextField alignment="CENTER" layoutX="372.0" layoutY="227.0" opacity="0.9" prefHeight="31.0" prefWidth="294.0" promptText="UserName" style="-fx-background-color: #F1EBE4;">
+					<font>
+						<Font name="Verdana Italic" size="14.0" />
+					</font>
+				</TextField>
+				<PasswordField alignment="CENTER" layoutX="372.0" layoutY="282.0" opacity="0.9" prefHeight="31.0" prefWidth="294.0" promptText="Password" style="-fx-background-color: #F1EBE4;">
+					<font>
+						<Font name="Verdana" size="14.0" />
+					</font>
+				</PasswordField>
+				<Label alignment="CENTER" contentDisplay="CENTER" layoutX="372.0" layoutY="108.0" prefHeight="65.0" prefWidth="294.0" text="Welcome" textFill="WHITE">
+					<font>
+						<Font name="Verdana Bold Italic" size="44.0" />
+					</font>
+				</Label>
+				<JFXButton layoutX="560.0" layoutY="348.0" onAction="#accessAdminButton" style="-fx-background-color: transparent;" text="Login" textFill="WHITE">
+					<font>
+						<Font name="Verdana Italic" size="16.0" />
+					</font>
+					<graphic>
+						<ImageView fitHeight="36.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@../icon/icon_Enter.png" />
+							</image>
+						</ImageView>
+					</graphic>
+				</JFXButton>
+				<ImageView fitHeight="60.0" fitWidth="35.0" layoutX="325.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../icon/icon_User.png" />
+					</image>
+				</ImageView>
+				<ImageView fitHeight="60.0" fitWidth="35.0" layoutX="325.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../icon/icon_Key.png" />
+					</image>
+				</ImageView>
+            <JFXButton layoutX="8.0" layoutY="7.0" onAction="#backToMainButton" prefHeight="54.0" prefWidth="48.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/arrow_back.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+			</children>
+		</AnchorPane>
+	</children>
+</StackPane>
