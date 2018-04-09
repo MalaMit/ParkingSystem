@@ -5,10 +5,6 @@ import java.util.Properties;
 
 import com.sun.rowset.CachedRowSetImpl;
 
-
-
-
-
 public class DBUtil {
 
 	private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
@@ -58,51 +54,50 @@ public class DBUtil {
 		}
 	}
 
-	//this is for insert/delete/update operation
+	// this is for insert/delete/update operation
 	public void dbExcecuteQuery(String sqlStmt) throws SQLException, ClassNotFoundException {
 		Statement stmt = null;
 		try {
 			dbConnect();
 			stmt = connection.createStatement();
 			stmt.executeUpdate(sqlStmt);
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			System.out.println("Problem occured at dbExcecuteQuery operation" + e);
 			throw e;
-		}
-		finally {
-			if(stmt != null) {
+		} finally {
+			if (stmt != null) {
 				stmt.close();
 			}
 			dbDisconnect();
 		}
 	}
-	
-	public ResultSet dbExecute(String sqlQuery) throws ClassNotFoundException,SQLException {
+
+	//this is for retrieving the records from the DB
+	public ResultSet dbExecute(String sqlQuery) throws ClassNotFoundException, SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 		CachedRowSetImpl crs = null;
-		
+
 		try {
 			dbConnect();
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(sqlQuery);
 			crs = new CachedRowSetImpl();
 			crs.populate(rs);
-			
+
 		} catch (SQLException e) {
 			System.out.println("Error occured in dbExecute operation" + e);
 			throw e;
-		}
-		finally {
-			if(rs != null) {
+		} finally {
+			if (rs != null) {
 				rs.close();
-			}if(stmt != null){
+			}
+			if (stmt != null) {
 				stmt.close();
 			}
 			dbDisconnect();
 		}
 		return crs;
 	}
-		
+
 }
