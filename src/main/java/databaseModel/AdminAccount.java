@@ -1,4 +1,4 @@
-package database.model;
+package databaseModel;
 
 
 public class AdminAccount {
