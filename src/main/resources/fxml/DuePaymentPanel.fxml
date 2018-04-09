@@ -12,7 +12,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.DuePaymentPanelController">
    <children>
-      <AnchorPane prefHeight="547.0" prefWidth="814.0">
+      <AnchorPane prefHeight="547.0" prefWidth="814.0" style="-fx-background-color: white;">
          <children>
             <Pane prefHeight="100.0" prefWidth="814.0" style="-fx-background-color: #303030;;">
                <children>

@@ -81,7 +81,7 @@
             <JFXButton layoutY="450.0" onAction="#duePaymentButton" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
          </children>
       </Pane>
-      <StackPane fx:id="userMainStakPane" layoutX="210.0" layoutY="53.0" prefHeight="547.0" prefWidth="821.0" style="-fx-background-color: transparent;" />
+      <StackPane fx:id="userMainStakPane" layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="827.0" style="-fx-background-color: #303030;" />
       <Separator layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="13.0" style="-fx-background-color: gold;" />
    </children>
 </AnchorPane>
