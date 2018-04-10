@@ -23,6 +23,21 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
+	public boolean getAdminByLoginAndPassword(String imputLogin, String imputPassword) {
+		String sql = "SELECT * FROM admin WHERE login = '" + imputLogin + "' AND password = '" + imputPassword + "' ";
+		boolean isUser = false;
+		try {
+			ResultSet rs = DBUtil.dbExecute(sql);
+			if (rs.next()) {
+				isUser = true;
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return isUser;
+	}
+
+	@Override
 	public boolean insertAdmin() {
 		// TODO Auto-generated method stub
 		return false;
@@ -39,20 +54,5 @@ public class AdminDAOImpl implements AdminDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	@Override
-	public boolean getAdminByLoginAndPassword(String imputLogin, String imputPassword) {
-		String sql = "SELECT * FROM admin WHERE login = '"+imputLogin+"' AND password = '"+imputPassword+"' ";
-		boolean isUser = false;
-		try {
-			ResultSet rs = DBUtil.dbExecute(sql);
-			if (rs.next()) {
-                isUser = true;
-			}
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-		return isUser;	
-	}
-	
+
 }
