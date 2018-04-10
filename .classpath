@@ -27,14 +27,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/parkingApplication/ParkingSystem/lib/fontawesomefx-8.9.jar"/>
-	<classpathentry kind="lib" path="D:/parkingApplication/ParkingSystem/lib/jfoenix-9.0.1.jar"/>
-	<classpathentry kind="lib" path="D:/parkingApplication/ParkingSystem/lib/mysql-connector-java-5.1.46-bin.jar"/>
+	<classpathentry kind="lib" path="lib/fontawesomefx-8.9.jar"/>
+	<classpathentry kind="lib" path="lib/jfoenix-9.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.46-bin.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
