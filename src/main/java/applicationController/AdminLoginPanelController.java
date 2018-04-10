@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
-
 import aplicationViewModel.AdminLoginProperty;
 import databaseDAOImpl.AdminDAOImpl;
 import javafx.event.ActionEvent;
@@ -15,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -52,7 +53,11 @@ public class AdminLoginPanelController implements Initializable {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("Invalid username or password!");
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Login error!");
+			alert.setHeaderText("Your login or password is invalid. Please try again");
+
+			alert.showAndWait();
 		}
 	}
 
