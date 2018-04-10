@@ -15,12 +15,12 @@
 	<children>
 		<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;">
 			<children>
-				<TextField alignment="CENTER" layoutX="372.0" layoutY="227.0" opacity="0.9" prefHeight="31.0" prefWidth="294.0" promptText="UserName" style="-fx-background-color: #F1EBE4;">
+				<TextField fx:id="textLogin" alignment="CENTER" layoutX="372.0" layoutY="227.0" opacity="0.9" prefHeight="31.0" prefWidth="294.0" promptText="UserName" style="-fx-background-color: #F1EBE4;">
 					<font>
 						<Font name="Verdana Italic" size="14.0" />
 					</font>
 				</TextField>
-				<PasswordField alignment="CENTER" layoutX="372.0" layoutY="282.0" opacity="0.9" prefHeight="31.0" prefWidth="294.0" promptText="Password" style="-fx-background-color: #F1EBE4;">
+				<PasswordField fx:id="textPassword" alignment="CENTER" layoutX="372.0" layoutY="282.0" opacity="0.9" prefHeight="31.0" prefWidth="294.0" promptText="Password" style="-fx-background-color: #F1EBE4;">
 					<font>
 						<Font name="Verdana" size="14.0" />
 					</font>
