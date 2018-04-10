@@ -30,7 +30,7 @@
 						<Font name="Verdana Bold Italic" size="44.0" />
 					</font>
 				</Label>
-				<JFXButton layoutX="560.0" layoutY="348.0" onAction="#accessAdminButton" style="-fx-background-color: transparent;" text="Login" textFill="WHITE">
+				<JFXButton fx:id="accessAdminButton" layoutX="560.0" layoutY="348.0" onAction="#accessAdminButtonAction" style="-fx-background-color: transparent;" text="Login" textFill="WHITE">
 					<font>
 						<Font name="Verdana Italic" size="16.0" />
 					</font>
@@ -52,7 +52,7 @@
 						<Image url="@../icon/icon_Key.png" />
 					</image>
 				</ImageView>
-            <JFXButton layoutX="8.0" layoutY="7.0" onAction="#backToMainButton" prefHeight="54.0" prefWidth="48.0" text=" ">
+            <JFXButton layoutX="8.0" layoutY="7.0" onAction="#backToMainButtonAction" prefHeight="54.0" prefWidth="48.0" text=" ">
                <graphic>
                   <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
