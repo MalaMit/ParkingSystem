@@ -11,26 +11,25 @@ public class DBUtil {
 	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/parking?useSSL=false";
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "123";
-	private static final String MAX_POOL = "250";
+
 
 	// init connection object
-	private Connection connection;
+	private static Connection connection;
 	// init properties object
-	private Properties properties;
+	private static Properties properties;
 
 	// create properties
-	private Properties getProperties() {
+	private static Properties getProperties() {
 		if (properties == null) {
 			properties = new Properties();
 			properties.setProperty("user", USERNAME);
 			properties.setProperty("password", PASSWORD);
-			properties.setProperty("MaxPooledStatements", MAX_POOL);
 		}
 		return properties;
 	}
 
 	// connect database
-	public Connection dbConnect() {
+	public static Connection dbConnect() {
 		if (connection == null) {
 			try {
 				Class.forName(DATABASE_DRIVER);
@@ -43,7 +42,7 @@ public class DBUtil {
 	}
 
 	// disconnect database
-	public void dbDisconnect() {
+	public static void dbDisconnect() {
 		if (connection != null) {
 			try {
 				connection.close();
@@ -55,7 +54,7 @@ public class DBUtil {
 	}
 
 	// this is for insert/delete/update operation
-	public void dbExcecuteQuery(String sqlStmt) throws SQLException, ClassNotFoundException {
+	public static void dbExcecuteQuery(String sqlStmt) throws SQLException, ClassNotFoundException {
 		Statement stmt = null;
 		try {
 			dbConnect();
@@ -73,7 +72,7 @@ public class DBUtil {
 	}
 
 	//this is for retrieving the records from the DB
-	public ResultSet dbExecute(String sqlQuery) throws ClassNotFoundException, SQLException {
+	public static ResultSet dbExecute(String sqlQuery) throws ClassNotFoundException, SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 		CachedRowSetImpl crs = null;
