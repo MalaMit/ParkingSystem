@@ -12,7 +12,7 @@ public class Admin {
 	private StringProperty login;
 	private StringProperty password;
 
-	public Admin() {
+	public Admin(int adminID, String firstName, String login, String password) {
 		this.adminID = new SimpleIntegerProperty();
 		this.firstName = new SimpleStringProperty();
 		this.login = new SimpleStringProperty();
