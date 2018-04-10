@@ -4,15 +4,25 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
+import aplicationViewModel.AdminLoginProperty;
 import databaseDAOImpl.AdminDAOImpl;
 import javafx.event.ActionEvent;
-import javafx.fxml.*;
-import javafx.scene.*;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AdminLoginPanelController implements Initializable {
+
+	private AdminDAOImpl loginAdm = new AdminDAOImpl();
+	private AdminLoginProperty adminLoginProperty = new AdminLoginProperty();
 
 	@FXML
 	private TextField textLogin;
@@ -20,10 +30,11 @@ public class AdminLoginPanelController implements Initializable {
 	@FXML
 	private PasswordField textPassword;
 
-	private AdminDAOImpl loginAdm = new AdminDAOImpl();
+	@FXML
+	private JFXButton accessAdminButton;
 
 	@FXML
-	void accessAdminButton(ActionEvent event) {
+	void accessAdminButtonAction(ActionEvent event) {
 
 		if ((loginAdm.getAdminByLoginAndPassword(textLogin.getText(), textPassword.getText())) == true) {
 			Parent parent = null;
@@ -46,7 +57,7 @@ public class AdminLoginPanelController implements Initializable {
 	}
 
 	@FXML
-	void backToMainButton(ActionEvent event) {
+	void backToMainButtonAction(ActionEvent event) {
 		Parent parent = null;
 		try {
 			parent = FXMLLoader.load(getClass().getResource("/fxml/FirstPanel.fxml"));
@@ -65,7 +76,10 @@ public class AdminLoginPanelController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		textLogin.textProperty().bindBidirectional(adminLoginProperty.getLoginProperty());
+		textPassword.textProperty().bindBidirectional(adminLoginProperty.getPasswordProperty());
 
+		textPassword.disableProperty().bind(adminLoginProperty.getDisablePasswordProperty());
+		accessAdminButton.disableProperty().bind(adminLoginProperty.getDisableButtonProperty());
 	}
 }
