@@ -18,15 +18,15 @@ public class UserPanelController implements Initializable {
 
 	@FXML
 	private StackPane userMainStakPane;
+	
+	@FXML
+	void carAndSpaceButton(ActionEvent event) {
+		carTypeAndSpacePanel();
+	}
 
 	@FXML
 	void personalDateButton(ActionEvent event) {
 		personalDatePanel();
-	}
-
-	@FXML
-	void carAndSpaceButton(ActionEvent event) {
-		carTypeAndSpacePanel();
 	}
 
 	@FXML
@@ -57,7 +57,7 @@ public class UserPanelController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		personalDatePanel();
+		carTypeAndSpacePanel();
 	}
 	
 	public void personalDatePanel() {
