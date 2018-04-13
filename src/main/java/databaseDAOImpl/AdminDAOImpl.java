@@ -11,19 +11,13 @@ import javafx.collections.ObservableList;
 public class AdminDAOImpl implements AdminDAO {
 
 	@Override
-	public Admin getAdmin() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ObservableList<Admin> getAllAdmin() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean getAdminByLoginAndPassword(String imputLogin, String imputPassword) {
+	public boolean getLoginAdminByLoginAndPassword(String imputLogin, String imputPassword) {
 		String sql = "SELECT * FROM admin WHERE login = '" + imputLogin + "' AND password = '" + imputPassword + "' ";
 		boolean isUser = false;
 		try {
@@ -38,19 +32,19 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public boolean insertAdmin() {
+	public boolean insertAdmin(Admin admin) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateAdmin() {
+	public boolean updateAdmin(Admin admin) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteAdmin() {
+	public boolean deleteAdmin(Admin admin) {
 		// TODO Auto-generated method stub
 		return false;
 	}
