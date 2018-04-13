@@ -5,12 +5,12 @@ import javafx.collections.ObservableList;
 
 
 public interface AdminDAO {
-	Admin getAdmin();
-	ObservableList<Admin> getAllAdmin();
-	boolean getAdminByLoginAndPassword(String login, String password);
 	
-    boolean insertAdmin();
-    boolean updateAdmin();
-    boolean deleteAdmin();
+	ObservableList<Admin> getAllAdmin();
+	boolean getLoginAdminByLoginAndPassword(String login, String password);
+	
+    boolean insertAdmin(Admin admin);
+    boolean updateAdmin(Admin admin);
+    boolean deleteAdmin(Admin admin);
 	
 }
