@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,7 +22,6 @@
                 <TableColumn prefWidth="212.0" text="Level" />
               </columns>
             </TableView>
-            <ChoiceBox layoutX="63.0" layoutY="249.0" prefHeight="25.0" prefWidth="253.0" />
             <JFXButton contentDisplay="RIGHT" layoutX="262.0" layoutY="325.0" text="ok" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
@@ -74,6 +73,7 @@
                   <Font name="Verdana Italic" size="15.0" />
                </font>
             </Text>
+            <JFXComboBox fx:id="typeVehicleCBox" focusColor="RED" layoutX="43.0" layoutY="257.0" prefHeight="34.0" prefWidth="295.0" style="-fx-background-color: white;" unFocusColor="WHITE" />
          </children>
       </AnchorPane>
    </children>
