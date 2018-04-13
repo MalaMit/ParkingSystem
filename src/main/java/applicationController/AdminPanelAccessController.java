@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 public class AdminPanelAccessController implements Initializable {
 
 	@FXML
-	private StackPane adminMainStakPain;
+	private StackPane adminMainStackPane;
 
 	@FXML
 	void adminAccountsAction(ActionEvent event) {
@@ -31,6 +31,8 @@ public class AdminPanelAccessController implements Initializable {
 
 	@FXML
 	void employeesAction(ActionEvent event) {
+		
+		changeScreen("EmployeesPanel.fxml");
 
 	}
 
@@ -61,6 +63,22 @@ public class AdminPanelAccessController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
+	}
+	private void changeScreen(String fxmlName) {
+		Parent parent = null;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("/fxml/"+fxmlName));
+			Scene scene = new Scene(parent);
+
+			Stage window = (Stage) adminMainStackPane.getScene().getWindow();
+
+			window.setScene(scene);
+			window.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
