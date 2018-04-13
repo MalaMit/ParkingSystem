@@ -30,27 +30,27 @@
       </Pane>
       <Pane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #303030;">
          <children>
-            <Label layoutX="77.0" layoutY="74.0" text="Personal Data" textFill="WHITE">
+            <Label layoutX="71.0" layoutY="214.0" text="Personal Data" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="85.0" layoutY="207.0" text="Car Type &amp;" textFill="WHITE">
+            <Label layoutX="85.0" layoutY="63.0" text="Car Type &amp;" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="361.0" text="Time" textFill="WHITE">
+            <Label layoutX="97.0" layoutY="360.0" text="Time" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="77.0" layoutY="501.0" text="Due Payment" textFill="WHITE">
+            <Label layoutX="74.0" layoutY="500.0" text="Due Payment" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="74.0" layoutY="234.0" text="Parking Space" textFill="WHITE">
+            <Label layoutX="73.0" layoutY="87.0" text="Parking Space" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
                </font>
@@ -60,13 +60,13 @@
                   <Image url="@../icon/icon_one.png" />
                </image>
             </ImageView>
-            <JFXButton layoutY="-1.0" onAction="#personalDateButton" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+            <JFXButton layoutY="-1.0" onAction="#carAndSpaceButton" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
             <ImageView fitHeight="48.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="200.0">
                <image>
                   <Image url="@../icon/icon_two.png" />
                </image>
             </ImageView>
-            <JFXButton layoutY="159.0" onAction="#carAndSpaceButton" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+            <JFXButton layoutY="149.0" onAction="#personalDateButton" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
             <ImageView fitHeight="48.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="350.0">
                <image>
                   <Image url="@../icon/icon_tree.png" />
@@ -81,7 +81,7 @@
             <JFXButton layoutY="450.0" onAction="#duePaymentButton" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
          </children>
       </Pane>
-      <StackPane fx:id="userMainStakPane" layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="827.0" style="-fx-background-color: #303030;" />
+      <StackPane fx:id="userMainStakPane" layoutX="207.0" layoutY="53.0" prefHeight="547.0" prefWidth="827.0" style="-fx-background-color: #303030;" />
       <Separator layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="13.0" style="-fx-background-color: gold;" />
    </children>
 </AnchorPane>
