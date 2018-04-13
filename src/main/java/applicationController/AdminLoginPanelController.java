@@ -37,7 +37,7 @@ public class AdminLoginPanelController implements Initializable {
 	@FXML
 	void accessAdminButtonAction(ActionEvent event) {
 
-		if ((loginAdm.getAdminByLoginAndPassword(textLogin.getText(), textPassword.getText())) == true) {
+		if ((loginAdm.getLoginAdminByLoginAndPassword(textLogin.getText(), textPassword.getText())) == true) {
 			Parent parent = null;
 			try {
 				parent = FXMLLoader.load(getClass().getResource("/fxml/AdminPanelAccess.fxml"));
@@ -81,9 +81,10 @@ public class AdminLoginPanelController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//Bindings label and field
 		textLogin.textProperty().bindBidirectional(adminLoginProperty.getLoginProperty());
 		textPassword.textProperty().bindBidirectional(adminLoginProperty.getPasswordProperty());
-
+		//disable button and field
 		textPassword.disableProperty().bind(adminLoginProperty.getDisablePasswordProperty());
 		accessAdminButton.disableProperty().bind(adminLoginProperty.getDisableButtonProperty());
 	}
