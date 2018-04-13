@@ -15,7 +15,7 @@ public class PersonalDatePanelController implements Initializable {
 	private UserPanelController userPanelController;
     @FXML
     void nextPage(ActionEvent event) {
-    	userPanelController.carTypeAndSpacePanel();
+    	userPanelController.setTimeParkingPanel();
     }
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
