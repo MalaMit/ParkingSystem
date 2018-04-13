@@ -12,42 +12,62 @@ public class Admin {
 	private StringProperty login;
 	private StringProperty password;
 
-	public Admin(int adminID, String firstName, String login, String password) {
+	public Admin() {
 		this.adminID = new SimpleIntegerProperty();
 		this.firstName = new SimpleStringProperty();
 		this.login = new SimpleStringProperty();
 		this.password = new SimpleStringProperty();
 	}
+////AdminID
+	public int getAdminID() {
+		return adminID.get();
+	}
+	
+	public void setAdminnID (int adminID) {
+		this.adminID.set(adminID);
+	}
 
-	public IntegerProperty getAdminID() {
+	public IntegerProperty getAdminIDProperty() {
 		return adminID;
 	}
-
-	public void setAdminID(IntegerProperty adminID) {
-		this.adminID = adminID;
+	
+/////FirstName
+	public String getFirstName() {
+		return firstName.get();
 	}
-
-	public StringProperty getFirstName() {
+	
+	public void setFirstName (String firstName) {
+		this.firstName.set(firstName);
+	}
+	public StringProperty getFirstNameProperty() {
 		return firstName;
 	}
 
-	public void setFirstName(StringProperty firstName) {
-		this.firstName = firstName;
+////Login
+	public String getLogin() {
+		return login.get();
 	}
-
-	public StringProperty getLogin() {
+	
+	public void setLogin (String login) {
+		this.login.set(login);
+	}
+	
+	public StringProperty getLoginProperty() {
 		return login;
 	}
 
-	public void setLogin(StringProperty login) {
-		this.login = login;
+////Password
+	public String getPassword() {
+		return password.get();
 	}
-
-	public StringProperty getPassword() {
+	
+	public void setPassword (String password) {
+		this.password.set(password);
+	}
+	
+	public StringProperty getPasswordProperty() {
 		return password;
 	}
 
-	public void setPassword(StringProperty password) {
-		this.password = password;
-	}
+
 }
