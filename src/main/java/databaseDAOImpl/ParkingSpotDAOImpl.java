@@ -20,12 +20,9 @@ public class ParkingSpotDAOImpl implements ParkingSpotDAO{
 			ObservableList<ParkingSpot> pSpot = FXCollections.observableArrayList();
 			while (rsSet.next()) {
 				ParkingSpot pS = new ParkingSpot();
-				TypeVehicle tV = new TypeVehicle();
 				pS.setParkingSpotID(rsSet.getInt("parkingSpot_ID"));
 				pS.setNumberSpot(rsSet.getString("number"));
 				pS.setStatusSpot(rsSet.getString("status"));
-				tV.setType(rsSet.getString("typeVehicle"));
-				pS.setTypeVehicle(tV);
 				pSpot.add(pS);
 			}
 			return pSpot;

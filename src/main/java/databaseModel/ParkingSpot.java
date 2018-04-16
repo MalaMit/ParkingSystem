@@ -74,6 +74,6 @@ public class ParkingSpot {
 	}
 	
 	public String toString() {
-		return numberSpot.get() +" "+  status.get() + " " + typeVehicle.get();
+		return numberSpot.get() +" "+  status.get();
 	}
 }
