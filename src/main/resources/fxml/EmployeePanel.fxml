@@ -4,11 +4,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.EmployeePanelController">
@@ -31,11 +32,6 @@
       </Pane>
       <Pane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #303030;">
          <children>
-            <Label layoutX="74.0" layoutY="75.0" text="Employees" textFill="WHITE">
-               <font>
-                  <Font name="Verdana Italic" size="16.0" />
-               </font>
-            </Label>
             <Label layoutX="75.0" layoutY="207.0" text="Parking Spots" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
@@ -54,12 +50,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="48.0" fitWidth="64.0" layoutX="20.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icon/icon_User.png" />
-               </image>
-            </ImageView>
-            <JFXButton layoutY="-1.0" onAction="#employeesAction" prefHeight="150.0" prefWidth="200.0" ripplerFill="RED" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+            <JFXButton fx:id="employeesButton" layoutY="43.0" onAction="#employeesAction" prefHeight="106.0" prefWidth="200.0" ripplerFill="#691e1e" style="-fx-background-color: dodgerblue;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
             <ImageView fitHeight="48.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="200.0">
                <image>
                   <Image url="@../icon/icon_parking.png" />
@@ -78,9 +69,27 @@
                </image>
             </ImageView>
             <JFXButton layoutY="447.0" onAction="#adminAccountsAction" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: transparent;" text=" " textAlignment="CENTER" textFill="RED" textOverrun="WORD_ELLIPSIS" />
+            <Label layoutX="83.0" layoutY="89.0" text="Employees" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="48.0" fitWidth="64.0" layoutX="20.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icon_User.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Separator layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="10.0" style="-fx-background-color: gold;" />
-      <StackPane fx:id="adminMainStakPain" layoutX="204.0" layoutY="60.0" prefHeight="547.0" prefWidth="814.0" style="-fx-background-color: transparent;" />
+      <TableView layoutX="210.0" layoutY="53.0" prefHeight="547.0" prefWidth="744.0">
+         <columns>
+            <TableColumn prefWidth="142.40000915527344" text="Name" />
+            <TableColumn prefWidth="130.4000244140625" text="Surname" />
+            <TableColumn prefWidth="116.0" text="Date of Birth" />
+            <TableColumn prefWidth="143.20001220703125" text="PESEL" />
+            <TableColumn prefWidth="213.5999755859375" text="City " />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

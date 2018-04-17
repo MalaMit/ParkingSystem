@@ -12,5 +12,9 @@ public interface AdminDAO {
     boolean insertAdmin(Admin admin);
     boolean updateAdmin(Admin admin);
     boolean deleteAdmin(Admin admin);
-	
+    Admin getAdminByLoginAndPassword();
+    boolean insertAdmin();
+    boolean updateAdmin();
+    boolean deleteAdmin();
+    Admin getAdmin();
 }

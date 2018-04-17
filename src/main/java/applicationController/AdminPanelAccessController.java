@@ -31,6 +31,21 @@ public class AdminPanelAccessController implements Initializable {
 
 	@FXML
 	void employeesAction(ActionEvent event) {
+		System.out.print("Klik");
+		Parent parent = null;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("/fxml/EmployeePanel.fxml"));
+			Scene scene = new Scene(parent);
+
+			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			window.setScene(scene);
+			window.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
 	}
@@ -63,5 +78,6 @@ public class AdminPanelAccessController implements Initializable {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	
 }

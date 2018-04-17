@@ -38,6 +38,30 @@ public class AdminImplementDAO implements AdminDAO {
 	}
 
 	@Override
+	public boolean deleteAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean getLoginAdminByLoginAndPassword(String login, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean insertAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
 	public boolean deleteAdmin() {
 		// TODO Auto-generated method stub
 		return false;
