@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class EmployeePanelController implements Initializable{
@@ -43,7 +44,7 @@ public class EmployeePanelController implements Initializable{
 	@FXML
 	void addButtonAction() {
 		
-		System.out.println("KKKKK");
+		showNewModalWindow("/fxml/addEmployee.fxml","Add Employee");
 		
 	}
 	@FXML
@@ -97,5 +98,22 @@ public class EmployeePanelController implements Initializable{
         employeeTableView.setItems(EmployeesList.getInstance().getEmployeeList());
 
 	}
+	protected void showNewModalWindow(String fxmlURL,String title) {
+		
+		try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlURL));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle(title);
+            stage.show();
 
-}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	}
+
+

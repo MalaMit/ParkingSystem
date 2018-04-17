@@ -20,6 +20,7 @@ public class FirstPanelController implements Initializable {
 		Parent parent1 = null;
 		try {
 			parent1 = FXMLLoader.load(getClass().getResource("/fxml/UserPanel.fxml"));
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
