@@ -3,7 +3,6 @@ package applicationController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,26 +17,6 @@ public class UserPanelController implements Initializable {
 
 	@FXML
 	private StackPane userMainStakPane;
-	
-	@FXML
-	void carAndSpaceButton(ActionEvent event) {
-		carTypeAndSpacePanel();
-	}
-
-	@FXML
-	void personalDateButton(ActionEvent event) {
-		personalDatePanel();
-	}
-
-	@FXML
-	void timeButton(ActionEvent event) {
-		setTimeParkingPanel();
-	}
-	
-	@FXML
-	void duePaymentButton(ActionEvent event) {
-		duePaymentPanel();
-	}
 
 	@FXML
 	void outProgramButton(ActionEvent event) {
@@ -60,61 +39,22 @@ public class UserPanelController implements Initializable {
 		carTypeAndSpacePanel();
 	}
 	
-	public void personalDatePanel() {
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/PersonalDatePanel.fxml"));
-		StackPane stackPane = null;
-		try {
-			stackPane = loader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		PersonalDatePanelController personalDatePanelController = loader.getController();
-		personalDatePanelController.setUserPanelController(this);
-		setScreen(stackPane);
-	}
-	
 	public void carTypeAndSpacePanel() {
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/CarTypeAndSpace.fxml"));
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/CreateClient.fxml"));
 		StackPane stackPane = null;
 		try {
 			stackPane = loader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		CarTypeAndSpaceController carTypeAndSpaceController = loader.getController();
+		CreateClientController carTypeAndSpaceController = loader.getController();
 		carTypeAndSpaceController.setUserPanelController(this);
 		setScreen(stackPane);
 	}
 	
-	public void setTimeParkingPanel() {
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SetTimeParking.fxml"));
-		StackPane stackPane = null;
-		try {
-			stackPane = loader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		SetTimeParkingController setTimeParkingController = loader.getController();
-		setTimeParkingController.setUserPanelController(this);
-		setScreen(stackPane);
-	}
-	
-	public void duePaymentPanel() {
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/DuePaymentPanel.fxml"));
-		StackPane stackPane = null;	
-		try {
-			stackPane = loader.load();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		DuePaymentPanelController duePaymentPanelController = loader.getController();
-		duePaymentPanelController.setUserPanelController(this);
-		setScreen(stackPane);
-	}
-
 	public void setScreen(StackPane stackPane) {
 		userMainStakPane.getChildren().clear();
 		userMainStakPane.getChildren().add(stackPane);
 	}
-
+	
 }
