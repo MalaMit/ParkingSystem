@@ -5,8 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
-import aplicationViewModel.AdminLoginProperty;
 import databaseDAOImpl.AdminDAOImpl;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +23,6 @@ import javafx.stage.Stage;
 public class AdminLoginPanelController implements Initializable {
 
 	private AdminDAOImpl loginAdm = new AdminDAOImpl();
-	private AdminLoginProperty adminLoginProperty = new AdminLoginProperty();
 
 	@FXML
 	private TextField textLogin;
@@ -80,12 +79,9 @@ public class AdminLoginPanelController implements Initializable {
 
 	}
 
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		//Bindings label and field
-		textLogin.textProperty().bindBidirectional(adminLoginProperty.getLoginProperty());
-		textPassword.textProperty().bindBidirectional(adminLoginProperty.getPasswordProperty());
-		//disable button and field
-		textPassword.disableProperty().bind(adminLoginProperty.getDisablePasswordProperty());
-		accessAdminButton.disableProperty().bind(adminLoginProperty.getDisableButtonProperty());
+	public void initialize(URL arg0, ResourceBundle arg1) {		
+		//Bind property
+		textPassword.disableProperty().bind(Bindings.isEmpty(textLogin.textProperty()));
+		accessAdminButton.disableProperty().bind(Bindings.isEmpty(textLogin.textProperty()) .or(Bindings.isEmpty(textPassword.textProperty())));	
 	}
 }
