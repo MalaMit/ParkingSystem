@@ -2,9 +2,11 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,17 +14,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.CarTypeAndSpaceController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.CreateClientController">
    <children>
       <AnchorPane prefHeight="547.0" prefWidth="814.0" style="-fx-background-color: #303030;" StackPane.alignment="CENTER">
          <children>
-            <TableView layoutX="388.0" layoutY="-1.0" prefHeight="472.0" prefWidth="440.0">
+            <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="203.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/price.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="678.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/price.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="474.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icon_car.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="pPlaceTable" layoutX="729.0" layoutY="-1.0" prefHeight="400.0" prefWidth="295.0">
               <columns>
-                <TableColumn prefWidth="227.0" text="Praking Place" />
-                <TableColumn prefWidth="212.0" text="Level" />
+                <TableColumn fx:id="parkingPlaceColumn" editable="false" prefWidth="148.0" text="Praking Place" />
+                <TableColumn fx:id="statusColumn" editable="false" prefWidth="146.0" text="Status" />
               </columns>
             </TableView>
-            <JFXButton contentDisplay="RIGHT" layoutX="262.0" layoutY="325.0" text="ok" textFill="WHITE">
+            <JFXButton fx:id="searchButtonID" contentDisplay="RIGHT" layoutX="287.0" layoutY="8.0" onAction="#searchButton" text="SEARCH" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
                </font>
@@ -34,7 +51,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="RIGHT" layoutX="680.0" layoutY="483.0" onAction="#nextPage" prefHeight="52.0" prefWidth="129.0" text="NEXT" textFill="WHITE">
+            <JFXButton fx:id="nextPageButtonID" contentDisplay="RIGHT" layoutX="846.0" layoutY="471.0" onAction="#nextPage" prefHeight="68.0" prefWidth="178.0" text="FINALIZATION" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
@@ -46,34 +63,91 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <Separator layoutX="378.0" layoutY="-7.0" prefHeight="555.0" prefWidth="10.0" style="-fx-background-color: gold;" />
-            <Separator layoutX="11.0" layoutY="62.0" orientation="VERTICAL" prefHeight="8.0" prefWidth="372.0" style="-fx-background-color: gold;" />
-            <ImageView fitHeight="58.0" fitWidth="64.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icon/icon_car.png" />
-               </image>
-            </ImageView>
-            <Text fill="WHITE" layoutX="61.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose a car type">
-               <font>
-                  <Font name="Verdana Italic" size="22.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="109.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="and select place">
-               <font>
-                  <Font name="Verdana Italic" size="22.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="63.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="car type:">
+            <Separator layoutX="719.0" prefHeight="547.0" prefWidth="5.0" style="-fx-background-color: gold;" />
+            <Text fill="WHITE" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="car type:">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="20.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STEP 2/4">
+            <TextField fx:id="firstNameText" layoutX="146.0" layoutY="100.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="licensePlateText" layoutX="146.0" layoutY="281.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="phoneNumberText" layoutX="146.0" layoutY="219.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="secondNameText" layoutX="146.0" layoutY="162.0" prefHeight="30.0" prefWidth="200.0" />
+            <Label layoutX="52.0" layoutY="106.0" text="First Name:" textFill="WHITE">
                <font>
-                  <Font name="Verdana Italic" size="15.0" />
+                  <Font name="Verdana Italic" size="14.0" />
                </font>
-            </Text>
-            <JFXComboBox fx:id="typeVehicleCBox" focusColor="RED" layoutX="43.0" layoutY="257.0" prefHeight="34.0" prefWidth="295.0" style="-fx-background-color: white;" unFocusColor="WHITE" />
+            </Label>
+            <Label layoutX="35.0" layoutY="287.0" text="License Plate:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="168.0" text="Second Name:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="226.0" text="Phone Number:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="484.0" layoutY="20.0" text="Price For Hour:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="351.0" text="Parking Time:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
+            <Separator layoutY="56.0" orientation="VERTICAL" prefHeight="0.0" prefWidth="729.0" style="-fx-background-color: gold;" />
+            <Label layoutX="266.0" layoutY="447.0" text="Selected Spot: " textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="63.0" layoutY="447.0" text="Charge :" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="calculatePriceButtonID" layoutX="308.0" layoutY="344.0" onAction="#calculatePriceButton" style="-fx-background-color: transparent;" text="Calculate" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/Calculator.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label fx:id="chargeLabel" alignment="CENTER" layoutX="133.0" layoutY="441.0" prefHeight="30.0" prefWidth="62.0" style="-fx-background-color: white;" />
+            <Label fx:id="viewPriceLabel" alignment="CENTER" layoutX="600.0" layoutY="13.0" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: white;" />
+            <JFXComboBox fx:id="typeVehicleBox" focusColor="#e0cc00" layoutX="89.0" layoutY="16.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
+            <JFXComboBox fx:id="timeBox" layoutX="153.0" layoutY="348.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
+            <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="220.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/clock.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="selectSpotButtonID" contentDisplay="RIGHT" layoutX="729.0" layoutY="399.0" onAction="#selectSpotButton" text="SELECT" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_parking.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label fx:id="viewSelectSpot" alignment="CENTER" contentDisplay="CENTER" layoutX="377.0" layoutY="441.0" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: white;" />
          </children>
       </AnchorPane>
    </children>
