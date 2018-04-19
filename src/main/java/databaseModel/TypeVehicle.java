@@ -1,6 +1,5 @@
 package databaseModel;
 
-
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -43,5 +42,5 @@ public class TypeVehicle {
     public String toString() {
         return type.get();
     }
-
+    
 }
