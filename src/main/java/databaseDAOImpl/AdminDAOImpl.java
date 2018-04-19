@@ -48,35 +48,4 @@ public class AdminDAOImpl implements AdminDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public Admin getAdminByLoginAndPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean insertAdmin() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean updateAdmin() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean deleteAdmin() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Admin getAdmin() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
