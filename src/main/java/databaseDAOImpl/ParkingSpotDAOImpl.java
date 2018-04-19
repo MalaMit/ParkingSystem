@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import databaseDAO.ParkingSpotDAO;
 import databaseModel.ParkingSpot;
-import databaseModel.TypeVehicle;
 import databaseUtil.DBUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +19,6 @@ public class ParkingSpotDAOImpl implements ParkingSpotDAO{
 			ObservableList<ParkingSpot> pSpot = FXCollections.observableArrayList();
 			while (rsSet.next()) {
 				ParkingSpot pS = new ParkingSpot();
-				pS.setParkingSpotID(rsSet.getInt("parkingSpot_ID"));
 				pS.setNumberSpot(rsSet.getString("number"));
 				pS.setStatusSpot(rsSet.getString("status"));
 				pSpot.add(pS);
@@ -31,27 +29,35 @@ public class ParkingSpotDAOImpl implements ParkingSpotDAO{
 		}
 		return null;
 	}
-
-	@Override
-	public boolean insertParkingSpot(ParkingSpot parkingSpot) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean updateParkingSpot(ParkingSpot parkingSpot) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean deleteParkingSpot(ParkingSpot parkingSpot) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
 	
+	@Override
+	public void changeStatusSpot( String numberSpot) {
+		String sql = "UPDATE parkingspot SET status = 'TAKEN' WHERE  number ='" +numberSpot+ "' ";
+		try {
+			DBUtil.dbExcecuteQuery(sql);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public boolean insertParkingSpot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateParkingSpot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteParkingSpot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
