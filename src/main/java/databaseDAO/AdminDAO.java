@@ -9,6 +9,7 @@ public interface AdminDAO {
 	ObservableList<Admin> getAllAdmin();
 	boolean getLoginAdminByLoginAndPassword(String login, String password);
 	
+<<<<<<< HEAD
     boolean insertAdmin(Admin admin);
     boolean updateAdmin(Admin admin);
     boolean deleteAdmin(Admin admin);
@@ -17,4 +18,10 @@ public interface AdminDAO {
     boolean updateAdmin();
     boolean deleteAdmin();
     Admin getAdmin();
+=======
+    boolean insertAdmin();
+    boolean updateAdmin();
+    boolean deleteAdmin();
+	
+>>>>>>> initial commit
 }

@@ -6,8 +6,9 @@ import javafx.collections.ObservableList;
 public interface ParkingSpotDAO {
 	
 	ObservableList <ParkingSpot> getAllParkingSpot(String typ);
+	void changeStatusSpot( String numberSpot);
 
-    boolean insertParkingSpot(ParkingSpot parkingSpot);
-    boolean updateParkingSpot(ParkingSpot parkingSpot);
-    boolean deleteParkingSpot(ParkingSpot parkingSpot);
+    boolean insertParkingSpot();
+    boolean updateParkingSpot();
+    boolean deleteParkingSpot();
 }

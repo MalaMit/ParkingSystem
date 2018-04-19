@@ -7,8 +7,7 @@ import databaseModel.TypeVehicle;
 
 public interface TypeVehicleDAO {
 	
-	TypeVehicle getTypeVehicle();
-	TypeVehicle getPrice();
+	int getPrice(String type);
 	
 	ArrayList <TypeVehicle> getAllTypeVehicle();
 			
