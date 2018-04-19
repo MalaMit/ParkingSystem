@@ -32,19 +32,19 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public boolean insertAdmin(Admin admin) {
+	public boolean insertAdmin() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateAdmin(Admin admin) {
+	public boolean updateAdmin() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteAdmin(Admin admin) {
+	public boolean deleteAdmin() {
 		// TODO Auto-generated method stub
 		return false;
 	}
