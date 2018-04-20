@@ -14,9 +14,11 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class UserPanelController implements Initializable {
+	
+	private CreateClientController createClientController;
 
 	@FXML
-	private StackPane userMainStakPane;
+	private StackPane userMainStakPane;	
 
 	@FXML
 	void outProgramButton(ActionEvent event) {
@@ -36,10 +38,10 @@ public class UserPanelController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		carTypeAndSpacePanel();
+		createClientControllerPanel();
 	}
 	
-	public void carTypeAndSpacePanel() {
+	public void createClientControllerPanel() {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/CreateClient.fxml"));
 		StackPane stackPane = null;
 		try {
@@ -47,8 +49,21 @@ public class UserPanelController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		CreateClientController carTypeAndSpaceController = loader.getController();
-		carTypeAndSpaceController.setUserPanelController(this);
+		CreateClientController createClientController = loader.getController();
+		createClientController.setUserPanelController(this);
+		setScreen(stackPane);
+	}
+	
+	public void endCreateClientPanel() {
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/EndCreateClient.fxml"));
+		StackPane stackPane = null;
+		try {
+			stackPane = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		EndCreateClientController endCreateClientController = loader.getController();
+		endCreateClientController.setUserPanelController(this);
 		setScreen(stackPane);
 	}
 	
