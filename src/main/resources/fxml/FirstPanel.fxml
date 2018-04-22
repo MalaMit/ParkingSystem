@@ -6,53 +6,66 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.FirstPanelController">
 	<children>
-		<Label alignment="CENTER" prefHeight="61.0" prefWidth="142.0" style="-fx-background-color: transparent;" text="Click Me" textFill="#fcfcfc">
-			<font>
-				<Font name="Verdana Italic" size="32.0" />
-			</font>
-			<padding>
-				<Insets top="130.0" />
-			</padding>
-		</Label>
-		<Label alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="126.0" style="-fx-background-color: transparent;" text="Admin" textAlignment="CENTER" textFill="#fcfcfc" StackPane.alignment="BOTTOM_RIGHT">
-			<font>
-				<Font name="Verdana Italic" size="12.0" />
-			</font>
-         <padding>
-            <Insets right="10.0" top="60.0" />
-         </padding>
-		</Label>
-      <Label alignment="CENTER" prefHeight="170.0" prefWidth="358.0" style="-fx-background-color: transparent;" text="Welcome" textFill="#fcfcfc" StackPane.alignment="TOP_CENTER">
-         <font>
-            <Font name="Verdana Italic" size="66.0" />
-         </font>
-         <padding>
-            <Insets top="80.0" />
-         </padding>
-      </Label>
-      <JFXButton onAction="#adminLoginButton" prefHeight="52.0" prefWidth="140.0" style="-fx-background-color: transparent;" text=" " StackPane.alignment="BOTTOM_RIGHT">
-         <graphic>
-				<ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@../icon/icon_User2.png" />
-					</image>
-				</ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton onAction="#userPanelButton" prefHeight="208.0" prefWidth="590.0" style="-fx-background-color: transparent;" text=" ">
-         <graphic>
-				<ImageView fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@../icon/icon_parking.png" />
-					</image>
-				</ImageView>
-         </graphic>
-      </JFXButton>
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+      		<Label alignment="CENTER" layoutX="262.0" layoutY="348.0" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Entry " textFill="#fcfcfc">
+      			<font>
+      				<Font name="Verdana Italic" size="32.0" />
+      			</font>
+      		</Label>
+      		<Label alignment="CENTER_RIGHT" layoutX="946.0" layoutY="541.0" prefHeight="52.0" prefWidth="76.0" style="-fx-background-color: transparent;" text="Admin" textAlignment="CENTER" textFill="#fcfcfc">
+      			<font>
+      				<Font name="Verdana Italic" size="12.0" />
+      			</font>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+      		</Label>
+            <Label alignment="CENTER" layoutX="333.0" prefHeight="170.0" prefWidth="358.0" style="-fx-background-color: transparent;" text="Welcome" textFill="#fcfcfc">
+               <font>
+                  <Font name="Verdana Italic" size="66.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="604.0" layoutY="348.0" prefHeight="61.0" prefWidth="142.0" style="-fx-background-color: transparent;" text="Exit" textFill="#fcfcfc">
+               <font>
+                  <Font name="Verdana Italic" size="32.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="876.0" layoutY="541.0" onAction="#adminLoginButton" prefHeight="52.0" prefWidth="140.0" style="-fx-background-color: transparent;" text=" ">
+               <graphic>
+      				<ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+      					<image>
+      						<Image url="@../icon/icon_User2.png" />
+      					</image>
+      				</ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="185.0" layoutY="179.0" onAction="#userPanelButton" prefHeight="200.0" prefWidth="309.0" style="-fx-background-color: transparent;" text=" ">
+               <graphic>
+      				<ImageView fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+      					<image>
+      						<Image url="@../icon/icon_parking.png" />
+      					</image>
+      				</ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="537.0" layoutY="179.0" prefHeight="200.0" prefWidth="309.0" style="-fx-background-color: transparent;" text=" ">
+               <graphic>
+                  <ImageView fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_Exit2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
 	</children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />
