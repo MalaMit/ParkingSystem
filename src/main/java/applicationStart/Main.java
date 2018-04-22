@@ -7,17 +7,28 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	private static Stage primaryStage; // **Declare static Stage**
+
+	private void setPrimaryStage(Stage stage) {
+		Main.primaryStage = stage;
+	}
+
+	static public Stage getPrimaryStage() {
+		return Main.primaryStage;
+	}
+
 	@Override
 	public void start(Stage stage) {
+		setPrimaryStage(stage);
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/fxml/FirstPanel.fxml"));
 
 			Scene scene = new Scene(root);
-			
+
 			stage.setScene(scene);
 			stage.setResizable(false);
 			stage.show();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
