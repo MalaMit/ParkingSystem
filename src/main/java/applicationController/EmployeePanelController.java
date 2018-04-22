@@ -24,29 +24,29 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class EmployeePanelController implements Initializable{
+public class EmployeePanelController implements Initializable {
 	@FXML
-    private TableView employeeTableView;
-    @FXML
-    private TableColumn name;
-    @FXML
-    private TableColumn surname;
-    @FXML
-    private TableColumn pesel;
-    @FXML
-    private TableColumn position;
-    @FXML
-    private TableColumn doe;
+	private TableView employeeTableView;
+	@FXML
+	private TableColumn name;
+	@FXML
+	private TableColumn surname;
+	@FXML
+	private TableColumn pesel;
+	@FXML
+	private TableColumn position;
+	@FXML
+	private TableColumn doe;
 	@FXML
 	private StackPane adminMainStackPane;
 
-	
 	@FXML
 	void addButtonAction() {
-		
-		showNewModalWindow("/fxml/addEmployee.fxml","Add Employee");
-		
+
+		showNewModalWindow("/fxml/addEmployee.fxml", "Add Employee");
+
 	}
+
 	@FXML
 	void adminAccountsAction(ActionEvent event) {
 
@@ -59,7 +59,6 @@ public class EmployeePanelController implements Initializable{
 
 	@FXML
 	void employeesAction(ActionEvent event) {
-		
 
 	}
 
@@ -67,7 +66,7 @@ public class EmployeePanelController implements Initializable{
 	void parkingSpotsAction(ActionEvent event) {
 
 	}
-	
+
 	@FXML
 	void logOutAdmin(ActionEvent event) {
 		Parent parent = null;
@@ -89,31 +88,30 @@ public class EmployeePanelController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		EmployeeDAO employeeDAO = new EmployeeImplementDAO();
-        EmployeesList.getInstance().setEmployeeList(employeeDAO.getAllEmployees());
-        name.setCellValueFactory(new PropertyValueFactory<Employee,String>("name"));
-        surname.setCellValueFactory(new PropertyValueFactory<Employee,String>("surname"));
-        pesel.setCellValueFactory(new PropertyValueFactory<Employee,Long>("pesel"));
-        position.setCellValueFactory(new PropertyValueFactory<Employee,String>("position"));
-        doe.setCellValueFactory(new PropertyValueFactory<Employee,String>("dateEmployed"));
-        employeeTableView.setItems(EmployeesList.getInstance().getEmployeeList());
+		EmployeesList.getInstance().setEmployeeList(employeeDAO.getAllEmployees());
+		name.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
+		surname.setCellValueFactory(new PropertyValueFactory<Employee, String>("surname"));
+		pesel.setCellValueFactory(new PropertyValueFactory<Employee, Long>("pesel"));
+		position.setCellValueFactory(new PropertyValueFactory<Employee, String>("position"));
+		doe.setCellValueFactory(new PropertyValueFactory<Employee, String>("dateEmployed"));
+		employeeTableView.setItems(EmployeesList.getInstance().getEmployeeList());
 
 	}
-	protected void showNewModalWindow(String fxmlURL,String title) {
-		
+
+	protected void showNewModalWindow(String fxmlURL, String title) {
+
 		try {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlURL));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle(title);
-            stage.show();
+			Stage stage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlURL));
+			Parent root = loader.load();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.setTitle(title);
+			stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	}
-
-
+}

@@ -3,6 +3,8 @@ package applicationController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import applicationStart.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,33 +16,19 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class UserPanelController implements Initializable {
-	
-	private CreateClientController createClientController;
 
 	@FXML
-	private StackPane userMainStakPane;	
+	private StackPane userMainStakPane;
 
 	@FXML
 	void outProgramButton(ActionEvent event) {
-		Parent parent = null;
-		try {
-			parent = FXMLLoader.load(getClass().getResource("/fxml/FirstPanel.fxml"));
-			Scene scene = new Scene(parent);
-
-			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			window.setScene(scene);
-			window.show();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		backToMain();
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		createClientControllerPanel();
 	}
-	
+
 	public void createClientControllerPanel() {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/CreateClient.fxml"));
 		StackPane stackPane = null;
@@ -53,7 +41,7 @@ public class UserPanelController implements Initializable {
 		createClientController.setUserPanelController(this);
 		setScreen(stackPane);
 	}
-	
+
 	public void endCreateClientPanel() {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/EndCreateClient.fxml"));
 		StackPane stackPane = null;
@@ -67,9 +55,25 @@ public class UserPanelController implements Initializable {
 		setScreen(stackPane);
 	}
 	
+	public void backToMain() {
+		Parent parent = null;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("/fxml/FirstPanel.fxml"));
+			Scene scene = new Scene(parent);
+
+			Stage window = Main.getPrimaryStage();
+
+			window.setScene(scene);
+			window.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void setScreen(StackPane stackPane) {
 		userMainStakPane.getChildren().clear();
 		userMainStakPane.getChildren().add(stackPane);
 	}
-	
+
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import applicationStart.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,7 @@ public class FirstPanelController implements Initializable {
 		}
 		Scene scene = new Scene(parent1);
 
-		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Stage window = Main.getPrimaryStage();
 
 		window.setScene(scene);
 		window.show();
@@ -57,7 +58,7 @@ public class FirstPanelController implements Initializable {
 			parent = FXMLLoader.load(getClass().getResource("/fxml/AdminLoginPanel.fxml"));
 			Scene scene = new Scene(parent);
 
-			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Stage window = Main.getPrimaryStage();
 
 			window.setScene(scene);
 			window.show();

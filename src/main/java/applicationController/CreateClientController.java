@@ -1,6 +1,5 @@
 package applicationController;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,14 +17,10 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanExpression;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class CreateClientController implements Initializable {
 
@@ -82,6 +77,8 @@ public class CreateClientController implements Initializable {
     
     @FXML
     private JFXButton nextPageButtonID;
+    
+    static Thread thred = new Thread();
 
 	@FXML
 	void nextPage(ActionEvent event) {
