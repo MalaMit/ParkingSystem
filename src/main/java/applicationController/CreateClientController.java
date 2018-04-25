@@ -25,10 +25,10 @@ import javafx.scene.control.TextField;
 public class CreateClientController implements Initializable {
 
 	private UserPanelController userPanelController;
-	private TypeVehicleDAOImpl typeVehicleDAOImpl = new TypeVehicleDAOImpl();
-	private ParkingSpotDAOImpl parkingSpotDAOImpl = new ParkingSpotDAOImpl();
-	private ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
-	private ParkingTimeDAOImpl parkingTimeDAOImpl = new ParkingTimeDAOImpl();
+	static TypeVehicleDAOImpl typeVehicleDAOImpl = new TypeVehicleDAOImpl();
+	static ParkingSpotDAOImpl parkingSpotDAOImpl = new ParkingSpotDAOImpl();
+	static ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
+	static ParkingTimeDAOImpl parkingTimeDAOImpl = new ParkingTimeDAOImpl();
 	
 	@FXML
 	private JFXComboBox<TypeVehicle> typeVehicleBox;
