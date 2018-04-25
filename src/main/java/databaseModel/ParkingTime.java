@@ -8,16 +8,16 @@ import javafx.beans.property.StringProperty;
 public class ParkingTime {
 	
 	private StringProperty clientLicensePlate;
-	private StringProperty timestamp;
-	private StringProperty datetime;
+	private StringProperty timeIn;
+	private StringProperty timeOut;
 	private FloatProperty bill;
 	private StringProperty typeVehicle;
 	private StringProperty parkingNumber;
 	
 	public ParkingTime() {
 		this.clientLicensePlate = new SimpleStringProperty();
-		this.timestamp = new SimpleStringProperty();
-		this.datetime = new SimpleStringProperty();
+		this.timeIn = new SimpleStringProperty();
+		this.timeOut = new SimpleStringProperty();
 		this.bill = new SimpleFloatProperty();
 		this.typeVehicle = new SimpleStringProperty();
 		this.parkingNumber = new SimpleStringProperty();
@@ -39,33 +39,33 @@ public class ParkingTime {
 	}
 
 	/**
-	 * timestamp
+	 * timeIn
 	 */
-	public String getTimeStamp() {
-		return timestamp.get();
+	public String getTimeIn() {
+		return timeIn.get();
 	}
 
-	public void setTimestamp(String timestamp) {
-		this.timestamp.set(timestamp);
+	public void setTimeIn(String timeIn) {
+		this.timeIn.set(timeIn);
 	}
 	
-	public StringProperty getTimeStampProperty() {
-		return timestamp;
+	public StringProperty getTimeInProperty() {
+		return timeIn;
 	}
 
 	/**
-	 * datetime
+	 * timeOut
 	 */
-	public String getDatetime() {
-		return datetime.get();
+	public String getTimeOut() {
+		return timeOut.get();
 	}
 
-	public void setDatetime(String datetime) {
-		this.datetime.set(datetime);
+	public void setTimeOut(String timeOut) {
+		this.timeOut.set(timeOut);
 	}
 	
-	public StringProperty getDatetimeProperty() {
-		return datetime;
+	public StringProperty getTimeOutProperty() {
+		return timeOut;
 	}
 
 	/**
@@ -110,5 +110,5 @@ public class ParkingTime {
 	public StringProperty getParkingNumberProperty() {
 		return parkingNumber;
 	}
-
+    
 }
