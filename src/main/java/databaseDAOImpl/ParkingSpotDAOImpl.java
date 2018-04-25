@@ -41,6 +41,18 @@ public class ParkingSpotDAOImpl implements ParkingSpotDAO{
 		}
 		
 	}
+	
+	@Override
+	public void changeStatusSpotExit( String numberSpot) {
+		String sql = "UPDATE parkingspot SET status = 'FREE' WHERE  number ='" +numberSpot+ "' ";
+		try {
+			DBUtil.dbExcecuteQuery(sql);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	@Override
 	public boolean insertParkingSpot() {
