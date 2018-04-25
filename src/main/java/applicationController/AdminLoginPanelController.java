@@ -21,8 +21,6 @@ import javafx.stage.Stage;
 
 public class AdminLoginPanelController implements Initializable {
 
-	private AdminDAOImpl loginAdm = new AdminDAOImpl();
-
 	@FXML
 	private TextField textLogin;
 
@@ -35,7 +33,7 @@ public class AdminLoginPanelController implements Initializable {
 	@FXML
 	void accessAdminButtonAction(ActionEvent event) {
 
-		if ((loginAdm.getLoginAdminByLoginAndPassword(textLogin.getText(), textPassword.getText())) == true) {
+		if ((FirstPanelController.adminDAOImpl.getLoginAdminByLoginAndPassword(textLogin.getText(), textPassword.getText())) == true) {
 			Parent parent = null;
 			try {
 				parent = FXMLLoader.load(getClass().getResource("/fxml/AdminPanelAccess.fxml"));

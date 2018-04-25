@@ -51,23 +51,23 @@ public class ExitClientParkingController implements Initializable{
     
     @FXML
     void PayButton(ActionEvent event) {
-    	CreateClientController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabel.getText());
+    	FirstPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabel.getText());
     	backToMenu();
     }
 
     @FXML
     void SearchClientForLicenseButton(ActionEvent event) {
-    	if(CreateClientController.parkingTimeDAOImpl.checkLicensePlateExist(LicensePlateField.getText()) == true) {
-    		ObservableList<ParkingTime> lista = CreateClientController.parkingTimeDAOImpl.getToExitParking(LicensePlateField.getText());
+    	if(FirstPanelController.parkingTimeDAOImpl.checkLicensePlateExist(LicensePlateField.getText()) == true) {
+    		ObservableList<ParkingTime> lista = FirstPanelController.parkingTimeDAOImpl.getToExitParking(LicensePlateField.getText());
     		
     		declareTimeLabel.setText(lista.get(0).getTimeOut().substring(0, (lista.get(0).getTimeOut()).indexOf(".")));
     		priceLabel.setText(Float.toString(lista.get(0).getBill()));
     		parkingSpotLabel.setText(lista.get(0).getParkingNumber());
     		typeVehicleLabel.setText(lista.get(0).getTypeVehicle());	
     		
-    		OverrunTimeLabel.setText(Integer.toString(CreateClientController.parkingTimeDAOImpl.getOverrunTimePrice(LicensePlateField.getText())));
+    		OverrunTimeLabel.setText(Integer.toString(FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(LicensePlateField.getText())));
     		
-    		TotalPriceLabel.setText(Float.toString((lista.get(0).getBill()) + ((CreateClientController.parkingTimeDAOImpl.getOverrunTimePrice(LicensePlateField.getText()))) * (CreateClientController.typeVehicleDAOImpl.getPrice(typeVehicleLabel.getText()))));
+    		TotalPriceLabel.setText(Float.toString((lista.get(0).getBill()) + ((FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(LicensePlateField.getText()))) * (FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleLabel.getText()))));
     	}else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("License Plate error!");

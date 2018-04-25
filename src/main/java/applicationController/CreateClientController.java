@@ -25,10 +25,6 @@ import javafx.scene.control.TextField;
 public class CreateClientController implements Initializable {
 
 	private UserPanelController userPanelController;
-	static TypeVehicleDAOImpl typeVehicleDAOImpl = new TypeVehicleDAOImpl();
-	static ParkingSpotDAOImpl parkingSpotDAOImpl = new ParkingSpotDAOImpl();
-	static ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
-	static ParkingTimeDAOImpl parkingTimeDAOImpl = new ParkingTimeDAOImpl();
 	
 	@FXML
 	private JFXComboBox<TypeVehicle> typeVehicleBox;
@@ -83,9 +79,9 @@ public class CreateClientController implements Initializable {
 	@FXML
 	void nextPage(ActionEvent event) {
 		//create client
-		clientDAOImpl.insertClient(licensePlateText.getText(), firstNameText.getText(), secondNameText.getText(), phoneNumberText.getText());
-		parkingTimeDAOImpl.insertParkingTime(licensePlateText.getText(), dataAndTime(timeBox.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabel.getText()), typeVehicleBox.getValue().toString(), viewSelectSpot.getText());
-		parkingSpotDAOImpl.changeStatusSpot(viewSelectSpot.getText());
+		FirstPanelController.clientDAOImpl.insertClient(licensePlateText.getText(), firstNameText.getText(), secondNameText.getText(), phoneNumberText.getText());
+		FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateText.getText(), dataAndTime(timeBox.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabel.getText()), typeVehicleBox.getValue().toString(), viewSelectSpot.getText());
+		FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpot.getText());
 		
 		//end view
 		userPanelController.endCreateClientPanel();
@@ -95,14 +91,14 @@ public class CreateClientController implements Initializable {
 	void searchButton(ActionEvent event) {
 		viewSelectSpot.setText(""); //clean selectSpot Label
 		
-		viewPriceLabel.setText(Integer.toString(typeVehicleDAOImpl.getPrice(typeVehicleBox.getValue().toString())));
+		viewPriceLabel.setText(Integer.toString(FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleBox.getValue().toString())));
 
 		parkingPlaceColumn.setCellValueFactory(cellData -> cellData.getValue().getNumberSpotProperty());
 		parkingPlaceColumn.setStyle("-fx-alignment: CENTER;");
 		statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusProperty());
 		statusColumn.setStyle("-fx-alignment: CENTER;");
 
-		pPlaceTable.setItems(parkingSpotDAOImpl.getAllParkingSpot(typeVehicleBox.getValue().toString()));
+		pPlaceTable.setItems(FirstPanelController.parkingSpotDAOImpl.getAllParkingSpot(typeVehicleBox.getValue().toString()));
 	}
 	
     @FXML
@@ -118,7 +114,7 @@ public class CreateClientController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		timeBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);
 		//// Metoda toString potem może zrobie konwerter
-		ArrayList<TypeVehicle> typeV = typeVehicleDAOImpl.getAllTypeVehicle();
+		ArrayList<TypeVehicle> typeV = FirstPanelController.typeVehicleDAOImpl.getAllTypeVehicle();
 		typeVehicleBox.getItems().addAll(typeV);
 		
 		//bind property
