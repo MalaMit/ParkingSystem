@@ -12,7 +12,6 @@ public interface ParkingTimeDAO {
 	int getOverrunTimePrice(String licensePlate);
 	
 	void insertParkingTime(String clientLicensePlate, String timeOut, int bill, String typeVehicle, String parkingNumber);
-	boolean deleteParkingTime();
-	boolean updateBillForParkingTime();
+	boolean deleteParkingTime(String licensePlate);
 
 }
