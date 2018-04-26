@@ -18,19 +18,19 @@
          <children>
             <Separator layoutX="1.0" layoutY="513.0" orientation="VERTICAL" prefHeight="0.0" prefWidth="1024.0" style="-fx-background-color: gold;" />
             <Separator layoutX="1.0" layoutY="60.0" orientation="VERTICAL" prefHeight="0.0" prefWidth="1024.0" style="-fx-background-color: gold;" />
-            <Label fx:id="parkingSpotLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="121.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
+            <Label fx:id="parkingSpotLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="121.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font></Label>
-            <Label fx:id="declareTimeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="298.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
+            <Label fx:id="declareTimeLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="298.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font></Label>
-            <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="357.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
+            <Label fx:id="priceLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="357.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font></Label>
-            <Label fx:id="typeVehicleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="183.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
+            <Label fx:id="typeVehicleLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="183.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font></Label>
@@ -54,7 +54,7 @@
                   <Font name="Verdana Italic" size="15.0" />
                </font>
             </Text>
-            <Label fx:id="TotalPriceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="744.0" layoutY="542.0" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: white;" textAlignment="CENTER">
+            <Label fx:id="totalPriceLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="744.0" layoutY="542.0" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: white;" textAlignment="CENTER">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font></Label>
@@ -73,12 +73,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="LicensePlateField" focusColor="GOLD" layoutX="153.0" layoutY="187.0" prefHeight="46.0" prefWidth="228.0" promptText="License Plate" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+            <JFXTextField fx:id="licensePlateFieldID" focusColor="GOLD" layoutX="153.0" layoutY="187.0" prefHeight="46.0" prefWidth="228.0" promptText="License Plate" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
                <font>
                   <Font name="Verdana Italic" size="20.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="SearchClientForLicenseButtonID" contentDisplay="RIGHT" layoutX="267.0" layoutY="249.0" onAction="#SearchClientForLicenseButton" prefHeight="69.0" prefWidth="151.0" style="-fx-background-color: transparent;" text="Click" textFill="WHITE">
+            <JFXButton fx:id="searchClientForLicenseButtonID" contentDisplay="RIGHT" layoutX="267.0" layoutY="249.0" onAction="#SearchClientForLicenseButton" prefHeight="69.0" prefWidth="151.0" style="-fx-background-color: transparent;" text="Click" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="12.0" />
                </font>
@@ -93,7 +93,7 @@
                   <Insets />
                </opaqueInsets>
             </JFXButton>
-            <JFXButton fx:id="PayButtonID" contentDisplay="RIGHT" layoutX="881.0" layoutY="523.0" onAction="#PayButton" prefHeight="69.0" prefWidth="143.0" style="-fx-background-color: transparent;" text="PAY" textFill="WHITE">
+            <JFXButton fx:id="payButtonID" contentDisplay="RIGHT" layoutX="881.0" layoutY="523.0" onAction="#PayButton" prefHeight="69.0" prefWidth="143.0" style="-fx-background-color: transparent;" text="PAY" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -106,7 +106,7 @@
                </font>
             </JFXButton>
             <JFXButton layoutX="901.0" layoutY="6.0" onAction="#outProgramButton" prefHeight="54.0" prefWidth="118.0" text=" " textFill="#303030" />
-            <Label fx:id="OverrunTimeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="415.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
+            <Label fx:id="overrunTimeLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="415.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font></Label>
@@ -115,7 +115,7 @@
                   <Font name="Verdana Italic" size="15.0" />
                </font>
             </Text>
-            <Label fx:id="timeInLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="240.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
+            <Label fx:id="timeInLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="679.0" layoutY="240.0" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: white;" textAlignment="CENTER">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>

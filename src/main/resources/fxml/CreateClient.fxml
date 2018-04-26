@@ -77,7 +77,7 @@
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="viewSelectSpot" alignment="CENTER" contentDisplay="CENTER" layoutX="472.0" layoutY="482.0" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: white;" />
+            <Label fx:id="viewSelectSpotLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="472.0" layoutY="482.0" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: white;" />
             <Label layoutX="361.0" layoutY="488.0" text="Selected Spot: " textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
@@ -88,9 +88,9 @@
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="chargeLabel" alignment="CENTER" layoutX="159.0" layoutY="482.0" prefHeight="30.0" prefWidth="62.0" style="-fx-background-color: white;" />
-            <Label fx:id="viewPriceLabel" alignment="CENTER" layoutX="595.0" layoutY="22.0" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: white;" />
-            <JFXComboBox fx:id="typeVehicleBox" focusColor="#e0cc00" layoutX="89.0" layoutY="26.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
+            <Label fx:id="chargeLabelID" alignment="CENTER" layoutX="159.0" layoutY="482.0" prefHeight="30.0" prefWidth="62.0" style="-fx-background-color: white;" />
+            <Label fx:id="viewPriceLabelID" alignment="CENTER" layoutX="595.0" layoutY="22.0" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: white;" />
+            <JFXComboBox fx:id="typeVehicleBoxID" focusColor="#e0cc00" layoutX="89.0" layoutY="26.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
             <JFXButton fx:id="selectSpotButtonID" contentDisplay="RIGHT" layoutX="729.0" layoutY="399.0" onAction="#selectSpotButton" prefHeight="55.0" prefWidth="130.0" text="SELECT" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
@@ -121,11 +121,11 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <TextField fx:id="firstNameText" layoutX="163.0" layoutY="159.0" prefHeight="30.0" prefWidth="200.0" />
-            <TextField fx:id="secondNameText" layoutX="163.0" layoutY="221.0" prefHeight="30.0" prefWidth="200.0" />
-            <TextField fx:id="phoneNumberText" layoutX="163.0" layoutY="278.0" prefHeight="30.0" prefWidth="200.0" />
-            <TextField fx:id="licensePlateText" layoutX="163.0" layoutY="340.0" prefHeight="30.0" prefWidth="200.0" />
-            <JFXComboBox fx:id="timeBox" layoutX="172.0" layoutY="394.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
+            <TextField fx:id="firstNameTextID" layoutX="163.0" layoutY="159.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="secondNameTextID" layoutX="163.0" layoutY="221.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="phoneNumberTextID" layoutX="163.0" layoutY="278.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="licensePlateTextID" layoutX="163.0" layoutY="340.0" prefHeight="30.0" prefWidth="200.0" />
+            <JFXComboBox fx:id="timeBoxID" layoutX="172.0" layoutY="394.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
             <JFXButton fx:id="calculatePriceButtonID" layoutX="297.0" layoutY="377.0" onAction="#calculatePriceButton" prefHeight="62.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Calculate" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
