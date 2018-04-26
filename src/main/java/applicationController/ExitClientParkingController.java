@@ -29,6 +29,9 @@ public class ExitClientParkingController implements Initializable{
     private Label declareTimeLabel;
 
     @FXML
+    private Label timeInLabel;
+
+    @FXML
     private Label priceLabel;
 
     @FXML
@@ -52,6 +55,7 @@ public class ExitClientParkingController implements Initializable{
     @FXML
     void PayButton(ActionEvent event) {
     	FirstPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabel.getText());
+    	FirstPanelController.parkingTimeDAOImpl.deleteParkingTime(LicensePlateField.getText());
     	backToMenu();
     }
 
@@ -60,6 +64,7 @@ public class ExitClientParkingController implements Initializable{
     	if(FirstPanelController.parkingTimeDAOImpl.checkLicensePlateExist(LicensePlateField.getText()) == true) {
     		ObservableList<ParkingTime> lista = FirstPanelController.parkingTimeDAOImpl.getToExitParking(LicensePlateField.getText());
     		
+    		timeInLabel.setText(lista.get(0).getTimeIn().substring(0 , (lista.get(0).getTimeIn().indexOf("."))));
     		declareTimeLabel.setText(lista.get(0).getTimeOut().substring(0, (lista.get(0).getTimeOut()).indexOf(".")));
     		priceLabel.setText(Float.toString(lista.get(0).getBill()));
     		parkingSpotLabel.setText(lista.get(0).getParkingNumber());

@@ -6,21 +6,21 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
-import databaseDAOImpl.ClientDAOImpl;
-import databaseDAOImpl.ParkingSpotDAOImpl;
-import databaseDAOImpl.ParkingTimeDAOImpl;
-import databaseDAOImpl.TypeVehicleDAOImpl;
 import databaseModel.ParkingSpot;
 import databaseModel.TypeVehicle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanExpression;
+import javafx.beans.property.BooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class CreateClientController implements Initializable {
 
@@ -74,17 +74,34 @@ public class CreateClientController implements Initializable {
     @FXML
     private JFXButton nextPageButtonID;
     
+    @FXML
+    private JFXCheckBox checkBoxCllientID;
+    
     static Thread thred = new Thread();
 
 	@FXML
 	void nextPage(ActionEvent event) {
 		//create client
-		FirstPanelController.clientDAOImpl.insertClient(licensePlateText.getText(), firstNameText.getText(), secondNameText.getText(), phoneNumberText.getText());
-		FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateText.getText(), dataAndTime(timeBox.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabel.getText()), typeVehicleBox.getValue().toString(), viewSelectSpot.getText());
-		FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpot.getText());
+		if(checkBoxCllientID.isSelected() == true && FirstPanelController.clientDAOImpl.checkLicensePlate(licensePlateText.getText()) == true) {
+			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateText.getText(), dataAndTime(timeBox.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabel.getText()), typeVehicleBox.getValue().toString(), viewSelectSpot.getText());
+			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpot.getText());
+			//end view
+			userPanelController.endCreateClientPanel();
+		}else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("License Plate error!");
+			alert.setHeaderText("Your license plate is invalid. Please try again");
+
+			alert.showAndWait();
+		}
 		
-		//end view
-		userPanelController.endCreateClientPanel();
+		if(checkBoxCllientID.isSelected() == false) {
+			FirstPanelController.clientDAOImpl.insertClient(licensePlateText.getText(), firstNameText.getText(), secondNameText.getText(), phoneNumberText.getText());	
+			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateText.getText(), dataAndTime(timeBox.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabel.getText()), typeVehicleBox.getValue().toString(), viewSelectSpot.getText());
+			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpot.getText());
+			//end view
+			userPanelController.endCreateClientPanel();			
+		}	
 	}
 
 	@FXML
@@ -111,6 +128,16 @@ public class CreateClientController implements Initializable {
     void calculatePriceButton(ActionEvent event) {
     	chargeLabel.setText(Integer.toString(Integer.parseInt(viewPriceLabel.getText()) * timeBox.getSelectionModel().getSelectedItem()));
     }
+    
+    @FXML
+    void checkBoxCllient(ActionEvent event) {
+		if(checkBoxCllientID.isSelected() == false) {
+			licensePlateText.disableProperty().bind(Bindings.isEmpty(phoneNumberText.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
+		}else {
+			licensePlateText.disableProperty().bind(Bindings.isEmpty(viewSelectSpot.textProperty()));
+		}
+    }
+    
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		timeBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);
 		//// Metoda toString potem może zrobie konwerter
@@ -119,14 +146,15 @@ public class CreateClientController implements Initializable {
 		
 		//bind property
 		searchButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.typeVehicleBox.getSelectionModel().selectedItemProperty().isNull()));
-		firstNameText.disableProperty().bind(Bindings.isEmpty(viewSelectSpot.textProperty()));
-		secondNameText.disableProperty().bind(Bindings.isEmpty(firstNameText.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
-		phoneNumberText.disableProperty().bind(Bindings.isEmpty(secondNameText.textProperty()).or(Bindings.isEmpty(viewSelectSpot.textProperty())));
+		firstNameText.disableProperty().bind((BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty()))));
+		secondNameText.disableProperty().bind(Bindings.isEmpty(firstNameText.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty()) .or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));
+		phoneNumberText.disableProperty().bind(Bindings.isEmpty(secondNameText.textProperty()).or(Bindings.isEmpty(viewSelectSpot.textProperty()) .or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));	
 		licensePlateText.disableProperty().bind(Bindings.isEmpty(phoneNumberText.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
 		timeBox.disableProperty().bind(Bindings.isEmpty(licensePlateText.textProperty()).or(Bindings.isEmpty(viewSelectSpot.textProperty())));
 		calculatePriceButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.timeBox.getSelectionModel().selectedItemProperty().isNull()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
 		selectSpotButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.pPlaceTable.getSelectionModel().selectedItemProperty().isNull()));
 		nextPageButtonID.disableProperty().bind(Bindings.isEmpty(chargeLabel.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
+
 	}
 
 	public void setUserPanelController(UserPanelController userPanelController) {
