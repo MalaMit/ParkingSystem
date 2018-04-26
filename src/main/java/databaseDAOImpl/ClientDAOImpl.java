@@ -1,5 +1,6 @@
 package databaseDAOImpl;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -33,6 +34,21 @@ public class ClientDAOImpl implements ClientDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	@Override
+	public boolean checkLicensePlate(String licensePlate) {
+		String sql = "SELECT * FROM client WHERE LicensePlate = '" + licensePlate + "' ";
+		boolean isExist = false;
+		try {
+			ResultSet rs = DBUtil.dbExecute(sql);
+			if (rs.next()) {
+				isExist = true;
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return isExist;
 	}
 
 	@Override

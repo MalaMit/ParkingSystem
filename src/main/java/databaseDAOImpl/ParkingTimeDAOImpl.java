@@ -29,14 +29,20 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 	}
 
 	@Override
-	public boolean deleteParkingTime() {
-		// TODO Auto-generated method stub
+	public boolean deleteParkingTime(String licensePlate) {
+		String sql = "DELETE FROM parkingtime WHERE ClientLicensePlate = '"+ licensePlate +"'";
+		try {
+			DBUtil.dbExcecuteQuery(sql);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public ObservableList<ParkingTime> getToExitParking(String licensePlate) {
-		String sql = "SELECT TimeOut, Bill, typeVehicle, parkingNumber FROM parkingtime WHERE ClientLicensePlate = '"+ licensePlate +"'";	
+		String sql = "SELECT TimeOut, Bill, typeVehicle, parkingNumber,TimeIN FROM parkingtime WHERE ClientLicensePlate = '"+ licensePlate +"'";	
 		try {
 			ResultSet rsSet = DBUtil.dbExecute(sql);
 			ObservableList<ParkingTime> pTime = FXCollections.observableArrayList();
@@ -44,6 +50,7 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 				ParkingTime pT = new ParkingTime();
 				pT.setTimeOut(rsSet.getString("TimeOut"));
 				pT.setBill(rsSet.getFloat("Bill"));
+				pT.setTimeIn(rsSet.getString("TimeIN"));
 				pT.setTypeVehicle(rsSet.getString("typeVehicle"));
 				pT.setParkingNumber(rsSet.getString("parkingNumber"));	
 				pTime.add(pT);
@@ -71,12 +78,6 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 			e.printStackTrace();
 		}
 		return 0;
-	}
-	
-	@Override
-	public boolean updateBillForParkingTime() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
