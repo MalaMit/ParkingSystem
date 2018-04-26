@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import applicationStart.Main;
 import databaseDAOImpl.AdminDAOImpl;
 import databaseDAOImpl.ClientDAOImpl;
+import databaseDAOImpl.ParkingHistoryDAOImpl;
 import databaseDAOImpl.ParkingSpotDAOImpl;
 import databaseDAOImpl.ParkingTimeDAOImpl;
 import databaseDAOImpl.TypeVehicleDAOImpl;
@@ -18,19 +19,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class FirstPanelController implements Initializable {
-	
+
 	static TypeVehicleDAOImpl typeVehicleDAOImpl = new TypeVehicleDAOImpl();
 	static ParkingSpotDAOImpl parkingSpotDAOImpl = new ParkingSpotDAOImpl();
 	static ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
 	static ParkingTimeDAOImpl parkingTimeDAOImpl = new ParkingTimeDAOImpl();
 	static AdminDAOImpl adminDAOImpl = new AdminDAOImpl();
-	
+	static ParkingHistoryDAOImpl parkingHistoryDAOImpl = new ParkingHistoryDAOImpl();
+
 	@FXML
 	private void userPanelButton(ActionEvent event) {
 		Parent parent1 = null;
 		try {
 			parent1 = FXMLLoader.load(getClass().getResource("/fxml/UserPanel.fxml"));
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -44,25 +46,6 @@ public class FirstPanelController implements Initializable {
 
 	@FXML
 	private void adminLoginButton(ActionEvent event) {
-
-
-/*		DBUtil mysqlConnect = new DBUtil();
- 		String sql = "SELECT * FROM `admin`";
-		try {
-		    PreparedStatement statement = mysqlConnect.dbConnect().prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
-            while(rs.next()) {
-                System.out.println(rs.getString("login") + " " + rs.getString("password"));
-            }
-            rs.close();
-		    
-		} catch (SQLException e) {
-		    e.printStackTrace();
-		} finally {
-		    mysqlConnect.dbDisconnect();
-}
-*/
-		
 		Parent parent = null;
 		try {
 			parent = FXMLLoader.load(getClass().getResource("/fxml/AdminLoginPanel.fxml"));
@@ -78,10 +61,9 @@ public class FirstPanelController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
-    @FXML
-    void exitParking(ActionEvent event) {
-  	
+
+	@FXML
+	void exitParking(ActionEvent event) {
 		Parent parent = null;
 		try {
 			parent = FXMLLoader.load(getClass().getResource("/fxml/ExitClientParking.fxml"));
@@ -97,12 +79,11 @@ public class FirstPanelController implements Initializable {
 			e.printStackTrace();
 		}
 
-    }
+	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 }

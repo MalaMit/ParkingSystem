@@ -27,19 +27,19 @@ public class CreateClientController implements Initializable {
 	private UserPanelController userPanelController;
 	
 	@FXML
-	private JFXComboBox<TypeVehicle> typeVehicleBox;
+	private JFXComboBox<TypeVehicle> typeVehicleBoxID;
    
 	@FXML
-    private JFXComboBox<Integer> timeBox;
+    private JFXComboBox<Integer> timeBoxID;
 	
 	@FXML
-	private Label viewPriceLabel;
+	private Label viewPriceLabelID;
     
 	@FXML
-    private Label viewSelectSpot;
+    private Label viewSelectSpotLabelID;
 	
     @FXML
-    private Label chargeLabel;
+    private Label chargeLabelID;
 
 	@FXML
 	private TableColumn<ParkingSpot, String> parkingPlaceColumn;
@@ -51,16 +51,16 @@ public class CreateClientController implements Initializable {
 	private TableView<ParkingSpot> pPlaceTable;
 	
     @FXML
-    private TextField firstNameText;
+    private TextField firstNameTextID;
 
     @FXML
-    private TextField licensePlateText;
+    private TextField licensePlateTextID;
 
     @FXML
-    private TextField phoneNumberText;
+    private TextField phoneNumberTextID;
 
     @FXML
-    private TextField secondNameText;
+    private TextField secondNameTextID;
     
     @FXML
     private JFXButton searchButtonID;
@@ -82,9 +82,9 @@ public class CreateClientController implements Initializable {
 	@FXML
 	void nextPage(ActionEvent event) {
 		//create client
-		if(checkBoxCllientID.isSelected() == true && FirstPanelController.clientDAOImpl.checkLicensePlate(licensePlateText.getText()) == true) {
-			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateText.getText(), dataAndTime(timeBox.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabel.getText()), typeVehicleBox.getValue().toString(), viewSelectSpot.getText());
-			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpot.getText());
+		if(checkBoxCllientID.isSelected() == true && FirstPanelController.clientDAOImpl.checkLicensePlate(licensePlateTextID.getText()) == true) {
+			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(), dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabelID.getText()), typeVehicleBoxID.getValue().toString(), viewSelectSpotLabelID.getText());
+			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
 			//end view
 			userPanelController.endCreateClientPanel();
 		}else {
@@ -96,9 +96,9 @@ public class CreateClientController implements Initializable {
 		}
 		
 		if(checkBoxCllientID.isSelected() == false) {
-			FirstPanelController.clientDAOImpl.insertClient(licensePlateText.getText(), firstNameText.getText(), secondNameText.getText(), phoneNumberText.getText());	
-			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateText.getText(), dataAndTime(timeBox.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabel.getText()), typeVehicleBox.getValue().toString(), viewSelectSpot.getText());
-			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpot.getText());
+			FirstPanelController.clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(), secondNameTextID.getText(), phoneNumberTextID.getText());	
+			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(), dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()), Integer.parseInt(chargeLabelID.getText()), typeVehicleBoxID.getValue().toString(), viewSelectSpotLabelID.getText());
+			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
 			//end view
 			userPanelController.endCreateClientPanel();			
 		}	
@@ -106,54 +106,54 @@ public class CreateClientController implements Initializable {
 
 	@FXML
 	void searchButton(ActionEvent event) {
-		viewSelectSpot.setText(""); //clean selectSpot Label
+		viewSelectSpotLabelID.setText(""); //clean selectSpot Label
 		
-		viewPriceLabel.setText(Integer.toString(FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleBox.getValue().toString())));
+		viewPriceLabelID.setText(Integer.toString(FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleBoxID.getValue().toString())));
 
 		parkingPlaceColumn.setCellValueFactory(cellData -> cellData.getValue().getNumberSpotProperty());
 		parkingPlaceColumn.setStyle("-fx-alignment: CENTER;");
 		statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusProperty());
 		statusColumn.setStyle("-fx-alignment: CENTER;");
 
-		pPlaceTable.setItems(FirstPanelController.parkingSpotDAOImpl.getAllParkingSpot(typeVehicleBox.getValue().toString()));
+		pPlaceTable.setItems(FirstPanelController.parkingSpotDAOImpl.getAllParkingSpot(typeVehicleBoxID.getValue().toString()));
 	}
 	
     @FXML
     void selectSpotButton(ActionEvent event) {	
     	if(pPlaceTable.getSelectionModel().getSelectedIndex() >= 0)
-    	viewSelectSpot.setText(pPlaceTable.getSelectionModel().getSelectedItem().getNumberSpot());
+    	viewSelectSpotLabelID.setText(pPlaceTable.getSelectionModel().getSelectedItem().getNumberSpot());
     }
 
     @FXML
     void calculatePriceButton(ActionEvent event) {
-    	chargeLabel.setText(Integer.toString(Integer.parseInt(viewPriceLabel.getText()) * timeBox.getSelectionModel().getSelectedItem()));
+    	chargeLabelID.setText(Integer.toString(Integer.parseInt(viewPriceLabelID.getText()) * timeBoxID.getSelectionModel().getSelectedItem()));
     }
     
     @FXML
     void checkBoxCllient(ActionEvent event) {
 		if(checkBoxCllientID.isSelected() == false) {
-			licensePlateText.disableProperty().bind(Bindings.isEmpty(phoneNumberText.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
+			licensePlateTextID.disableProperty().bind(Bindings.isEmpty(phoneNumberTextID.textProperty()) .or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
 		}else {
-			licensePlateText.disableProperty().bind(Bindings.isEmpty(viewSelectSpot.textProperty()));
+			licensePlateTextID.disableProperty().bind(Bindings.isEmpty(viewSelectSpotLabelID.textProperty()));
 		}
     }
     
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		timeBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);
+		timeBoxID.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);
 		//// Metoda toString potem może zrobie konwerter
 		ArrayList<TypeVehicle> typeV = FirstPanelController.typeVehicleDAOImpl.getAllTypeVehicle();
-		typeVehicleBox.getItems().addAll(typeV);
+		typeVehicleBoxID.getItems().addAll(typeV);
 		
 		//bind property
-		searchButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.typeVehicleBox.getSelectionModel().selectedItemProperty().isNull()));
-		firstNameText.disableProperty().bind((BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty()))));
-		secondNameText.disableProperty().bind(Bindings.isEmpty(firstNameText.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty()) .or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));
-		phoneNumberText.disableProperty().bind(Bindings.isEmpty(secondNameText.textProperty()).or(Bindings.isEmpty(viewSelectSpot.textProperty()) .or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));	
-		licensePlateText.disableProperty().bind(Bindings.isEmpty(phoneNumberText.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
-		timeBox.disableProperty().bind(Bindings.isEmpty(licensePlateText.textProperty()).or(Bindings.isEmpty(viewSelectSpot.textProperty())));
-		calculatePriceButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.timeBox.getSelectionModel().selectedItemProperty().isNull()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
+		searchButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.typeVehicleBoxID.getSelectionModel().selectedItemProperty().isNull()));
+		firstNameTextID.disableProperty().bind((BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()) .or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty()))));
+		secondNameTextID.disableProperty().bind(Bindings.isEmpty(firstNameTextID.textProperty()) .or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty()) .or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));
+		phoneNumberTextID.disableProperty().bind(Bindings.isEmpty(secondNameTextID.textProperty()).or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty()) .or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));	
+		licensePlateTextID.disableProperty().bind(Bindings.isEmpty(phoneNumberTextID.textProperty()) .or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
+		timeBoxID.disableProperty().bind(Bindings.isEmpty(licensePlateTextID.textProperty()).or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
+		calculatePriceButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.timeBoxID.getSelectionModel().selectedItemProperty().isNull()) .or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
 		selectSpotButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.pPlaceTable.getSelectionModel().selectedItemProperty().isNull()));
-		nextPageButtonID.disableProperty().bind(Bindings.isEmpty(chargeLabel.textProperty()) .or(Bindings.isEmpty(viewSelectSpot.textProperty())));
+		nextPageButtonID.disableProperty().bind(Bindings.isEmpty(chargeLabelID.textProperty()) .or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
 
 	}
 

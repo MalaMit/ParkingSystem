@@ -23,56 +23,57 @@ import javafx.stage.Stage;
 public class ExitClientParkingController implements Initializable{
 
     @FXML
-    private Label parkingSpotLabel;
+    private Label parkingSpotLabelID;
 
     @FXML
-    private Label declareTimeLabel;
+    private Label declareTimeLabelID;
 
     @FXML
-    private Label timeInLabel;
+    private Label timeInLabelID;
 
     @FXML
-    private Label priceLabel;
+    private Label priceLabelID;
 
     @FXML
-    private Label typeVehicleLabel;
+    private Label typeVehicleLabelID;
     
     @FXML
-    private Label TotalPriceLabel;
+    private Label totalPriceLabelID;
 
     @FXML
-    private Label OverrunTimeLabel;
+    private Label overrunTimeLabelID;
     
     @FXML
-    private JFXButton SearchClientForLicenseButtonID;
+    private JFXButton searchClientForLicenseButtonID;
 
     @FXML
-    private JFXButton PayButtonID;
+    private JFXButton payButtonID;
     
     @FXML
-    private JFXTextField LicensePlateField;
+    private JFXTextField licensePlateFieldID;
     
     @FXML
     void PayButton(ActionEvent event) {
-    	FirstPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabel.getText());
-    	FirstPanelController.parkingTimeDAOImpl.deleteParkingTime(LicensePlateField.getText());
+    	FirstPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabelID.getText());
+    	FirstPanelController.parkingTimeDAOImpl.deleteParkingTime(licensePlateFieldID.getText());
+    	FirstPanelController.parkingHistoryDAOImpl.insertParkingHistory(timeInLabelID.getText(), declareTimeLabelID.getText(), totalPriceLabelID.getText(), licensePlateFieldID.getText(), parkingSpotLabelID.getText());
     	backToMenu();
     }
 
     @FXML
     void SearchClientForLicenseButton(ActionEvent event) {
-    	if(FirstPanelController.parkingTimeDAOImpl.checkLicensePlateExist(LicensePlateField.getText()) == true) {
-    		ObservableList<ParkingTime> lista = FirstPanelController.parkingTimeDAOImpl.getToExitParking(LicensePlateField.getText());
+    	if(FirstPanelController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText()) == true) {
+    		ObservableList<ParkingTime> lista = FirstPanelController.parkingTimeDAOImpl.getToExitParking(licensePlateFieldID.getText());
     		
-    		timeInLabel.setText(lista.get(0).getTimeIn().substring(0 , (lista.get(0).getTimeIn().indexOf("."))));
-    		declareTimeLabel.setText(lista.get(0).getTimeOut().substring(0, (lista.get(0).getTimeOut()).indexOf(".")));
-    		priceLabel.setText(Float.toString(lista.get(0).getBill()));
-    		parkingSpotLabel.setText(lista.get(0).getParkingNumber());
-    		typeVehicleLabel.setText(lista.get(0).getTypeVehicle());	
+    		timeInLabelID.setText(lista.get(0).getTimeIn().substring(0 , (lista.get(0).getTimeIn().indexOf("."))));
+    		declareTimeLabelID.setText(lista.get(0).getTimeOut().substring(0, (lista.get(0).getTimeOut()).indexOf(".")));
+    		priceLabelID.setText(Float.toString(lista.get(0).getBill()));
+    		parkingSpotLabelID.setText(lista.get(0).getParkingNumber());
+    		typeVehicleLabelID.setText(lista.get(0).getTypeVehicle());	
     		
-    		OverrunTimeLabel.setText(Integer.toString(FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(LicensePlateField.getText())));
+    		overrunTimeLabelID.setText(Integer.toString(FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())));
     		
-    		TotalPriceLabel.setText(Float.toString((lista.get(0).getBill()) + ((FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(LicensePlateField.getText()))) * (FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleLabel.getText()))));
+    		totalPriceLabelID.setText(Float.toString((lista.get(0).getBill()) + ((FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText()))) * (FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleLabelID.getText()))));
     	}else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("License Plate error!");
@@ -90,8 +91,8 @@ public class ExitClientParkingController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		SearchClientForLicenseButtonID.disableProperty().bind(Bindings.isEmpty(LicensePlateField.textProperty()));
-		PayButtonID.disableProperty().bind(Bindings.isEmpty(TotalPriceLabel.textProperty()));
+		searchClientForLicenseButtonID.disableProperty().bind(Bindings.isEmpty(licensePlateFieldID.textProperty()));
+		payButtonID.disableProperty().bind(Bindings.isEmpty(totalPriceLabelID.textProperty()));
 	}
 	
 	public void backToMenu() {

@@ -31,7 +31,6 @@ public class AdminPanelAccessController implements Initializable {
 
 	@FXML
 	void employeesAction(ActionEvent event) {
-		System.out.print("Klik");
 		Parent parent = null;
 		try {
 			parent = FXMLLoader.load(getClass().getResource("/fxml/EmployeePanel.fxml"));
