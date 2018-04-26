@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -36,7 +37,7 @@
                   <Image url="@../icon/icon_car.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="239.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="34.0" fitWidth="28.0" layoutX="239.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icon/clock.png" />
                </image>
@@ -46,22 +47,22 @@
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Text>
-            <Label layoutX="71.0" layoutY="127.0" text="First Name:" textFill="WHITE">
+            <Label layoutX="69.0" layoutY="165.0" text="First Name:" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="54.0" layoutY="308.0" text="License Plate:" textFill="WHITE">
+            <Label layoutX="52.0" layoutY="346.0" text="License Plate:" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="189.0" text="Second Name:" textFill="WHITE">
+            <Label layoutX="49.0" layoutY="227.0" text="Second Name:" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="47.0" layoutY="247.0" text="Phone Number:" textFill="WHITE">
+            <Label layoutX="45.0" layoutY="285.0" text="Phone Number:" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
@@ -71,7 +72,7 @@
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="53.0" layoutY="372.0" text="Parking Time:" textFill="WHITE">
+            <Label layoutX="53.0" layoutY="397.0" text="Parking Time:" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
@@ -120,12 +121,12 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <TextField fx:id="firstNameText" layoutX="165.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" />
-            <TextField fx:id="secondNameText" layoutX="165.0" layoutY="183.0" prefHeight="30.0" prefWidth="200.0" />
-            <TextField fx:id="phoneNumberText" layoutX="165.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0" />
-            <TextField fx:id="licensePlateText" layoutX="165.0" layoutY="302.0" prefHeight="30.0" prefWidth="200.0" />
-            <JFXComboBox fx:id="timeBox" layoutX="172.0" layoutY="369.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
-            <JFXButton fx:id="calculatePriceButtonID" layoutX="297.0" layoutY="352.0" onAction="#calculatePriceButton" prefHeight="62.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Calculate" textFill="WHITE">
+            <TextField fx:id="firstNameText" layoutX="163.0" layoutY="159.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="secondNameText" layoutX="163.0" layoutY="221.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="phoneNumberText" layoutX="163.0" layoutY="278.0" prefHeight="30.0" prefWidth="200.0" />
+            <TextField fx:id="licensePlateText" layoutX="163.0" layoutY="340.0" prefHeight="30.0" prefWidth="200.0" />
+            <JFXComboBox fx:id="timeBox" layoutX="172.0" layoutY="394.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
+            <JFXButton fx:id="calculatePriceButtonID" layoutX="297.0" layoutY="377.0" onAction="#calculatePriceButton" prefHeight="62.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Calculate" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
@@ -149,6 +150,16 @@
                   </ImageView>
                </graphic>
             </JFXButton>
+            <JFXCheckBox fx:id="checkBoxCllientID" checkedColor="GOLD" layoutX="257.0" layoutY="108.0" onAction="#checkBoxCllient" prefHeight="18.0" prefWidth="363.0" text="I was already a customer of the parking lot." textAlignment="JUSTIFY" textFill="WHITE" unCheckedColor="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </JFXCheckBox>
+            <Label layoutX="78.0" layoutY="108.0" text="Please to mark, if" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
