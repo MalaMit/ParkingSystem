@@ -81,6 +81,6 @@
          </children>
       </Pane>
       <Separator layoutX="200.0" layoutY="53.0" prefHeight="547.0" prefWidth="10.0" style="-fx-background-color: gold;" />
-      <StackPane fx:id="adminMainStakPain" layoutX="204.0" layoutY="60.0" prefHeight="547.0" prefWidth="814.0" style="-fx-background-color: transparent;" />
+      <StackPane fx:id="adminMainStackPane" layoutX="210.0" layoutY="53.0" prefHeight="547.0" prefWidth="815.0" style="-fx-background-color: #303030;" />
    </children>
 </AnchorPane>

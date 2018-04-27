@@ -9,12 +9,14 @@ public class Admin {
 
 	private IntegerProperty adminID;
 	private StringProperty firstName;
+	private StringProperty secondName;
 	private StringProperty login;
 	private StringProperty password;
 
 	public Admin() {
 		this.adminID = new SimpleIntegerProperty();
 		this.firstName = new SimpleStringProperty();
+		this.secondName = new SimpleStringProperty();
 		this.login = new SimpleStringProperty();
 		this.password = new SimpleStringProperty();
 	}
@@ -29,6 +31,18 @@ public class Admin {
 
 	public IntegerProperty getAdminIDProperty() {
 		return adminID;
+	}
+	
+/////secondName
+	public String getSecondName() {
+		return secondName.get();
+	}
+	
+	public void setSecondName (String secondName) {
+		this.secondName.set(secondName);
+	}
+	public StringProperty getSecondNameProperty() {
+		return secondName;
 	}
 	
 /////FirstName

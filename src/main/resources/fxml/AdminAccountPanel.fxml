@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="547.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.AdminAccountPanelController">
+   <children>
+      <AnchorPane prefHeight="547.0" prefWidth="815.0" style="-fx-background-color: #303030;">
+         <children>
+            <TableView fx:id="adminTableView" prefHeight="415.0" prefWidth="815.0" style="-fx-border-color: #303030;">
+              <columns>
+                  <TableColumn fx:id="columnID" prefWidth="55.0" text="ID" />
+                  <TableColumn fx:id="columnLogin" prefWidth="190.0" text="Login" />
+                <TableColumn fx:id="columnPassword" prefWidth="190.0" text="Password" />
+                <TableColumn fx:id="columnFirstName" prefWidth="190.0" text="First Name" />
+                  <TableColumn fx:id="columnSecondName" prefWidth="190.0" text="Second Name" />
+              </columns>
+            </TableView>
+            <JFXButton contentDisplay="RIGHT" layoutX="33.0" layoutY="439.0" prefHeight="100.0" prefWidth="191.0" style="-fx-border-color: white;" text="Add New Admin " textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_User.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="RIGHT" layoutX="308.0" layoutY="439.0" prefHeight="100.0" prefWidth="221.0" style="-fx-border-color: white;" text="Change Password" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_Key.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="RIGHT" layoutX="607.0" layoutY="439.0" prefHeight="100.0" prefWidth="191.0" style="-fx-border-color: white;" text="Delete Admin" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Separator layoutY="410.0" orientation="VERTICAL" prefWidth="812.0" style="-fx-background-color: gold;" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -21,7 +21,7 @@ public class AdminPanelAccessController implements Initializable {
 
 	@FXML
 	void adminAccountsAction(ActionEvent event) {
-
+		adminAccountPanel();
 	}
 
 	@FXML
@@ -78,5 +78,22 @@ public class AdminPanelAccessController implements Initializable {
 
 	}
 	
+	public void adminAccountPanel() {
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/AdminAccountPanel.fxml"));
+		StackPane stackPane = null;
+		try {
+			stackPane = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		AdminAccountPanelController adminAccountPanelController = loader.getController();
+		adminAccountPanelController.setAdminMainStackPane(this);
+		setScreen(stackPane);
+	}
+	
+	public void setScreen(StackPane stackPane) {
+		adminMainStackPane.getChildren().clear();
+		adminMainStackPane.getChildren().add(stackPane);
+	}
 	
 }

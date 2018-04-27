@@ -6,13 +6,31 @@ import java.sql.SQLException;
 import databaseDAO.AdminDAO;
 import databaseModel.Admin;
 import databaseUtil.DBUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public ObservableList<Admin> getAllAdmin() {
-		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM admin";
+		try {
+			ResultSet rsSet = DBUtil.dbExecute(sql);
+			ObservableList<Admin> adminList = FXCollections.observableArrayList();
+			while(rsSet.next()) {
+				Admin adm = new Admin();
+				adm.setAdminnID(rsSet.getInt("adminID"));
+				adm.setLogin(rsSet.getString("login"));
+				adm.setPassword(rsSet.getString("password"));
+				adm.setFirstName(rsSet.getString("firstName"));
+				adm.setSecondName(rsSet.getString("secondName"));
+				adminList.add(adm);
+			}
+			return adminList;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
