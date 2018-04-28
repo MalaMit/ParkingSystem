@@ -45,7 +45,6 @@ public class AdminPanelAccessController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 
 	}
 
@@ -53,7 +52,7 @@ public class AdminPanelAccessController implements Initializable {
 	void parkingSpotsAction(ActionEvent event) {
 
 	}
-	
+
 	@FXML
 	void logOutAdmin(ActionEvent event) {
 		Parent parent = null;
@@ -77,7 +76,7 @@ public class AdminPanelAccessController implements Initializable {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	public void adminAccountPanel() {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/AdminAccountPanel.fxml"));
 		StackPane stackPane = null;
@@ -90,10 +89,10 @@ public class AdminPanelAccessController implements Initializable {
 		adminAccountPanelController.setAdminMainStackPane(this);
 		setScreen(stackPane);
 	}
-	
+
 	public void setScreen(StackPane stackPane) {
 		adminMainStackPane.getChildren().clear();
 		adminMainStackPane.getChildren().add(stackPane);
 	}
-	
+
 }

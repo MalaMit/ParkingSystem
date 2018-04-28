@@ -106,7 +106,7 @@ public class EmployeePanelController implements Initializable {
 			Parent root = loader.load();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.initModality(Modality.WINDOW_MODAL);
 			stage.setTitle(title);
 			stage.show();
 
