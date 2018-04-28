@@ -9,7 +9,7 @@ import databaseUtil.DBUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ParkingSpotDAOImpl implements ParkingSpotDAO{
+public class ParkingSpotDAOImpl implements ParkingSpotDAO {
 
 	@Override
 	public ObservableList<ParkingSpot> getAllParkingSpot(String typ) {
@@ -29,29 +29,29 @@ public class ParkingSpotDAOImpl implements ParkingSpotDAO{
 		}
 		return null;
 	}
-	
+
 	@Override
-	public void changeStatusSpot( String numberSpot) {
-		String sql = "UPDATE parkingspot SET status = 'TAKEN' WHERE  number ='" +numberSpot+ "' ";
+	public void changeStatusSpot(String numberSpot) {
+		String sql = "UPDATE parkingspot SET status = 'TAKEN' WHERE  number ='" + numberSpot + "' ";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	@Override
-	public void changeStatusSpotExit( String numberSpot) {
-		String sql = "UPDATE parkingspot SET status = 'FREE' WHERE  number ='" +numberSpot+ "' ";
+	public void changeStatusSpotExit(String numberSpot) {
+		String sql = "UPDATE parkingspot SET status = 'FREE' WHERE  number ='" + numberSpot + "' ";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
@@ -71,5 +71,5 @@ public class ParkingSpotDAOImpl implements ParkingSpotDAO{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 }

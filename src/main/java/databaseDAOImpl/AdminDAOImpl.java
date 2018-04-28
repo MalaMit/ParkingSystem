@@ -17,11 +17,10 @@ public class AdminDAOImpl implements AdminDAO {
 		try {
 			ResultSet rsSet = DBUtil.dbExecute(sql);
 			ObservableList<Admin> adminList = FXCollections.observableArrayList();
-			while(rsSet.next()) {
+			while (rsSet.next()) {
 				Admin adm = new Admin();
 				adm.setAdminnID(rsSet.getInt("adminID"));
 				adm.setLogin(rsSet.getString("login"));
-				adm.setPassword(rsSet.getString("password"));
 				adm.setFirstName(rsSet.getString("firstName"));
 				adm.setSecondName(rsSet.getString("secondName"));
 				adminList.add(adm);
@@ -36,7 +35,8 @@ public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public boolean getLoginAdminByLoginAndPassword(String imputLogin, String imputPassword) {
-		String sql = "SELECT * FROM admin WHERE login = '" + imputLogin + "' AND password = '" + imputPassword + "' ";
+		String sql = "SELECT login,password  FROM admin WHERE login = '" + imputLogin + "' AND password = '"
+				+ imputPassword + "' ";
 		boolean isUser = false;
 		try {
 			ResultSet rs = DBUtil.dbExecute(sql);
@@ -50,20 +50,57 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public boolean insertAdmin() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updateAdminChangePassword(int id, String newPassword) {
+		String sql = "UPDATE admin SET password ='" + newPassword + "' WHERE adminID='" + id + "' ";
+		try {
+			DBUtil.dbExcecuteQuery(sql);
+			return true;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public boolean updateAdmin() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insertAdmin(String login, String password, String firstName, String secondName) {
+		String sql = "INSERT INTO admin (login, password, firstName, secondName)  VALUES ('" + login + "', '" + password
+				+ "', '" + firstName + "', '" + secondName + "');";
+		try {
+			DBUtil.dbExcecuteQuery(sql);
+			return true;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public boolean deleteAdmin() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteAdmin(int id) {
+		String sql = "DELETE FROM admin WHERE `adminID`='" + id + "'";
+		try {
+			DBUtil.dbExcecuteQuery(sql);
+			return true;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean checkLoginIsExisting(String login) {
+		String sql = "SELECT login FROM admin WHERE login = '" + login + "'";
+		boolean isExist = false;
+		try {
+			ResultSet rs = DBUtil.dbExecute(sql);
+			if (rs.next()) {
+				isExist = true;
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return isExist;
 	}
 }

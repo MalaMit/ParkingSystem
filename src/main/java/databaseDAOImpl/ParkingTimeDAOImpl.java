@@ -9,7 +9,7 @@ import databaseUtil.DBUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ParkingTimeDAOImpl implements ParkingTimeDAO{
+public class ParkingTimeDAOImpl implements ParkingTimeDAO {
 
 	@Override
 	public ObservableList<ParkingTime> getAllTakenSPot() {
@@ -18,8 +18,11 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 	}
 
 	@Override
-	public void insertParkingTime(String clientLicensePlate, String timeOut, int bill, String typeVehicle, String parkingNumber) {
-		String sql = "INSERT INTO parkingTime (clientLicensePlate, timeOut, bill, typeVehicle, parkingNumber) VALUES ('"+clientLicensePlate+"', '"+timeOut+"', '"+bill+"', '"+typeVehicle+"', '"+parkingNumber+"')";
+	public void insertParkingTime(String clientLicensePlate, String timeOut, int bill, String typeVehicle,
+			String parkingNumber) {
+		String sql = "INSERT INTO parkingTime (clientLicensePlate, timeOut, bill, typeVehicle, parkingNumber) VALUES ('"
+				+ clientLicensePlate + "', '" + timeOut + "', '" + bill + "', '" + typeVehicle + "', '" + parkingNumber
+				+ "')";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -30,7 +33,7 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 
 	@Override
 	public boolean deleteParkingTime(String licensePlate) {
-		String sql = "DELETE FROM parkingtime WHERE ClientLicensePlate = '"+ licensePlate +"'";
+		String sql = "DELETE FROM parkingtime WHERE ClientLicensePlate = '" + licensePlate + "'";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -42,7 +45,8 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 
 	@Override
 	public ObservableList<ParkingTime> getToExitParking(String licensePlate) {
-		String sql = "SELECT TimeOut, Bill, typeVehicle, parkingNumber,TimeIN FROM parkingtime WHERE ClientLicensePlate = '"+ licensePlate +"'";	
+		String sql = "SELECT TimeOut, Bill, typeVehicle, parkingNumber,TimeIN FROM parkingtime WHERE ClientLicensePlate = '"
+				+ licensePlate + "'";
 		try {
 			ResultSet rsSet = DBUtil.dbExecute(sql);
 			ObservableList<ParkingTime> pTime = FXCollections.observableArrayList();
@@ -52,7 +56,7 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 				pT.setBill(rsSet.getFloat("Bill"));
 				pT.setTimeIn(rsSet.getString("TimeIN"));
 				pT.setTypeVehicle(rsSet.getString("typeVehicle"));
-				pT.setParkingNumber(rsSet.getString("parkingNumber"));	
+				pT.setParkingNumber(rsSet.getString("parkingNumber"));
 				pTime.add(pT);
 			}
 			return pTime;
@@ -62,15 +66,17 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO{
 		}
 		return null;
 	}
-	
+
 	@Override
 	public int getOverrunTimePrice(String licensePlate) {
-		String sql = "select if((now() - TimeOut) > 0, ((UNIX_TIMESTAMP(now()) - unix_timestamp(TimeOut))/3600), 0) from parkingtime where ClientLicensePlate ='"+ licensePlate +"'";
+		String sql = "select if((now() - TimeOut) > 0, ((UNIX_TIMESTAMP(now()) - unix_timestamp(TimeOut))/3600), 0) from parkingtime where ClientLicensePlate ='"
+				+ licensePlate + "'";
 		try {
 			ResultSet rsSet = DBUtil.dbExecute(sql);
 			int overrunTimeCost = 0;
-			while(rsSet.next()) {
-				overrunTimeCost = (int) rsSet.getFloat("if((now() - TimeOut) > 0, ((UNIX_TIMESTAMP(now()) - unix_timestamp(TimeOut))/3600), 0)");
+			while (rsSet.next()) {
+				overrunTimeCost = (int) rsSet.getFloat(
+						"if((now() - TimeOut) > 0, ((UNIX_TIMESTAMP(now()) - unix_timestamp(TimeOut))/3600), 0)");
 			}
 			return overrunTimeCost;
 		} catch (ClassNotFoundException | SQLException e) {

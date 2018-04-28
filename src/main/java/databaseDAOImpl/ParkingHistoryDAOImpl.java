@@ -8,8 +8,10 @@ import databaseUtil.DBUtil;
 public class ParkingHistoryDAOImpl implements ParkingHistoryDAO {
 
 	@Override
-	public boolean insertParkingHistory(String timeIN, String timeOut, String bill, String licensePlate, String parkingNumber) {
-		String sql = "INSERT INTO historyparking (timeIN, timeOut, bill, ClientLicensePlate, parkingNumber) VALUES ('"+timeIN+"', '"+timeOut+"', '"+bill+"', '"+licensePlate+"', '"+parkingNumber+"')";
+	public boolean insertParkingHistory(String timeIN, String timeOut, String bill, String licensePlate,
+			String parkingNumber) {
+		String sql = "INSERT INTO historyparking (timeIN, timeOut, bill, ClientLicensePlate, parkingNumber) VALUES ('"
+				+ timeIN + "', '" + timeOut + "', '" + bill + "', '" + licensePlate + "', '" + parkingNumber + "')";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -30,7 +32,5 @@ public class ParkingHistoryDAOImpl implements ParkingHistoryDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	
 
 }

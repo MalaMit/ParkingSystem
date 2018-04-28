@@ -26,7 +26,8 @@ public class ClientDAOImpl implements ClientDAO {
 
 	@Override
 	public boolean insertClient(String licensePlate, String firstName, String secondName, String phoneNumber) {
-		String sql = "INSERT INTO client (licensePlate, firstName, secondName, phoneNumber) VALUES ('"+licensePlate+"', '"+firstName+"', '"+secondName+"', '"+phoneNumber+"')";
+		String sql = "INSERT INTO client (licensePlate, firstName, secondName, phoneNumber) VALUES ('" + licensePlate
+				+ "', '" + firstName + "', '" + secondName + "', '" + phoneNumber + "')";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -35,7 +36,7 @@ public class ClientDAOImpl implements ClientDAO {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public boolean checkLicensePlate(String licensePlate) {
 		String sql = "SELECT * FROM client WHERE LicensePlate = '" + licensePlate + "' ";
