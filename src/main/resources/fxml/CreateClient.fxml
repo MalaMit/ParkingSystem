@@ -105,8 +105,8 @@
             </JFXButton>
             <TableView fx:id="pPlaceTable" layoutX="729.0" layoutY="-1.0" prefHeight="400.0" prefWidth="295.0">
               <columns>
-                <TableColumn fx:id="parkingPlaceColumn" editable="false" prefWidth="148.0" text="Praking Place" />
-                <TableColumn fx:id="statusColumn" editable="false" prefWidth="146.0" text="Status" />
+                <TableColumn fx:id="parkingPlaceColumn" editable="false" prefWidth="148.0" style="-fx-alignment: center;" text="Praking Place" />
+                <TableColumn fx:id="statusColumn" editable="false" prefWidth="146.0" style="-fx-alignment: center;" text="Status" />
               </columns>
             </TableView>
             <JFXButton fx:id="searchButtonID" contentDisplay="RIGHT" layoutX="291.0" layoutY="12.0" onAction="#searchButton" prefHeight="49.0" prefWidth="136.0" text="SEARCH" textFill="WHITE">
