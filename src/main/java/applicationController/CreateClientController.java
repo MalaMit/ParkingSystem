@@ -82,33 +82,40 @@ public class CreateClientController implements Initializable {
 	@FXML
 	void nextPage(ActionEvent event) {
 		// create client
-		if (checkBoxCllientID.isSelected() == true
-				&& FirstPanelController.clientDAOImpl.checkLicensePlate(licensePlateTextID.getText()) == true) {
+		if (checkBoxCllientID.isSelected() == false) {
+			
+			FirstPanelController.clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
+					secondNameTextID.getText(), phoneNumberTextID.getText());
+			
 			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
 					dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
 					Integer.parseInt(chargeLabelID.getText()), typeVehicleBoxID.getValue().toString(),
 					viewSelectSpotLabelID.getText());
+			
 			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
+			
 			// end view
 			userPanelController.endCreateClientPanel();
 		} else {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("License Plate error!");
-			alert.setHeaderText("Your license plate is invalid. Please try again");
+			if ((checkBoxCllientID.isSelected()) != false
+					&& (FirstPanelController.clientDAOImpl.checkLicensePlate(licensePlateTextID.getText())) != false) {
+				
+				FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
+						dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
+						Integer.parseInt(chargeLabelID.getText()), typeVehicleBoxID.getValue().toString(),
+						viewSelectSpotLabelID.getText());
+				
+				FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
+				
+				// end view
+				userPanelController.endCreateClientPanel();
+			} else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("License Plate error!");
+				alert.setHeaderText("Your license plate is invalid. Please try again");
 
-			alert.showAndWait();
-		}
-
-		if (checkBoxCllientID.isSelected() == false) {
-			FirstPanelController.clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
-					secondNameTextID.getText(), phoneNumberTextID.getText());
-			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
-					dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
-					Integer.parseInt(chargeLabelID.getText()), typeVehicleBoxID.getValue().toString(),
-					viewSelectSpotLabelID.getText());
-			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
-			// end view
-			userPanelController.endCreateClientPanel();
+				alert.showAndWait();
+			}
 		}
 	}
 
@@ -120,6 +127,7 @@ public class CreateClientController implements Initializable {
 				.toString(FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleBoxID.getValue().toString())));
 
 		parkingPlaceColumn.setCellValueFactory(cellData -> cellData.getValue().getNumberSpotProperty());
+		
 		statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusProperty());
 
 		pPlaceTable.setItems(
@@ -149,6 +157,7 @@ public class CreateClientController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		timeBoxID.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);
 		//// Metoda toString potem może zrobie konwerter
 		ArrayList<TypeVehicle> typeV = FirstPanelController.typeVehicleDAOImpl.getAllTypeVehicle();
@@ -157,27 +166,35 @@ public class CreateClientController implements Initializable {
 		// bind property
 		searchButtonID.disableProperty().bind(BooleanExpression
 				.booleanExpression(this.typeVehicleBoxID.getSelectionModel().selectedItemProperty().isNull()));
+		
 		firstNameTextID.disableProperty()
 				.bind((BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty())
 						.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty()))));
+		
 		secondNameTextID.disableProperty()
 				.bind(Bindings.isEmpty(firstNameTextID.textProperty())
 						.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())
 								.or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));
+		
 		phoneNumberTextID.disableProperty()
 				.bind(Bindings.isEmpty(secondNameTextID.textProperty())
 						.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())
 								.or(BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty()))));
+		
 		licensePlateTextID.disableProperty().bind(Bindings.isEmpty(phoneNumberTextID.textProperty())
 				.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
+		
 		timeBoxID.disableProperty().bind(Bindings.isEmpty(licensePlateTextID.textProperty())
 				.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
+		
 		calculatePriceButtonID.disableProperty()
 				.bind(BooleanExpression
 						.booleanExpression(this.timeBoxID.getSelectionModel().selectedItemProperty().isNull())
 						.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
+		
 		selectSpotButtonID.disableProperty().bind(BooleanExpression
 				.booleanExpression(this.pPlaceTable.getSelectionModel().selectedItemProperty().isNull()));
+		
 		nextPageButtonID.disableProperty().bind(Bindings.isEmpty(chargeLabelID.textProperty())
 				.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
 

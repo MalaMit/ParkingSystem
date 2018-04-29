@@ -33,8 +33,10 @@ public class AdminChangePasswordController implements Initializable {
 	@FXML
 	void applyButton(ActionEvent event) {
 		if (passwordOneID.getText().equals(passwordTwoID.getText())) {
+			
 			FirstPanelController.adminDAOImpl.updateAdminChangePassword(Integer.parseInt(adminAccountID.getText()),
 					passwordOneID.getText());
+			
 			((Node)(event.getSource())).getScene().getWindow().hide();
 		}	
 		else {
@@ -53,6 +55,7 @@ public class AdminChangePasswordController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		passwordTwoID.disableProperty().bind(Bindings.isEmpty(passwordOneID.textProperty()));
 		applyButtonID.disableProperty().bind(Bindings.isEmpty(passwordTwoID.textProperty()));
 

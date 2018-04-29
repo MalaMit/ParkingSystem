@@ -8,6 +8,7 @@ import databaseDAO.ClientDAO;
 import databaseModel.Client;
 import databaseModel.TypeVehicle;
 import databaseUtil.DBUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class ClientDAOImpl implements ClientDAO {
@@ -20,7 +21,23 @@ public class ClientDAOImpl implements ClientDAO {
 
 	@Override
 	public ObservableList<Client> getAllClient() {
-		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM client";
+		try {
+			ResultSet rsSet = DBUtil.dbExecute(sql);
+			ObservableList<Client> clientList = FXCollections.observableArrayList();
+			while(rsSet.next()) {
+				Client cl = new Client();
+				cl.setLicensePlate(rsSet.getString("LicensePlate"));
+				cl.setFirstName(rsSet.getString("FirstName"));
+				cl.setSecondName(rsSet.getString("SecondName"));
+				cl.setPhoneNumber(rsSet.getString("PhoneNumber"));
+				clientList.add(cl);
+			}
+			return clientList;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

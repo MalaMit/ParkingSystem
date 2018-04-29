@@ -79,6 +79,7 @@ public class AdminLoginPanelController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// Bind property
 		textPassword.disableProperty().bind(Bindings.isEmpty(textLogin.textProperty()));
+		
 		accessAdminButton.disableProperty()
 				.bind(Bindings.isEmpty(textLogin.textProperty()).or(Bindings.isEmpty(textPassword.textProperty())));
 	}

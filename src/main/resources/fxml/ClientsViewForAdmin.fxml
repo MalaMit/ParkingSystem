@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.ClientsViewForAdminController">
+   <children>
+      <Pane prefHeight="547.0" prefWidth="815.0" style="-fx-background-color: #303030;;">
+         <children>
+            <TableView fx:id="clientTable" prefHeight="547.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="columnLicensePlate" prefWidth="150.0" style="-fx-alignment: CENTER;" text="License Plate" />
+                <TableColumn fx:id="columnFirstName" prefWidth="150.0" style="-fx-alignment: CENTER;" text="First Name" />
+                  <TableColumn fx:id="columnSecondName" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Second Name" />
+                  <TableColumn fx:id="columnPhoneNumber" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Phone Number" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="clientHistoryButtonID" contentDisplay="RIGHT" layoutX="611.0" layoutY="289.0" onAction="#clientHistoryButton" prefHeight="90.0" prefWidth="195.0" style="-fx-border-color: white;" text="Client’s history " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="51.0" fitWidth="30.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/clock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXTextField fx:id="searchClientID" alignment="CENTER" layoutX="611.0" layoutY="133.0" onKeyReleased="#searchClient" prefHeight="44.0" prefWidth="166.0" promptText="Search Client" style="-fx-text-fill: white;">
+               <font>
+                  <Font name="Verdana Italic" size="16.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="51.0" fitWidth="30.0" layoutX="777.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icon_Search.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

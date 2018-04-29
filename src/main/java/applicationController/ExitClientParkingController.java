@@ -55,24 +55,32 @@ public class ExitClientParkingController implements Initializable {
 	@FXML
 	void PayButton(ActionEvent event) {
 		FirstPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabelID.getText());
+
 		FirstPanelController.parkingTimeDAOImpl.deleteParkingTime(licensePlateFieldID.getText());
+
 		FirstPanelController.parkingHistoryDAOImpl.insertParkingHistory(timeInLabelID.getText(),
 				declareTimeLabelID.getText(), totalPriceLabelID.getText(), licensePlateFieldID.getText(),
 				parkingSpotLabelID.getText());
+
 		backToMenu();
 	}
 
 	@FXML
 	void SearchClientForLicenseButton(ActionEvent event) {
 		if (FirstPanelController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText()) == true) {
+			
 			ObservableList<ParkingTime> lista = FirstPanelController.parkingTimeDAOImpl
 					.getToExitParking(licensePlateFieldID.getText());
 
 			timeInLabelID.setText(lista.get(0).getTimeIn().substring(0, (lista.get(0).getTimeIn().indexOf("."))));
+			
 			declareTimeLabelID
 					.setText(lista.get(0).getTimeOut().substring(0, (lista.get(0).getTimeOut()).indexOf(".")));
+			
 			priceLabelID.setText(Float.toString(lista.get(0).getBill()));
+			
 			parkingSpotLabelID.setText(lista.get(0).getParkingNumber());
+			
 			typeVehicleLabelID.setText(lista.get(0).getTypeVehicle());
 
 			overrunTimeLabelID.setText(Integer.toString(
@@ -99,6 +107,7 @@ public class ExitClientParkingController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		searchClientForLicenseButtonID.disableProperty().bind(Bindings.isEmpty(licensePlateFieldID.textProperty()));
+		
 		payButtonID.disableProperty().bind(Bindings.isEmpty(totalPriceLabelID.textProperty()));
 	}
 

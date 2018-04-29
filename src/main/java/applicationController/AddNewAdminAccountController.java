@@ -42,14 +42,18 @@ public class AddNewAdminAccountController implements Initializable{
     @FXML
     void applyButton(ActionEvent event) {
     	if(passwordOneID.getText().equals(passwordTwoID.getText()) && (FirstPanelController.adminDAOImpl.checkLoginIsExisting(loginID.getText()) != true)) {
+    		
     		FirstPanelController.adminDAOImpl.insertAdmin(loginID.getText(), passwordOneID.getText(), firstNameID.getText(), secondNameID.getText());
     		((Node)(event.getSource())).getScene().getWindow().hide();
+    		
     	}else {
+    		
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Password error!");
 			alert.setHeaderText("Your imput passwords are not the same. Please try again");
 
 			alert.showAndWait();
+			
     	}
     }
 
@@ -60,6 +64,7 @@ public class AddNewAdminAccountController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		passwordOneID.disableProperty().bind(Bindings.isEmpty(loginID.textProperty()));
 		passwordTwoID.disableProperty().bind(Bindings.isEmpty(passwordOneID.textProperty()));
 		firstNameID.disableProperty().bind(Bindings.isEmpty(passwordTwoID.textProperty()));

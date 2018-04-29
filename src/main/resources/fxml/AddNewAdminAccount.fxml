@@ -11,27 +11,27 @@
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #303030;">
          <children>
-            <JFXTextField fx:id="loginID" alignment="CENTER" layoutX="95.0" layoutY="48.0" prefHeight="40.0" prefWidth="210.0" promptText="Login" style="-fx-text-fill: white;">
+            <JFXTextField fx:id="loginID" alignment="CENTER" layoutX="95.0" layoutY="48.0" prefHeight="40.0" prefWidth="210.0" promptText="Login" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField fx:id="passwordOneID" alignment="CENTER" layoutX="95.0" layoutY="124.0" prefHeight="40.0" prefWidth="210.0" promptText="Password" style="-fx-text-fill: white;">
+            <JFXPasswordField fx:id="passwordOneID" alignment="CENTER" layoutX="95.0" layoutY="124.0" prefHeight="40.0" prefWidth="210.0" promptText="Password" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="18.0" />
                </font>
             </JFXPasswordField>
-            <JFXPasswordField fx:id="passwordTwoID" alignment="CENTER" layoutX="95.0" layoutY="199.0" prefHeight="40.0" prefWidth="210.0" promptText="Password" style="-fx-text-fill: white;">
+            <JFXPasswordField fx:id="passwordTwoID" alignment="CENTER" layoutX="95.0" layoutY="199.0" prefHeight="40.0" prefWidth="210.0" promptText="Password" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="18.0" />
                </font>
             </JFXPasswordField>
-            <JFXTextField fx:id="firstNameID" alignment="CENTER" layoutX="95.0" layoutY="266.0" prefHeight="40.0" prefWidth="210.0" promptText="First Name" style="-fx-text-fill: white;">
+            <JFXTextField fx:id="firstNameID" alignment="CENTER" layoutX="95.0" layoutY="266.0" prefHeight="40.0" prefWidth="210.0" promptText="First Name" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="secondNameID" alignment="CENTER" layoutX="95.0" layoutY="342.0" prefHeight="40.0" prefWidth="210.0" promptText="Second Name" style="-fx-text-fill: white;">
+            <JFXTextField fx:id="secondNameID" alignment="CENTER" layoutX="95.0" layoutY="342.0" prefHeight="40.0" prefWidth="210.0" promptText="Second Name" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="18.0" />
                </font>

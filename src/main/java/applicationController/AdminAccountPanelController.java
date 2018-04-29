@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import databaseModel.Admin;
-import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanExpression;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -121,7 +120,7 @@ public class AdminAccountPanelController implements Initializable {
 		adminTableView.setItems(FirstPanelController.adminDAOImpl.getAllAdmin());
 	}
 
-	public void setAdminMainStackPane(AdminPanelAccessController adminPanelAccessController) {
+	public void setAdminAccountPanel(AdminPanelAccessController adminPanelAccessController) {
 		this.adminPanelAccessController = adminPanelAccessController;
 	}
 }
