@@ -11,9 +11,9 @@ public class EndCreateClientController implements Initializable {
 
 	private UserPanelController userPanelController;
 
-	Timer timer = new Timer();
+	private Timer timer = new Timer();
 
-	TimerTask timerTask = new TimerTask() {
+	private TimerTask timerTask = new TimerTask() {
 		@Override
 		public void run() {
 			Platform.runLater(() -> {

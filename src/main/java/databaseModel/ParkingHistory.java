@@ -32,7 +32,7 @@ public class ParkingHistory {
 		return historyParkingID.get();
 	}
 	
-	public IntegerProperty getHistoryParkingProperty() {
+	public IntegerProperty getHistoryParkingIDProperty() {
 		return historyParkingID;
 	}
 	/**

@@ -52,9 +52,9 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO {
 			ObservableList<ParkingTime> pTime = FXCollections.observableArrayList();
 			while (rsSet.next()) {
 				ParkingTime pT = new ParkingTime();
-				pT.setTimeOut(rsSet.getString("TimeOut"));
+				pT.setTimeOut(rsSet.getString("TimeOut").substring(0, (rsSet.getString("TimeOut").indexOf("."))));
 				pT.setBill(rsSet.getFloat("Bill"));
-				pT.setTimeIn(rsSet.getString("TimeIN"));
+				pT.setTimeIn(rsSet.getString("TimeIN").substring(0, (rsSet.getString("TimeIn").indexOf("."))));
 				pT.setTypeVehicle(rsSet.getString("typeVehicle"));
 				pT.setParkingNumber(rsSet.getString("parkingNumber"));
 				pTime.add(pT);

@@ -50,7 +50,7 @@ public class AddNewAdminAccountController implements Initializable{
     		
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Password error!");
-			alert.setHeaderText("Your imput passwords are not the same. Please try again");
+			alert.setHeaderText("Your imput passwords are not the same or login existing. Please try again");
 
 			alert.showAndWait();
 			

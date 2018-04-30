@@ -9,7 +9,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.AddNewAdminAccountController">
    <children>
-      <AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #303030;">
+      <AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: black;">
          <children>
             <JFXTextField fx:id="loginID" alignment="CENTER" layoutX="95.0" layoutY="48.0" prefHeight="40.0" prefWidth="210.0" promptText="Login" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>

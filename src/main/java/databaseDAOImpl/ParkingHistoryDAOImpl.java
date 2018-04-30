@@ -1,9 +1,13 @@
 package databaseDAOImpl;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import databaseDAO.ParkingHistoryDAO;
+import databaseModel.ParkingHistory;
 import databaseUtil.DBUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ParkingHistoryDAOImpl implements ParkingHistoryDAO {
 
@@ -31,6 +35,29 @@ public class ParkingHistoryDAOImpl implements ParkingHistoryDAO {
 	public boolean deleteParkingHistory() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public ObservableList<ParkingHistory> getHistoryByLicensePlate(String licensePlate) {
+		String sql = "SELECT HistoryParkingID, TimeIN, TimeOut, Bill, parkingNumber FROM historyparking WHERE ClientLicensePlate = '"+ licensePlate +"'" ;
+		try {
+			ResultSet rsSet  = DBUtil.dbExecute(sql);
+			ObservableList<ParkingHistory> pHistory = FXCollections.observableArrayList();
+			while(rsSet.next()) {
+				ParkingHistory pH = new ParkingHistory();
+				pH.setHistoryParkingID(rsSet.getInt("HistoryParkingID"));
+				pH.setTimeIn(rsSet.getString("TimeIn").substring(0, (rsSet.getString("TimeIn").indexOf("."))));
+				pH.setTimeOut(rsSet.getString("TimeOut").substring(0, (rsSet.getString("TimeIn").indexOf("."))));			
+				pH.setBill(rsSet.getFloat("Bill"));
+				pH.setParkingNumber(rsSet.getString("parkingNumber"));
+				pHistory.add(pH);
+			}	
+			return pHistory;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

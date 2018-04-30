@@ -72,10 +72,9 @@ public class ExitClientParkingController implements Initializable {
 			ObservableList<ParkingTime> lista = FirstPanelController.parkingTimeDAOImpl
 					.getToExitParking(licensePlateFieldID.getText());
 
-			timeInLabelID.setText(lista.get(0).getTimeIn().substring(0, (lista.get(0).getTimeIn().indexOf("."))));
+			timeInLabelID.setText(lista.get(0).getTimeIn());
 			
-			declareTimeLabelID
-					.setText(lista.get(0).getTimeOut().substring(0, (lista.get(0).getTimeOut()).indexOf(".")));
+			declareTimeLabelID.setText(lista.get(0).getTimeOut());
 			
 			priceLabelID.setText(Float.toString(lista.get(0).getBill()));
 			
