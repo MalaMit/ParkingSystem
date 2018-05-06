@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.ViewParkingSpotForAdminController">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="550.0" style="-fx-background-color: black;">
+         <children>
+            <TableView fx:id="parkingSpotTable" prefHeight="500.0" prefWidth="350.0">
+              <columns>
+                <TableColumn fx:id="columnNumber" prefWidth="90.0" style="-fx-alignment: center;" text="Number" />
+                  <TableColumn fx:id="columnStatus" prefWidth="85.0" style="-fx-alignment: center;" text="Status" />
+                <TableColumn fx:id="columnTypeVehicle" prefWidth="200.0" style="-fx-alignment: center;" text="Type Vehicle" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="addNewSpotButtonID" layoutX="359.0" layoutY="71.0" onAction="#addNewSpotButton" prefHeight="61.0" prefWidth="177.0" style="-fx-border-color: white;" text="Add New Spot" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="18.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="deleteSpotButtonID" layoutX="359.0" layoutY="225.0" onAction="#deleteSpotButton" prefHeight="61.0" prefWidth="177.0" style="-fx-border-color: white;" text="Delete Spot" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="359.0" layoutY="369.0" onAction="#closeButton" prefHeight="61.0" prefWidth="177.0" style="-fx-border-color: white;" text="Close" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

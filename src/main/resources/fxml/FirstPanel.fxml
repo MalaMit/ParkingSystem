@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -19,14 +18,6 @@
       				<Font name="Verdana Italic" size="32.0" />
       			</font>
       		</Label>
-      		<Label alignment="CENTER_RIGHT" layoutX="946.0" layoutY="541.0" prefHeight="52.0" prefWidth="76.0" style="-fx-background-color: transparent;" text="Admin" textAlignment="CENTER" textFill="#fcfcfc">
-      			<font>
-      				<Font name="Verdana Italic" size="12.0" />
-      			</font>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-      		</Label>
             <Label alignment="CENTER" layoutX="333.0" prefHeight="170.0" prefWidth="358.0" style="-fx-background-color: transparent;" text="Welcome" textFill="#fcfcfc">
                <font>
                   <Font name="Verdana Italic" size="66.0" />
@@ -37,16 +28,7 @@
                   <Font name="Verdana Italic" size="32.0" />
                </font>
             </Label>
-            <JFXButton layoutX="876.0" layoutY="541.0" onAction="#adminLoginButton" prefHeight="52.0" prefWidth="140.0" style="-fx-background-color: transparent;" text=" ">
-               <graphic>
-      				<ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-      					<image>
-      						<Image url="@../icon/icon_User2.png" />
-      					</image>
-      				</ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton layoutX="185.0" layoutY="179.0" onAction="#userPanelButton" prefHeight="200.0" prefWidth="309.0" style="-fx-background-color: transparent;" text=" ">
+            <JFXButton layoutX="185.0" layoutY="179.0" onAction="#userPanelButton" prefHeight="200.0" prefWidth="309.0" text=" ">
                <graphic>
       				<ImageView fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
       					<image>
@@ -55,7 +37,7 @@
       				</ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="537.0" layoutY="179.0" onAction="#exitParking" prefHeight="200.0" prefWidth="309.0" style="-fx-background-color: transparent;" text=" ">
+            <JFXButton layoutX="537.0" layoutY="179.0" onAction="#exitParking" prefHeight="200.0" prefWidth="309.0" text=" ">
                <graphic>
                   <ImageView fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -63,6 +45,18 @@
                      </image>
                   </ImageView>
                </graphic>
+            </JFXButton>
+            <JFXButton layoutX="909.0" layoutY="539.0" onAction="#adminLoginButton" prefHeight="61.0" prefWidth="117.0" style="-fx-background-color: transparent;" text="Admin" textFill="WHITE">
+               <graphic>
+      				<ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+      					<image>
+      						<Image url="@../icon/icon_User2.png" />
+      					</image>
+      				</ImageView>
+               </graphic>
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
             </JFXButton>
          </children>
       </Pane>

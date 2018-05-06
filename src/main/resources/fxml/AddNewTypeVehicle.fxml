@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.AddNewTypeVehicleController">
+   <children>
+      <Pane prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: BLACK;">
+         <children>
+            <JFXTextField fx:id="typeVehicleFieldID" labelFloat="true" layoutX="45.0" layoutY="56.0" prefHeight="40.0" prefWidth="210.0" promptText="Type Vehicle" style="-fx-text-fill: white;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="priceFieldID" labelFloat="true" layoutX="45.0" layoutY="130.0" prefHeight="40.0" prefWidth="210.0" promptText="Price For Hour" style="-fx-text-fill: white;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton fx:id="cancelButtonID" layoutX="14.0" layoutY="236.0" onAction="#cancelButton" prefHeight="50.0" prefWidth="97.0" style="-fx-border-color: white;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="applyButtonID" layoutX="189.0" layoutY="236.0" onAction="#applyButton" prefHeight="50.0" prefWidth="97.0" style="-fx-border-color: white;" text="Apply" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

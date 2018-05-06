@@ -90,7 +90,6 @@
             </Label>
             <Label fx:id="chargeLabelID" alignment="CENTER" layoutX="159.0" layoutY="482.0" prefHeight="30.0" prefWidth="62.0" style="-fx-background-color: white;" />
             <Label fx:id="viewPriceLabelID" alignment="CENTER" layoutX="595.0" layoutY="22.0" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: white;" />
-            <JFXComboBox fx:id="typeVehicleBoxID" focusColor="#e0cc00" layoutX="89.0" layoutY="26.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
             <JFXButton fx:id="selectSpotButtonID" contentDisplay="RIGHT" layoutX="729.0" layoutY="399.0" onAction="#selectSpotButton" prefHeight="55.0" prefWidth="130.0" text="SELECT" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
@@ -103,10 +102,10 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <TableView fx:id="pPlaceTable" layoutX="729.0" layoutY="-1.0" prefHeight="400.0" prefWidth="295.0">
+            <TableView fx:id="pPlaceTable" layoutX="729.0" layoutY="-1.0" prefHeight="400.0" prefWidth="300.0">
               <columns>
                 <TableColumn fx:id="parkingPlaceColumn" editable="false" prefWidth="148.0" style="-fx-alignment: center;" text="Praking Place" />
-                <TableColumn fx:id="statusColumn" editable="false" prefWidth="146.0" style="-fx-alignment: center;" text="Status" />
+                <TableColumn fx:id="statusColumn" editable="false" prefWidth="151.0" style="-fx-alignment: center;" text="Status" />
               </columns>
             </TableView>
             <JFXButton fx:id="searchButtonID" contentDisplay="RIGHT" layoutX="291.0" layoutY="12.0" onAction="#searchButton" prefHeight="49.0" prefWidth="136.0" text="SEARCH" textFill="WHITE">
@@ -125,6 +124,7 @@
             <TextField fx:id="secondNameTextID" layoutX="163.0" layoutY="221.0" prefHeight="30.0" prefWidth="200.0" />
             <TextField fx:id="phoneNumberTextID" layoutX="163.0" layoutY="278.0" prefHeight="30.0" prefWidth="200.0" />
             <TextField fx:id="licensePlateTextID" layoutX="163.0" layoutY="340.0" prefHeight="30.0" prefWidth="200.0" />
+            <JFXComboBox fx:id="typeVehicleClientBoxID" focusColor="#e0cc00" layoutX="90.0" layoutY="23.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
             <JFXComboBox fx:id="timeBoxID" layoutX="172.0" layoutY="394.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
             <JFXButton fx:id="calculatePriceButtonID" layoutX="297.0" layoutY="377.0" onAction="#calculatePriceButton" prefHeight="62.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Calculate" textFill="WHITE">
                <font>

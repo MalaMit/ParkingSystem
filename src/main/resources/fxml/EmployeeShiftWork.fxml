@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="550.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.EmployeeShiftWorkController">
+   <children>
+      <Pane prefHeight="550.0" prefWidth="540.0" style="-fx-background-color: black;">
+         <children>
+            <TableView fx:id="shiftTable" prefHeight="460.0" prefWidth="540.0">
+              <columns>
+                <TableColumn fx:id="columnID" prefWidth="50.0" style="-fx-alignment: center;" text="ID" />
+                <TableColumn fx:id="columnShiftStart" prefWidth="130.0" style="-fx-alignment: center;" text="Shift Start" />
+                  <TableColumn fx:id="columnShiftEnd" prefWidth="130.0" style="-fx-alignment: center;" text="Shift End" />
+                  <TableColumn fx:id="columnPesel" prefWidth="130.0" style="-fx-alignment: center;" text="Pesel" />
+                  <TableColumn fx:id="columnShiftType" prefWidth="100.0" style="-fx-alignment: center;" text="Shift Type" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="addWorkTimeButtonID" layoutX="190.0" layoutY="486.0" onAction="#addWorkTimeButton" prefHeight="50.0" prefWidth="160.0" style="-fx-border-color: white;" text="Add Work Time" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="366.0" layoutY="486.0" onAction="#closeButton" prefHeight="50.0" prefWidth="160.0" style="-fx-border-color: white;" text="Close" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="peselFieldID" editable="false" labelFloat="true" layoutX="14.0" layoutY="489.0" prefHeight="44.0" prefWidth="160.0" promptText="Pesel" style="-fx-text-fill: white;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="22.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

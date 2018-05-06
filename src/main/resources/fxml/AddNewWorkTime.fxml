@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.AddNewWorkTimeController">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: black;">
+         <children>
+            <Label layoutX="30.0" layoutY="234.0" text="Time Start:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="315.0" text="Time End:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="142.0" text="Work Type:" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="20.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="workTypeBoxID" layoutX="202.0" layoutY="119.0" prefHeight="46.0" prefWidth="250.0" style="-fx-font-size: 20;" visibleRowCount="3" />
+            <JFXDatePicker fx:id="dateStartID" defaultColor="#4059a9" layoutX="408.0" layoutY="208.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
+            <JFXDatePicker fx:id="dateEndID" defaultColor="#4059a9" layoutX="408.0" layoutY="289.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
+            <JFXTimePicker fx:id="timeStartID" defaultColor="#4059a9" layoutX="202.0" layoutY="208.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
+            <JFXTimePicker fx:id="timeEndID" defaultColor="#4059a9" layoutX="202.0" layoutY="289.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
+            <JFXButton fx:id="cancelButtonID" layoutX="88.0" layoutY="419.0" onAction="#cancelButton" prefHeight="50.0" prefWidth="188.0" style="-fx-border-color: white;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="applyButtonID" layoutX="332.0" layoutY="419.0" onAction="#applyButton" prefHeight="50.0" prefWidth="188.0" style="-fx-border-color: white;" text="Apply" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="peselFieldID" editable="false" labelFloat="true" layoutX="22.0" layoutY="31.0" prefHeight="44.0" prefWidth="160.0" promptText="Pesel" style="-fx-text-fill: white;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="22.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

@@ -14,7 +14,7 @@
    <children>
       <Pane prefHeight="547.0" prefWidth="815.0" style="-fx-background-color: #303030;;">
          <children>
-            <TableView fx:id="clientTable" prefHeight="547.0" prefWidth="600.0">
+            <TableView fx:id="clientTable" layoutX="215.0" prefHeight="547.0" prefWidth="600.0">
               <columns>
                 <TableColumn fx:id="columnLicensePlate" prefWidth="150.0" style="-fx-alignment: CENTER;" text="License Plate" />
                 <TableColumn fx:id="columnFirstName" prefWidth="150.0" style="-fx-alignment: CENTER;" text="First Name" />
@@ -22,7 +22,7 @@
                   <TableColumn fx:id="columnPhoneNumber" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Phone Number" />
               </columns>
             </TableView>
-            <JFXButton fx:id="clientHistoryButtonID" contentDisplay="RIGHT" layoutX="611.0" layoutY="289.0" onAction="#clientHistoryButton" prefHeight="90.0" prefWidth="195.0" style="-fx-border-color: white;" text="Client’s history " textAlignment="CENTER" textFill="WHITE">
+            <JFXButton fx:id="clientHistoryButtonID" contentDisplay="RIGHT" layoutX="14.0" layoutY="443.0" onAction="#clientHistoryButton" prefHeight="90.0" prefWidth="195.0" style="-fx-border-color: white;" text="Client’s history " textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
                </font>
@@ -34,12 +34,12 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXTextField fx:id="searchClientID" alignment="CENTER" layoutX="611.0" layoutY="133.0" onKeyReleased="#searchClient" prefHeight="44.0" prefWidth="166.0" promptText="Search Client" style="-fx-text-fill: white;">
+            <JFXTextField fx:id="searchClientID" alignment="CENTER" labelFloat="true" layoutX="36.0" layoutY="39.0" onKeyReleased="#searchClient" prefHeight="44.0" prefWidth="166.0" promptText="Search Client" style="-fx-text-fill: white;">
                <font>
                   <Font name="Verdana Italic" size="16.0" />
                </font>
             </JFXTextField>
-            <ImageView fitHeight="51.0" fitWidth="30.0" layoutX="777.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="51.0" fitWidth="30.0" layoutX="14.0" layoutY="46.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icon/icon_Search.png" />
                </image>

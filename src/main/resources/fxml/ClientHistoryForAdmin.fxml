@@ -21,16 +21,16 @@
                   <TableColumn fx:id="columnBill" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Bill" />
               </columns>
             </TableView>
-            <JFXTextField fx:id="licensePlateFieldID" alignment="CENTER" disable="true" labelFloat="true" layoutX="14.0" layoutY="440.0" prefHeight="46.0" prefWidth="195.0" promptText="License Plate" style="-fx-text-fill: white;" unFocusColor="WHITE">
-               <font>
-                  <Font name="Verdana Italic" size="20.0" />
-               </font>
-            </JFXTextField>
-            <JFXButton fx:id="closeButtonID" alignment="CENTER" layoutX="378.0" layoutY="414.0" onAction="#closeButton" prefHeight="70.0" prefWidth="204.0" style="-fx-border-color: white;" text="Close" textFill="WHITE">
+            <JFXButton fx:id="closeButtonID" alignment="CENTER" layoutX="378.0" layoutY="414.0" onAction="#closeButton" prefHeight="70.0" prefWidth="204.0" style="-fx-border-color: white;" text="Close" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="31.0" />
                </font>
             </JFXButton>
+            <JFXTextField fx:id="licensePlateFieldID" editable="false" labelFloat="true" layoutX="22.0" layoutY="424.0" prefHeight="50.0" prefWidth="210.0" promptText="License Plate" style="-fx-text-fill: white;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="22.0" />
+               </font>
+            </JFXTextField>
          </children>
       </Pane>
    </children>

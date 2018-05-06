@@ -5,23 +5,23 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <StackPane prefHeight="547.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.AdminAccountPanelController">
    <children>
-      <AnchorPane prefHeight="547.0" prefWidth="815.0" style="-fx-background-color: #303030;">
+      <Pane prefHeight="547.0" prefWidth="815.0" style="-fx-background-color: #303030;">
          <children>
-            <TableView fx:id="adminTableView" layoutX="-4.0" prefHeight="547.0" prefWidth="627.0" style="-fx-border-color: #303030;">
+            <TableView fx:id="adminTableView" layoutX="225.0" prefHeight="547.0" prefWidth="590.0" style="-fx-border-color: #303030;">
               <columns>
-                  <TableColumn fx:id="columnID" prefWidth="55.0" style="-fx-alignment: CENTER;" text="ID" />
-                  <TableColumn fx:id="columnLogin" prefWidth="190.0" style="-fx-alignment: CENTER;" text="Login" />
-                <TableColumn fx:id="columnFirstName" prefWidth="190.0" style="-fx-alignment: CENTER;" text="First Name" />
-                  <TableColumn fx:id="columnSecondName" prefWidth="190.0" style="-fx-alignment: CENTER;" text="Second Name" />
+                  <TableColumn fx:id="columnID" prefWidth="50.0" style="-fx-alignment: CENTER;" text="ID" />
+                  <TableColumn fx:id="columnLogin" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Login" />
+                <TableColumn fx:id="columnFirstName" prefWidth="180.0" style="-fx-alignment: CENTER;" text="First Name" />
+                  <TableColumn fx:id="columnSecondName" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Second Name" />
               </columns>
             </TableView>
-            <JFXButton fx:id="addNewAdminID" contentDisplay="RIGHT" layoutX="628.0" layoutY="43.0" onAction="#addNewAdminButton" prefHeight="100.0" prefWidth="180.0" style="-fx-border-color: white;" text="Add New Admin " textFill="WHITE">
+            <JFXButton fx:id="addNewAdminID" contentDisplay="RIGHT" layoutX="28.0" layoutY="65.0" onAction="#addNewAdminButton" prefHeight="100.0" prefWidth="180.0" style="-fx-border-color: white;" text="Add New Admin " textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="13.0" />
                </font>
@@ -33,7 +33,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="changePasswordID" contentDisplay="RIGHT" layoutX="628.0" layoutY="199.0" onAction="#changePasswordButton" prefHeight="100.0" prefWidth="180.0" style="-fx-border-color: white;" text="Change Password" textFill="WHITE">
+            <JFXButton fx:id="changePasswordID" contentDisplay="RIGHT" layoutX="28.0" layoutY="202.0" onAction="#changePasswordButton" prefHeight="100.0" prefWidth="180.0" style="-fx-border-color: white;" text="Change Password" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="13.0" />
                </font>
@@ -45,7 +45,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="deleteAdminID" contentDisplay="RIGHT" layoutX="628.0" layoutY="359.0" onAction="#deleteAdminButton" prefHeight="100.0" prefWidth="180.0" style="-fx-border-color: white;" text="Delete Admin" textFill="WHITE">
+            <JFXButton fx:id="deleteAdminID" contentDisplay="RIGHT" layoutX="28.0" layoutY="344.0" onAction="#deleteAdminButton" prefHeight="100.0" prefWidth="180.0" style="-fx-border-color: white;" text="Delete Admin" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
                </font>
@@ -58,6 +58,6 @@
                </graphic>
             </JFXButton>
          </children>
-      </AnchorPane>
+      </Pane>
    </children>
 </StackPane>

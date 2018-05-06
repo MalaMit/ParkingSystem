@@ -73,7 +73,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="licensePlateFieldID" focusColor="GOLD" layoutX="153.0" layoutY="187.0" prefHeight="46.0" prefWidth="228.0" promptText="License Plate" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+            <JFXTextField fx:id="licensePlateFieldID" focusColor="GOLD" labelFloat="true" layoutX="153.0" layoutY="187.0" prefHeight="46.0" prefWidth="228.0" promptText="License Plate" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
                <font>
                   <Font name="Verdana Italic" size="20.0" />
                </font>
