@@ -34,7 +34,7 @@ public class AdminChangePasswordController implements Initializable {
 	void applyButton(ActionEvent event) {
 		if (passwordOneID.getText().equals(passwordTwoID.getText())) {
 			
-			FirstPanelController.adminDAOImpl.updateAdminChangePassword(Integer.parseInt(adminAccountID.getText()),
+			AdminPanelAccessController.adminDAOImpl.updateAdminChangePassword(Integer.parseInt(adminAccountID.getText()),
 					passwordOneID.getText());
 			
 			((Node)(event.getSource())).getScene().getWindow().hide();

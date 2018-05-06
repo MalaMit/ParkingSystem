@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXTextField;
 import applicationStart.Main;
 import databaseModel.ParkingTime;
 import javafx.beans.binding.Bindings;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,14 +50,15 @@ public class ExitClientParkingController implements Initializable {
 
 	@FXML
 	private JFXTextField licensePlateFieldID;
+	
 
 	@FXML
 	void PayButton(ActionEvent event) {
-		FirstPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabelID.getText());
+		UserPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabelID.getText());
 
-		FirstPanelController.parkingTimeDAOImpl.deleteParkingTime(licensePlateFieldID.getText());
+		UserPanelController.parkingTimeDAOImpl.deleteParkingTime(licensePlateFieldID.getText());
 
-		FirstPanelController.parkingHistoryDAOImpl.insertParkingHistory(timeInLabelID.getText(),
+		AdminPanelAccessController.parkingHistoryDAOImpl.insertParkingHistory(timeInLabelID.getText(),
 				declareTimeLabelID.getText(), totalPriceLabelID.getText(), licensePlateFieldID.getText(),
 				parkingSpotLabelID.getText());
 
@@ -67,27 +67,26 @@ public class ExitClientParkingController implements Initializable {
 
 	@FXML
 	void SearchClientForLicenseButton(ActionEvent event) {
-		if (FirstPanelController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText()) == true) {
+		if (UserPanelController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText()) == true) {
 			
-			ObservableList<ParkingTime> lista = FirstPanelController.parkingTimeDAOImpl
-					.getToExitParking(licensePlateFieldID.getText());
+			ParkingTime pTime = UserPanelController.parkingTimeDAOImpl.getToExitParking(licensePlateFieldID.getText());
 
-			timeInLabelID.setText(lista.get(0).getTimeIn());
+			timeInLabelID.setText(pTime.getTimeIn());
 			
-			declareTimeLabelID.setText(lista.get(0).getTimeOut());
+			declareTimeLabelID.setText(pTime.getTimeOut());
 			
-			priceLabelID.setText(Float.toString(lista.get(0).getBill()));
+			priceLabelID.setText(Float.toString(pTime.getBill()));
 			
-			parkingSpotLabelID.setText(lista.get(0).getParkingNumber());
+			parkingSpotLabelID.setText(pTime.getParkingNumber());
 			
-			typeVehicleLabelID.setText(lista.get(0).getTypeVehicle());
+			typeVehicleLabelID.setText(pTime.getTypeVehicle());
 
 			overrunTimeLabelID.setText(Integer.toString(
-					FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())));
+					UserPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())));
 
-			totalPriceLabelID.setText(Float.toString((lista.get(0).getBill())
-					+ ((FirstPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())))
-							* (FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleLabelID.getText()))));
+			totalPriceLabelID.setText(Float.toString((pTime.getBill())
+					+ ((UserPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())))
+							* (UserPanelController.typeVehicleDAOImpl.getPrice(typeVehicleLabelID.getText()))));
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("License Plate error!");

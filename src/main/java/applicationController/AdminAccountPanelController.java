@@ -96,7 +96,7 @@ public class AdminAccountPanelController implements Initializable {
 	@FXML
 	void deleteAdminButton(ActionEvent event) {
 		if (adminTableView.getSelectionModel().getSelectedIndex() >= 0) {
-			FirstPanelController.adminDAOImpl
+			AdminPanelAccessController.adminDAOImpl
 					.deleteAdmin(adminTableView.getSelectionModel().getSelectedItem().getAdminID());
 			refreshTable();
 		}
@@ -117,7 +117,7 @@ public class AdminAccountPanelController implements Initializable {
 	}
 
 	public void refreshTable() {
-		adminTableView.setItems(FirstPanelController.adminDAOImpl.getAllAdmin());
+		adminTableView.setItems(AdminPanelAccessController.adminDAOImpl.getAllAdmin());
 	}
 
 	public void setAdminAccountPanel(AdminPanelAccessController adminPanelAccessController) {

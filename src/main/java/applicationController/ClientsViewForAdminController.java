@@ -29,7 +29,7 @@ public class ClientsViewForAdminController implements Initializable {
 
 	private AdminPanelAccessController adminPanelAccessController;
 
-	private ObservableList<Client> clientList = FirstPanelController.clientDAOImpl.getAllClient();
+	private ObservableList<Client> clientList = UserPanelController.clientDAOImpl.getAllClient();
 
 	private FilteredList<Client> filter = new FilteredList<>(clientList, e -> true);
 
@@ -72,7 +72,7 @@ public class ClientsViewForAdminController implements Initializable {
 
 			window.setScene(scene);
 			window.initModality(Modality.APPLICATION_MODAL);
-			window.setTitle("Change Password");
+			window.setTitle("Client History");
 			window.setResizable(false);
 			window.showAndWait();
 

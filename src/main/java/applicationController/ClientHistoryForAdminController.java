@@ -1,7 +1,6 @@
 package applicationController;
 
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -50,7 +49,7 @@ public class ClientHistoryForAdminController implements Initializable{
 			@Override
 			public void run() {
 				Platform.runLater(() -> {
-					historyClientTable.setItems(FirstPanelController.parkingHistoryDAOImpl.getHistoryByLicensePlate(licensePlateFieldID.getText()));
+					historyClientTable.setItems(AdminPanelAccessController.parkingHistoryDAOImpl.getHistoryByLicensePlate(licensePlateFieldID.getText()));
 				});
 			}
 		};
@@ -63,7 +62,6 @@ public class ClientHistoryForAdminController implements Initializable{
 	    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//.substring(0, (lista.get(0).getTimeOut()).indexOf("."))
 		columnID.setCellValueFactory(cellData -> cellData.getValue().getHistoryParkingIDProperty().asObject());
 		columnTimeIn.setCellValueFactory(cellData -> cellData.getValue().getTimeInProperty());
 		columnTimeOut.setCellValueFactory(cellData -> cellData.getValue().getTimeOutProperty());

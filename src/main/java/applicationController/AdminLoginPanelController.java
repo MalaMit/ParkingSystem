@@ -32,7 +32,7 @@ public class AdminLoginPanelController implements Initializable {
 	@FXML
 	void accessAdminButtonAction(ActionEvent event) {
 
-		if ((FirstPanelController.adminDAOImpl.getLoginAdminByLoginAndPassword(textLogin.getText(),
+		if ((AdminPanelAccessController.adminDAOImpl.getLoginAdminByLoginAndPassword(textLogin.getText(),
 				textPassword.getText())) == true) {
 			Parent parent = null;
 			try {

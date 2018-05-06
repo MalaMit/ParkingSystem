@@ -4,12 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import applicationStart.Main;
-import databaseDAOImpl.AdminDAOImpl;
-import databaseDAOImpl.ClientDAOImpl;
-import databaseDAOImpl.ParkingHistoryDAOImpl;
-import databaseDAOImpl.ParkingSpotDAOImpl;
-import databaseDAOImpl.ParkingTimeDAOImpl;
-import databaseDAOImpl.TypeVehicleDAOImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,13 +13,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class FirstPanelController implements Initializable {
-
-	static TypeVehicleDAOImpl typeVehicleDAOImpl = new TypeVehicleDAOImpl();
-	static ParkingSpotDAOImpl parkingSpotDAOImpl = new ParkingSpotDAOImpl();
-	static ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
-	static ParkingTimeDAOImpl parkingTimeDAOImpl = new ParkingTimeDAOImpl();
-	static AdminDAOImpl adminDAOImpl = new AdminDAOImpl();
-	static ParkingHistoryDAOImpl parkingHistoryDAOImpl = new ParkingHistoryDAOImpl();
 
 	@FXML
 	private void userPanelButton(ActionEvent event) {

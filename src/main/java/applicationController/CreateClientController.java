@@ -3,11 +3,11 @@ package applicationController;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
+
 import databaseModel.ParkingSpot;
 import databaseModel.TypeVehicle;
 import javafx.beans.binding.Bindings;
@@ -27,7 +27,7 @@ public class CreateClientController implements Initializable {
 	private UserPanelController userPanelController;
 
 	@FXML
-	private JFXComboBox<TypeVehicle> typeVehicleBoxID;
+	private JFXComboBox<TypeVehicle> typeVehicleClientBoxID;
 
 	@FXML
 	private JFXComboBox<Integer> timeBoxID;
@@ -84,28 +84,28 @@ public class CreateClientController implements Initializable {
 		// create client
 		if (checkBoxCllientID.isSelected() == false) {
 			
-			FirstPanelController.clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
+			UserPanelController.clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
 					secondNameTextID.getText(), phoneNumberTextID.getText());
 			
-			FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
+			UserPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
 					dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
-					Integer.parseInt(chargeLabelID.getText()), typeVehicleBoxID.getValue().toString(),
+					Integer.parseInt(chargeLabelID.getText()), typeVehicleClientBoxID.getValue().toString(),
 					viewSelectSpotLabelID.getText());
 			
-			FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
+			UserPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
 			
 			// end view
 			userPanelController.endCreateClientPanel();
 		} else {
 			if ((checkBoxCllientID.isSelected()) != false
-					&& (FirstPanelController.clientDAOImpl.checkLicensePlate(licensePlateTextID.getText())) != false) {
+					&& (UserPanelController.clientDAOImpl.checkLicensePlate(licensePlateTextID.getText())) != false) {
 				
-				FirstPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
+				UserPanelController.parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
 						dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
-						Integer.parseInt(chargeLabelID.getText()), typeVehicleBoxID.getValue().toString(),
+						Integer.parseInt(chargeLabelID.getText()), typeVehicleClientBoxID.getValue().toString(),
 						viewSelectSpotLabelID.getText());
 				
-				FirstPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
+				UserPanelController.parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
 				
 				// end view
 				userPanelController.endCreateClientPanel();
@@ -124,14 +124,13 @@ public class CreateClientController implements Initializable {
 		viewSelectSpotLabelID.setText(""); // clean selectSpot Label
 
 		viewPriceLabelID.setText(Integer
-				.toString(FirstPanelController.typeVehicleDAOImpl.getPrice(typeVehicleBoxID.getValue().toString())));
+				.toString(UserPanelController.typeVehicleDAOImpl.getPrice(typeVehicleClientBoxID.getValue().toString())));
 
 		parkingPlaceColumn.setCellValueFactory(cellData -> cellData.getValue().getNumberSpotProperty());
 		
 		statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusProperty());
 
-		pPlaceTable.setItems(
-				FirstPanelController.parkingSpotDAOImpl.getAllParkingSpot(typeVehicleBoxID.getValue().toString()));
+		pPlaceTable.setItems(UserPanelController.parkingSpotDAOImpl.getAllFreeParkingSpot(typeVehicleClientBoxID.getValue().toString()));
 	}
 
 	@FXML
@@ -159,13 +158,12 @@ public class CreateClientController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		timeBoxID.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);
-		//// Metoda toString potem może zrobie konwerter
-		ArrayList<TypeVehicle> typeV = FirstPanelController.typeVehicleDAOImpl.getAllTypeVehicle();
-		typeVehicleBoxID.getItems().addAll(typeV);
-
+		
+		typeVehicleClientBoxID.getItems().addAll(UserPanelController.typeVehicleDAOImpl.getAllTypeVehicle());
+		
 		// bind property
 		searchButtonID.disableProperty().bind(BooleanExpression
-				.booleanExpression(this.typeVehicleBoxID.getSelectionModel().selectedItemProperty().isNull()));
+				.booleanExpression(this.typeVehicleClientBoxID.getSelectionModel().selectedItemProperty().isNull()));
 		
 		firstNameTextID.disableProperty()
 				.bind((BooleanProperty.booleanProperty(this.checkBoxCllientID.selectedProperty())
