@@ -41,9 +41,9 @@ public class AddNewAdminAccountController implements Initializable{
 
     @FXML
     void applyButton(ActionEvent event) {
-    	if(passwordOneID.getText().equals(passwordTwoID.getText()) && (FirstPanelController.adminDAOImpl.checkLoginIsExisting(loginID.getText()) != true)) {
+    	if(passwordOneID.getText().equals(passwordTwoID.getText()) && (AdminPanelAccessController.adminDAOImpl.checkLoginIsExisting(loginID.getText()) != true)) {
     		
-    		FirstPanelController.adminDAOImpl.insertAdmin(loginID.getText(), passwordOneID.getText(), firstNameID.getText(), secondNameID.getText());
+    		AdminPanelAccessController.adminDAOImpl.insertAdmin(loginID.getText(), passwordOneID.getText(), firstNameID.getText(), secondNameID.getText());
     		((Node)(event.getSource())).getScene().getWindow().hide();
     		
     	}else {
