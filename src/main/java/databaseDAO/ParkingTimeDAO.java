@@ -6,8 +6,8 @@ import javafx.collections.ObservableList;
 
 public interface ParkingTimeDAO {
 	
-	ObservableList<ParkingTime> getAllTakenSPot();
-	ObservableList<ParkingTime> getToExitParking(String licensePlate);
+	ObservableList<ParkingTime> getAllTakenSpot();
+	ParkingTime getToExitParking(String licensePlate);
 	boolean checkLicensePlateExist(String licensePlate);
 	int getOverrunTimePrice(String licensePlate);
 	

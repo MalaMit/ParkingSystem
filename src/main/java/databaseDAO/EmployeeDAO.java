@@ -1,17 +1,11 @@
 package databaseDAO;
 
-import java.sql.Date;
-import java.util.List;
-
-import databaseImplementDao.OrderBy;
 import databaseModel.Employee;
-import databaseModel.EmployeeType;
+import javafx.collections.ObservableList;
 
 public interface EmployeeDAO {
-	List<Employee> getAllEmployees();
-    void addEmployee(Long pesel, String fname, String surname, String idseriesnumber, Date datemployed, Float hourlywage, EmployeeType position);
-    Employee getEmployeeByPesel(String pesel);
-    Employee getEmployeeByFirstName();
-    Employee getEmployeeBySurname();
-    Employee getEmployeeByDateOfBirth(OrderBy orderBy);
+	ObservableList<Employee> getAllAmployee();
+	
+	boolean insertEmployee(Long pesel, String firstName, String secondName, String dateEmployed, Float hourlyWage, String phoneNumber, String jobPost);
+	boolean deleteEmployee(Long employee);
 }
