@@ -1,7 +1,7 @@
 package databaseModel;
 
-public enum EmployeeType {
+public enum EnumEmployeeType {
 	
-	CASHIER,GUARD,MANAGER,REGULAR;
+	CASHIER,GUARD,MANAGER,REGULAR,ADMINISTRATOR;
 
 }

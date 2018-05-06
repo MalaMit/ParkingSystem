@@ -1,6 +1,5 @@
 package databaseModel;
 
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -8,12 +7,12 @@ public class ParkingSpot {
 	
 	private StringProperty numberSpot;
 	private StringProperty status;
-	private SimpleObjectProperty<TypeVehicle> typeVehicle;
+	private StringProperty typeVehicle;
 	
 	public ParkingSpot() {
 		this.numberSpot = new SimpleStringProperty();
 		this.status = new SimpleStringProperty();
-		this.typeVehicle = new SimpleObjectProperty<>();
+		this.typeVehicle = new SimpleStringProperty();
 	}
 		
 	////numberSpot
@@ -44,19 +43,15 @@ public class ParkingSpot {
 	}
 	
 	////TypeVehicleID
-	public TypeVehicle getTypeVehicle() {
+	public String getTypeVehicle() {
 		return typeVehicle.get();
 	}
 	
-	public void setTypeVehicle( TypeVehicle typeVehicle) {
+	public void setTypeVehicle( String typeVehicle) {
 		this.typeVehicle.set(typeVehicle);
 	}
 	
-	public SimpleObjectProperty<TypeVehicle> getTypeVehicleProperty() {
+	public StringProperty getTypeVehicleProperty() {
 		return typeVehicle;
-	}
-	
-	public String toString() {
-		return numberSpot.get() +" "+  status.get();
 	}
 }

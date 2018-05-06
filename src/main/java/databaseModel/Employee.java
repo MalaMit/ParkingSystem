@@ -1,147 +1,137 @@
 package databaseModel;
 
+import javafx.beans.property.FloatProperty;
+import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Employee {
-	private SimpleStringProperty name;
-    private SimpleStringProperty surname;
-    public SimpleLongProperty pesel;
-    public SimpleStringProperty idSeriesNumber;
-    public SimpleStringProperty dateEmployed;
-    public SimpleFloatProperty hourlyWage;
-    public SimpleStringProperty position;
-    public String login;
-    public String passHash;
-    public int phone;
+
+	private StringProperty name;
+    private StringProperty surname;
+    private LongProperty pesel;
+    private StringProperty phone;
+    private StringProperty dateEmployed;
+    private FloatProperty hourlyWage;
+    private StringProperty position;
 
     public Employee(){
 
-        name = new SimpleStringProperty();
-        surname = new SimpleStringProperty();
-        pesel = new SimpleLongProperty();
-        idSeriesNumber = new SimpleStringProperty();
-        hourlyWage = new SimpleFloatProperty();
-        position = new SimpleStringProperty();
-        dateEmployed = new SimpleStringProperty();
+    	this.name = new SimpleStringProperty();
+    	this. surname = new SimpleStringProperty();
+    	this.pesel = new SimpleLongProperty();
+    	this.phone = new SimpleStringProperty();
+    	this. hourlyWage = new SimpleFloatProperty();
+    	this.position = new SimpleStringProperty();
+    	this. dateEmployed = new SimpleStringProperty();
 
     }
-
-    public Employee(SimpleStringProperty name, SimpleStringProperty surname, SimpleLongProperty pesel, SimpleStringProperty idSeriesNumber, SimpleStringProperty dateEmployed, SimpleFloatProperty hourlyWage) {
-        this.name = name;
-        this.surname = surname;
-        this.pesel = pesel;
-        this.idSeriesNumber = idSeriesNumber;
-        this.dateEmployed = dateEmployed;
-        this.hourlyWage = hourlyWage;
-    }
-
-    public String getName() {
-        return name.get();
-    }
-
-    public SimpleStringProperty nameProperty() {
-        return name;
-    }
-
+    
+	/**
+	 * name
+	 */
     public void setName(String name) {
-        this.name.set(name);
+    	this.name.set(name);
     }
-
-    public String getSurname() {
-        return surname.get();
+    
+    public String getName() {
+    	return name.get();
     }
+    
+	public StringProperty getNameProperty() {
+		return name;
+	}
 
-    public SimpleStringProperty surnameProperty() {
-        return surname;
-    }
-
+	/**
+	 * surname
+	 */
     public void setSurname(String surname) {
-        this.surname.set(surname);
+    	this.surname.set(surname);
     }
-
-    public long getPesel() {
-        return pesel.get();
+    
+    public String getSurname() {
+    	return surname.get();
     }
+    
+	public StringProperty getSurnameProperty() {
+		return surname;
+	}
 
-    public SimpleLongProperty peselProperty() {
-        return pesel;
+	/**
+	 * pesel
+	 */
+    public void setPesel(Long pesel) {
+    	this.pesel.set(pesel);
     }
-
-    public void setPesel(long pesel) {
-        this.pesel.set(pesel);
+    
+    public Long getPesel() {
+    	return pesel.get();
     }
+    
+	public LongProperty getPeselProperty() {
+		return pesel;
+	}
 
-    public String getIdSeriesNumber() {
-        return idSeriesNumber.get();
+	/**
+	 * phone
+	 */
+    public void setPhone(String phone) {
+    	this.phone.set(phone);
     }
-
-    public SimpleStringProperty idSeriesNumberProperty() {
-        return idSeriesNumber;
+    
+    public String getPhone() {
+    	return phone.get();
     }
+    
+	public StringProperty getPhoneProperty() {
+		return phone;
+	}
 
-    public void setIdSeriesNumber(String idSeriesNumber) {
-        this.idSeriesNumber.set(idSeriesNumber);
-    }
-
-    public String getDateEmployed() {
-        return dateEmployed.get();
-    }
-
-    public SimpleStringProperty dateEmployedProperty() {
-        return dateEmployed;
-    }
-
+	/**
+	 * dateEmployed
+	 */
     public void setDateEmployed(String dateEmployed) {
-        this.dateEmployed.set(dateEmployed);
+    	this.dateEmployed.set(dateEmployed);
     }
-
-    public float getHourlyWage() {
-        return hourlyWage.get();
+    
+    public String getDateEmployed() {
+    	return dateEmployed.get();
     }
+    
+	public StringProperty getDateEmployedProperty() {
+		return dateEmployed;
+	}
 
-    public SimpleFloatProperty hourlyWageProperty() {
-        return hourlyWage;
+	/**
+	 * hourlyWage
+	 */
+    public void setHourlyWage(Float hourlyWage) {
+    	this.hourlyWage.set(hourlyWage);
     }
-
-    public void setHourlyWage(float hourlyWage) {
-        this.hourlyWage.set(hourlyWage);
+    
+    public Float getHourlyWage() {
+    	return hourlyWage.get();
     }
+    
+	public FloatProperty getHourlyWageProperty() {
+		return hourlyWage;
+	}
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassHash() {
-        return passHash;
-    }
-
-    public void setPassHash(String passHash) {
-        this.passHash = passHash;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public String getPosition() {
-        return position.get();
-    }
-
-    public SimpleStringProperty positionProperty() {
-        return position;
-    }
-
+	/**
+	 * position
+	 */
     public void setPosition(String position) {
-        this.position.set(position);
-}
+    	this.position.set(position);
+    }
+    
+    public String getPosition() {
+    	return position.get();
+    }
+    
+	public StringProperty getPositionProperty() {
+		return position;
+	}
+  
 }
