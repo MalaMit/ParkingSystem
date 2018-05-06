@@ -14,7 +14,7 @@ public class ParkingHistoryDAOImpl implements ParkingHistoryDAO {
 	@Override
 	public boolean insertParkingHistory(String timeIN, String timeOut, String bill, String licensePlate,
 			String parkingNumber) {
-		String sql = "INSERT INTO historyparking (timeIN, timeOut, bill, ClientLicensePlate, parkingNumber) VALUES ('"
+		String sql = "INSERT INTO parkinghistory (timeIN, timeOut, bill, licensePlate, parkingNumber) VALUES ('"
 				+ timeIN + "', '" + timeOut + "', '" + bill + "', '" + licensePlate + "', '" + parkingNumber + "')";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
@@ -26,29 +26,17 @@ public class ParkingHistoryDAOImpl implements ParkingHistoryDAO {
 	}
 
 	@Override
-	public boolean updateParkingHistory() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean deleteParkingHistory() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public ObservableList<ParkingHistory> getHistoryByLicensePlate(String licensePlate) {
-		String sql = "SELECT HistoryParkingID, TimeIN, TimeOut, Bill, parkingNumber FROM historyparking WHERE ClientLicensePlate = '"+ licensePlate +"'" ;
+		String sql = "SELECT historyParkingID, timeIn, timeOut, bill, parkingNumber FROM parkinghistory WHERE licensePlate = '"+ licensePlate +"'" ;
 		try {
 			ResultSet rsSet  = DBUtil.dbExecute(sql);
 			ObservableList<ParkingHistory> pHistory = FXCollections.observableArrayList();
 			while(rsSet.next()) {
 				ParkingHistory pH = new ParkingHistory();
-				pH.setHistoryParkingID(rsSet.getInt("HistoryParkingID"));
-				pH.setTimeIn(rsSet.getString("TimeIn").substring(0, (rsSet.getString("TimeIn").indexOf("."))));
-				pH.setTimeOut(rsSet.getString("TimeOut").substring(0, (rsSet.getString("TimeIn").indexOf("."))));			
-				pH.setBill(rsSet.getFloat("Bill"));
+				pH.setHistoryParkingID(rsSet.getInt("historyParkingID"));
+				pH.setTimeIn(rsSet.getString("timeIn").substring(0, (rsSet.getString("timeIn").indexOf("."))));
+				pH.setTimeOut(rsSet.getString("timeOut").substring(0, (rsSet.getString("timeOut").indexOf("."))));			
+				pH.setBill(rsSet.getFloat("bill"));
 				pH.setParkingNumber(rsSet.getString("parkingNumber"));
 				pHistory.add(pH);
 			}	

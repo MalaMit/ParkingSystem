@@ -2,22 +2,14 @@ package databaseDAOImpl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import databaseDAO.ClientDAO;
 import databaseModel.Client;
-import databaseModel.TypeVehicle;
 import databaseUtil.DBUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class ClientDAOImpl implements ClientDAO {
-
-	@Override
-	public ArrayList<TypeVehicle> getClientForLicensePlate(String licensePlate) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public ObservableList<Client> getAllClient() {
@@ -56,7 +48,7 @@ public class ClientDAOImpl implements ClientDAO {
 
 	@Override
 	public boolean checkLicensePlate(String licensePlate) {
-		String sql = "SELECT * FROM client WHERE LicensePlate = '" + licensePlate + "' ";
+		String sql = "SELECT licensePlate FROM client WHERE LicensePlate = '" + licensePlate + "' ";
 		boolean isExist = false;
 		try {
 			ResultSet rs = DBUtil.dbExecute(sql);
@@ -67,18 +59,6 @@ public class ClientDAOImpl implements ClientDAO {
 			e.printStackTrace();
 		}
 		return isExist;
-	}
-
-	@Override
-	public boolean updateClient() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean deleteClient() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }
