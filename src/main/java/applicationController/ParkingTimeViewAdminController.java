@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 public class ParkingTimeViewAdminController implements Initializable{
 	
 	private AdminPanelAccessController adminPanelAccessController;
-	private ObservableList<ParkingTime> pkTime = UserPanelController.parkingTimeDAOImpl.getAllTakenSpot();
+	private ObservableList<ParkingTime> pkTime = CreateClientController.parkingTimeDAOImpl.getAllTakenSpot();
 	private FilteredList<ParkingTime> filter = new FilteredList<>(pkTime, e -> true);
 	
 	

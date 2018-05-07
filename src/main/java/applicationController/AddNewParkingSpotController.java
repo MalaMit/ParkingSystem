@@ -37,8 +37,8 @@ public class AddNewParkingSpotController implements Initializable {
 
     @FXML
     void applyButton(ActionEvent event) {
-    	if((UserPanelController.parkingSpotDAOImpl.checkNumberFree(numberFieldID.getText())) != true) {
-    		UserPanelController.parkingSpotDAOImpl.insertParkingSpot(numberFieldID.getText(), typeVehicleBoxID.getSelectionModel().getSelectedItem().getType());
+    	if((CreateClientController.parkingSpotDAOImpl.checkNumberFree(numberFieldID.getText())) != true) {
+    		CreateClientController.parkingSpotDAOImpl.insertParkingSpot(numberFieldID.getText(), typeVehicleBoxID.getSelectionModel().getSelectedItem().getType());
 	    	((Node)(event.getSource())).getScene().getWindow().hide();
     	}else{
 			Alert alert = new Alert(AlertType.ERROR);
@@ -56,7 +56,7 @@ public class AddNewParkingSpotController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ArrayList<TypeVehicle> typeV = UserPanelController.typeVehicleDAOImpl.getAllTypeVehicle();
+		ArrayList<TypeVehicle> typeV = CreateClientController.typeVehicleDAOImpl.getAllTypeVehicle();
 		
 		typeVehicleBoxID.setConverter(new StringConverter<TypeVehicle>() {
 		    @Override

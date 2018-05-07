@@ -29,7 +29,7 @@ public class ClientsViewForAdminController implements Initializable {
 
 	private AdminPanelAccessController adminPanelAccessController;
 
-	private ObservableList<Client> clientList = UserPanelController.clientDAOImpl.getAllClient();
+	private ObservableList<Client> clientList = CreateClientController.clientDAOImpl.getAllClient();
 
 	private FilteredList<Client> filter = new FilteredList<>(clientList, e -> true);
 

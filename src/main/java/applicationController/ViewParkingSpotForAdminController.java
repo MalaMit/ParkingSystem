@@ -63,7 +63,7 @@ public class ViewParkingSpotForAdminController implements Initializable {
     @FXML
     void deleteSpotButton(ActionEvent event) {
     	if ((parkingSpotTable.getSelectionModel().getSelectedItem().getStatus()).contains("FREE")) {
-    		UserPanelController.parkingSpotDAOImpl.deleteParkingSpot(parkingSpotTable.getSelectionModel().getSelectedItem().getNumberSpot());
+    		CreateClientController.parkingSpotDAOImpl.deleteParkingSpot(parkingSpotTable.getSelectionModel().getSelectedItem().getNumberSpot());
     		refreshTable();
     	}
     }
@@ -85,7 +85,7 @@ public class ViewParkingSpotForAdminController implements Initializable {
 	}
 
 	public void refreshTable() {
-		parkingSpotTable.setItems(UserPanelController.parkingSpotDAOImpl.getAllParkingSpot());
+		parkingSpotTable.setItems(CreateClientController.parkingSpotDAOImpl.getAllParkingSpot());
 	}
 	
 }

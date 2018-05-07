@@ -98,8 +98,8 @@ public class ViewTypeVehicleForAdminController implements Initializable{
 
     @FXML
     void deleteTypeButton(ActionEvent event) {
-    	if(UserPanelController.typeVehicleDAOImpl.checkTypeVehicleIsNotUse(typeVehicleTable.getSelectionModel().getSelectedItem().getType()) != true) {
-	    	UserPanelController.typeVehicleDAOImpl.deleteTypeVehicle(typeVehicleTable.getSelectionModel().getSelectedItem().getType());
+    	if(CreateClientController.typeVehicleDAOImpl.checkTypeVehicleIsNotUse(typeVehicleTable.getSelectionModel().getSelectedItem().getType()) != true) {
+	    	CreateClientController.typeVehicleDAOImpl.deleteTypeVehicle(typeVehicleTable.getSelectionModel().getSelectedItem().getType());
 	    	refreshTable();
     	}
     }
@@ -119,7 +119,7 @@ public class ViewTypeVehicleForAdminController implements Initializable{
 	}
 	
 	public void refreshTable() {
-		typeVehicleTable.setItems(UserPanelController.typeVehicleDAOImpl.getPriceAndNumber());
+		typeVehicleTable.setItems(CreateClientController.typeVehicleDAOImpl.getPriceAndNumber());
 	}
 
 }

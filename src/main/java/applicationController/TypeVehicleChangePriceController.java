@@ -28,7 +28,7 @@ public class TypeVehicleChangePriceController implements Initializable {
 
     @FXML
     void applyButton(ActionEvent event) {
-    	UserPanelController.typeVehicleDAOImpl.updatePriceTypeVehicle(typeVehicleFieldID.getText(), Integer.parseInt(newPriceFieldID.getText()));
+    	CreateClientController.typeVehicleDAOImpl.updatePriceTypeVehicle(typeVehicleFieldID.getText(), Integer.parseInt(newPriceFieldID.getText()));
     	((Node)(event.getSource())).getScene().getWindow().hide();
     }
 

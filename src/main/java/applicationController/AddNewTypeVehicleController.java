@@ -28,8 +28,8 @@ public class AddNewTypeVehicleController implements Initializable{
 
     @FXML
     void applyButton(ActionEvent event) {
-    	if(UserPanelController.typeVehicleDAOImpl.checkTypeVehicleIsExist(typeVehicleFieldID.getText()) != true) {
-    	UserPanelController.typeVehicleDAOImpl.insertTypeVehicle(typeVehicleFieldID.getText(),Integer.parseInt(priceFieldID.getText()));
+    	if(CreateClientController.typeVehicleDAOImpl.checkTypeVehicleIsExist(typeVehicleFieldID.getText()) != true) {
+    	CreateClientController.typeVehicleDAOImpl.insertTypeVehicle(typeVehicleFieldID.getText(),Integer.parseInt(priceFieldID.getText()));
     	((Node)(event.getSource())).getScene().getWindow().hide();
     	}
     }

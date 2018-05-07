@@ -54,9 +54,9 @@ public class ExitClientParkingController implements Initializable {
 
 	@FXML
 	void PayButton(ActionEvent event) {
-		UserPanelController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabelID.getText());
+		CreateClientController.parkingSpotDAOImpl.changeStatusSpotExit(parkingSpotLabelID.getText());
 
-		UserPanelController.parkingTimeDAOImpl.deleteParkingTime(licensePlateFieldID.getText());
+		CreateClientController.parkingTimeDAOImpl.deleteParkingTime(licensePlateFieldID.getText());
 
 		AdminPanelAccessController.parkingHistoryDAOImpl.insertParkingHistory(timeInLabelID.getText(),
 				declareTimeLabelID.getText(), totalPriceLabelID.getText(), licensePlateFieldID.getText(),
@@ -67,9 +67,9 @@ public class ExitClientParkingController implements Initializable {
 
 	@FXML
 	void SearchClientForLicenseButton(ActionEvent event) {
-		if (UserPanelController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText()) == true) {
+		if (CreateClientController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText()) == true) {
 			
-			ParkingTime pTime = UserPanelController.parkingTimeDAOImpl.getToExitParking(licensePlateFieldID.getText());
+			ParkingTime pTime = CreateClientController.parkingTimeDAOImpl.getToExitParking(licensePlateFieldID.getText());
 
 			timeInLabelID.setText(pTime.getTimeIn());
 			
@@ -82,11 +82,11 @@ public class ExitClientParkingController implements Initializable {
 			typeVehicleLabelID.setText(pTime.getTypeVehicle());
 
 			overrunTimeLabelID.setText(Integer.toString(
-					UserPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())));
+					CreateClientController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())));
 
 			totalPriceLabelID.setText(Float.toString((pTime.getBill())
-					+ ((UserPanelController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())))
-							* (UserPanelController.typeVehicleDAOImpl.getPrice(typeVehicleLabelID.getText()))));
+					+ ((CreateClientController.parkingTimeDAOImpl.getOverrunTimePrice(licensePlateFieldID.getText())))
+							* (CreateClientController.typeVehicleDAOImpl.getPrice(typeVehicleLabelID.getText()))));
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("License Plate error!");

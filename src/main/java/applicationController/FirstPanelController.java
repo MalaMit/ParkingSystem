@@ -16,14 +16,14 @@ public class FirstPanelController implements Initializable {
 
 	@FXML
 	private void userPanelButton(ActionEvent event) {
-		Parent parent1 = null;
+		Parent parent = null;
 		try {
-			parent1 = FXMLLoader.load(getClass().getResource("/fxml/UserPanel.fxml"));
+			parent = FXMLLoader.load(getClass().getResource("/fxml/CreateClient.fxml"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Scene scene = new Scene(parent1);
+		Scene scene = new Scene(parent);
 
 		Stage window = Main.getPrimaryStage();
 
