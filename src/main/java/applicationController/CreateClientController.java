@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 
 import applicationStart.Main;
+import dataValidation.DataValidation;
 import databaseDAOImpl.ClientDAOImpl;
 import databaseDAOImpl.ParkingSpotDAOImpl;
 import databaseDAOImpl.ParkingTimeDAOImpl;
@@ -30,6 +32,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class CreateClientController implements Initializable {
 
@@ -37,6 +40,7 @@ public class CreateClientController implements Initializable {
 	static ParkingSpotDAOImpl parkingSpotDAOImpl = new ParkingSpotDAOImpl();
 	static ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
 	static ParkingTimeDAOImpl parkingTimeDAOImpl = new ParkingTimeDAOImpl();
+	private ArrayList<TypeVehicle> typeV = typeVehicleDAOImpl.getAllTypeVehicle();
 
 	@FXML
 	private JFXComboBox<TypeVehicle> typeVehicleClientBoxID;
@@ -63,16 +67,16 @@ public class CreateClientController implements Initializable {
 	private TableView<ParkingSpot> pPlaceTable;
 
 	@FXML
-	private TextField firstNameTextID;
+	private TextField firstNameTextID;//^([a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{1,20})
 
 	@FXML
-	private TextField licensePlateTextID;
+	private TextField licensePlateTextID;//^([0-9a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{1,10})
 
 	@FXML
-	private TextField phoneNumberTextID;
+	private TextField phoneNumberTextID;//^([+]{0,1})([0-9]{0,2}[\s]{0,1})([0-9]{0,3}[-]{0,1})([0-9]{0,3}[-]{0,1})([0-9]{0,3})
 
 	@FXML
-	private TextField secondNameTextID;
+	private TextField secondNameTextID;//^([a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{1,20})
 
 	@FXML
 	private JFXButton searchButtonID;
@@ -89,79 +93,108 @@ public class CreateClientController implements Initializable {
 	@FXML
 	private JFXCheckBox checkBoxCllientID;
 
-	static Thread thred = new Thread();
+    @FXML
+    private Label firstNameLabelID;
+    
+    @FXML
+    private Label secondNameLabelID;
 
+    @FXML
+    private Label phoneNumberLabelID;
+
+    @FXML
+    private Label licensePlateLabelID;
+
+	static Thread thred = new Thread();
 
 	@FXML
 	void outProgramButton(ActionEvent event) {
 		backToMain();
 	}
-	
+
 	@FXML
 	void nextPage(ActionEvent event) {
 		// create client
-		if (checkBoxCllientID.isSelected() == false) {
+		if (!parkingTimeDAOImpl.checkLicensePlateExist(licensePlateTextID.getText())) {
+			
+			if (!checkBoxCllientID.isSelected()) {
+				boolean name = DataValidation.textAlphabetWithPolishMarks(firstNameTextID, firstNameLabelID, "Name is Required (MAX 20 characters)", "20");
+				boolean secondName = DataValidation.textAlphabetWithPolishMarks(secondNameTextID, secondNameLabelID, "Second name is Required (MAX 20 characters)", "20");
+				boolean phone = DataValidation.textPhone(phoneNumberTextID, phoneNumberLabelID, "Phone is Required");
+				boolean lPlate = DataValidation.textAlphabetAndNumber(licensePlateTextID, licensePlateLabelID, "License plate is Required (1-10 characters)", "10");
+				
+				if (name && secondName && phone && lPlate) {
+					clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
+							secondNameTextID.getText(), phoneNumberTextID.getText());
 
-			clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
-					secondNameTextID.getText(), phoneNumberTextID.getText());
+					parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
+							dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
+							Integer.parseInt(chargeLabelID.getText()),
+							typeVehicleClientBoxID.getSelectionModel().getSelectedItem().getType(),
+							viewSelectSpotLabelID.getText());
 
-			parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
-					dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
-					Integer.parseInt(chargeLabelID.getText()), typeVehicleClientBoxID.getValue().toString(),
-					viewSelectSpotLabelID.getText());
-
-			parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
-
-			// end view
-			endCreateClientPanel();
-		} else {
-			if ((checkBoxCllientID.isSelected()) != false
-					&& (clientDAOImpl.checkLicensePlate(licensePlateTextID.getText())) != false) {
-
-				parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
-						dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
-						Integer.parseInt(chargeLabelID.getText()), typeVehicleClientBoxID.getValue().toString(),
-						viewSelectSpotLabelID.getText());
-
-				parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
-
-				// end view
-				endCreateClientPanel();
+					parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
+					// end view
+					endCreateClientPanel();
+				}
+				
 			} else {
-				Alert alert = new Alert(AlertType.ERROR);
-				alert.setTitle("License Plate error!");
-				alert.setHeaderText("Your license plate is invalid. Please try again");
+				if ((checkBoxCllientID.isSelected()) && parkingTimeDAOImpl.checkLicensePlateExist(licensePlateTextID.getText())) {
+					parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
+							dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
+							Integer.parseInt(chargeLabelID.getText()),
+							typeVehicleClientBoxID.getSelectionModel().getSelectedItem().getType(),
+							viewSelectSpotLabelID.getText());
 
-				alert.showAndWait();
+					parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
+
+					// end view
+					endCreateClientPanel();
+				}else {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setTitle("License Plate error!");
+					alert.setHeaderText("Your license plate is required. Please try again");
+
+					alert.showAndWait();
+				}
 			}
+		} else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("License Plate error!");
+			alert.setHeaderText("Your license plate is use now. Please try again");
+
+			alert.showAndWait();
 		}
 	}
 
 	@FXML
 	void searchButton(ActionEvent event) {
-		viewSelectSpotLabelID.setText(""); // clean selectSpot Label
+		viewSelectSpotLabelID.setText(null); // clean selectSpot Label
 
 		viewPriceLabelID.setText(Integer.toString(
-				typeVehicleDAOImpl.getPrice(typeVehicleClientBoxID.getValue().toString())));
+				typeVehicleDAOImpl.getPrice(typeVehicleClientBoxID.getSelectionModel().getSelectedItem().getType())));
 
 		parkingPlaceColumn.setCellValueFactory(cellData -> cellData.getValue().getNumberSpotProperty());
 
 		statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusProperty());
 
 		pPlaceTable.setItems(parkingSpotDAOImpl
-				.getAllFreeParkingSpot(typeVehicleClientBoxID.getValue().toString()));
+				.getAllFreeParkingSpot(typeVehicleClientBoxID.getSelectionModel().getSelectedItem().getType()));
 	}
 
 	@FXML
 	void selectSpotButton(ActionEvent event) {
+		timeBoxID.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);//time to choose
+		
 		if (pPlaceTable.getSelectionModel().getSelectedIndex() >= 0)
 			viewSelectSpotLabelID.setText(pPlaceTable.getSelectionModel().getSelectedItem().getNumberSpot());
 	}
 
 	@FXML
 	void calculatePriceButton(ActionEvent event) {
-		chargeLabelID.setText(Integer.toString(
-				Integer.parseInt(viewPriceLabelID.getText()) * timeBoxID.getSelectionModel().getSelectedItem()));
+			chargeLabelID.setText(Integer.toString(
+					Integer.parseInt(viewPriceLabelID.getText()) * timeBoxID.getSelectionModel().getSelectedItem()));
+		
 	}
 
 	@FXML
@@ -169,8 +202,8 @@ public class CreateClientController implements Initializable {
 		chargeLabelID.setText(null);
 		licensePlateTextID.setText(null);
 		timeBoxID.valueProperty().set(null);
-		
-		if (checkBoxCllientID.isSelected() == false) {
+
+		if (!checkBoxCllientID.isSelected()) {
 			licensePlateTextID.disableProperty().bind(Bindings.isEmpty(phoneNumberTextID.textProperty())
 					.or(Bindings.isEmpty(viewSelectSpotLabelID.textProperty())));
 		} else {
@@ -179,11 +212,23 @@ public class CreateClientController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		typeVehicleClientBoxID.setConverter(new StringConverter<TypeVehicle>() {
+			@Override
+			public String toString(TypeVehicle object) {
+				return object.getType();
+			}
 
-		timeBoxID.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24);
+			@Override
+			public TypeVehicle fromString(String string) {
+				return null;
+			}
 
-		typeVehicleClientBoxID.getItems().addAll(typeVehicleDAOImpl.getAllTypeVehicle());
-
+		});
+		typeVehicleClientBoxID.getItems().addAll(typeV);
+		//dorobic css
+		typeVehicleClientBoxID.setStyle("-fx-background-color: White; -fx-font-size: 14;");
+		
 		// bind property
 		searchButtonID.disableProperty().bind(BooleanExpression
 				.booleanExpression(this.typeVehicleClientBoxID.getSelectionModel().selectedItemProperty().isNull()));
@@ -229,7 +274,7 @@ public class CreateClientController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void endCreateClientPanel() {
 		Parent parent = null;
 		try {
@@ -245,7 +290,7 @@ public class CreateClientController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static String dataAndTime(int addHour) {
 		LocalDateTime localTime = LocalDateTime.now().plusHours(addHour);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

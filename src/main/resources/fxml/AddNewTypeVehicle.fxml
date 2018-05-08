@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
@@ -10,12 +11,12 @@
    <children>
       <Pane prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: BLACK;">
          <children>
-            <JFXTextField fx:id="typeVehicleFieldID" labelFloat="true" layoutX="45.0" layoutY="56.0" prefHeight="40.0" prefWidth="210.0" promptText="Type Vehicle" style="-fx-text-fill: white;" unFocusColor="WHITE">
+            <JFXTextField fx:id="typeVehicleFieldID" labelFloat="true" layoutX="45.0" layoutY="45.0" prefHeight="40.0" prefWidth="210.0" promptText="Type Vehicle" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="priceFieldID" labelFloat="true" layoutX="45.0" layoutY="130.0" prefHeight="40.0" prefWidth="210.0" promptText="Price For Hour" style="-fx-text-fill: white;" unFocusColor="WHITE">
+            <JFXTextField fx:id="priceFieldID" labelFloat="true" layoutX="45.0" layoutY="121.0" prefHeight="40.0" prefWidth="210.0" promptText="Price For Hour" style="-fx-text-fill: white;" unFocusColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="18.0" />
                </font>
@@ -30,6 +31,8 @@
                   <Font name="Verdana Italic" size="16.0" />
                </font>
             </JFXButton>
+            <Label fx:id="priceLabelID" alignment="CENTER" layoutY="167.0" prefHeight="16.0" prefWidth="300.0" textFill="RED" />
+            <Label fx:id="typeVehicleLabelID" alignment="CENTER" layoutY="91.0" prefHeight="16.0" prefWidth="300.0" textFill="RED" />
          </children>
       </Pane>
    </children>

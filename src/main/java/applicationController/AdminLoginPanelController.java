@@ -32,28 +32,32 @@ public class AdminLoginPanelController implements Initializable {
 	@FXML
 	void accessAdminButtonAction(ActionEvent event) {
 
-		if ((AdminPanelAccessController.adminDAOImpl.getLoginAdminByLoginAndPassword(textLogin.getText(),
-				textPassword.getText())) == true) {
-			Parent parent = null;
-			try {
-				parent = FXMLLoader.load(getClass().getResource("/fxml/AdminPanelAccess.fxml"));
-				Scene scene = new Scene(parent);
-
-				Stage window = Main.getPrimaryStage();
-
-				window.setScene(scene);
-				window.show();
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		if (AdminPanelAccessController.adminDAOImpl.getLoginAdminByLoginAndPassword(textLogin.getText(),
+				textPassword.getText())) {
+			adminAccess();
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Login error!");
 			alert.setHeaderText("Your login or password is invalid. Please try again");
 
 			alert.showAndWait();
+		}
+	}
+
+	private void adminAccess() {
+		Parent parent = null;
+		try {
+			parent = FXMLLoader.load(getClass().getResource("/fxml/AdminPanelAccess.fxml"));
+			Scene scene = new Scene(parent);
+
+			Stage window = Main.getPrimaryStage();
+
+			window.setScene(scene);
+			window.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

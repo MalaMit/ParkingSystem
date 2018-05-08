@@ -46,7 +46,7 @@ public class AdminAccountPanelController implements Initializable {
 	private JFXButton deleteAdminID;
 
 	@FXML
-	void addNewAdminButton(ActionEvent event) {//
+	void addNewAdminButton(ActionEvent event) {
 		Parent parent = null;
 		try {
 			parent = FXMLLoader.load(getClass().getResource("/fxml/AddNewAdminAccount.fxml"));

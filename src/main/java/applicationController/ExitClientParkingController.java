@@ -59,7 +59,7 @@ public class ExitClientParkingController implements Initializable {
 		CreateClientController.parkingTimeDAOImpl.deleteParkingTime(licensePlateFieldID.getText());
 
 		AdminPanelAccessController.parkingHistoryDAOImpl.insertParkingHistory(timeInLabelID.getText(),
-				declareTimeLabelID.getText(), totalPriceLabelID.getText(), licensePlateFieldID.getText(),
+				CreateClientController.dataAndTime(0), totalPriceLabelID.getText(), licensePlateFieldID.getText(),
 				parkingSpotLabelID.getText());
 
 		backToMenu();
@@ -67,7 +67,7 @@ public class ExitClientParkingController implements Initializable {
 
 	@FXML
 	void SearchClientForLicenseButton(ActionEvent event) {
-		if (CreateClientController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText()) == true) {
+		if (CreateClientController.parkingTimeDAOImpl.checkLicensePlateExist(licensePlateFieldID.getText())) {
 			
 			ParkingTime pTime = CreateClientController.parkingTimeDAOImpl.getToExitParking(licensePlateFieldID.getText());
 

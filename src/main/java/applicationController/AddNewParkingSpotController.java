@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 
+import dataValidation.DataValidation;
 import databaseModel.TypeVehicle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanExpression;
@@ -17,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.util.StringConverter;
 
 
@@ -34,18 +36,25 @@ public class AddNewParkingSpotController implements Initializable {
 
     @FXML
     private JFXButton applyButtonID;
+    
+    @FXML
+    private Label numberLabelID;
 
     @FXML
     void applyButton(ActionEvent event) {
-    	if((CreateClientController.parkingSpotDAOImpl.checkNumberFree(numberFieldID.getText())) != true) {
-    		CreateClientController.parkingSpotDAOImpl.insertParkingSpot(numberFieldID.getText(), typeVehicleBoxID.getSelectionModel().getSelectedItem().getType());
-	    	((Node)(event.getSource())).getScene().getWindow().hide();
-    	}else{
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Number error!");
-			alert.setHeaderText("Number is invalid. Please try again");
-
-			alert.showAndWait();
+    	boolean numer = DataValidation.textAlphabetAndNumber(numberFieldID, numberLabelID, "Numer is Required (1-5 characters)", "5");
+	    
+    	if(numer) {
+	    	if(!CreateClientController.parkingSpotDAOImpl.checkNumberFree(numberFieldID.getText())) {
+	    		CreateClientController.parkingSpotDAOImpl.insertParkingSpot(numberFieldID.getText(), typeVehicleBoxID.getSelectionModel().getSelectedItem().getType());
+		    	((Node)(event.getSource())).getScene().getWindow().hide();
+	    	}else{
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Number error!");
+				alert.setHeaderText("Number is invalid. Please try again");
+	
+				alert.showAndWait();
+	    	}
     	}
     }
 
@@ -73,6 +82,7 @@ public class AddNewParkingSpotController implements Initializable {
 		typeVehicleBoxID.getItems().addAll(typeV);
 		
 		typeVehicleBoxID.disableProperty().bind(Bindings.isEmpty(numberFieldID.textProperty()));
+		//dorobic css
 		typeVehicleBoxID.setStyle("-fx-background-color: White; -fx-font-size: 16;");
 		applyButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.typeVehicleBoxID.getSelectionModel().selectedItemProperty().isNull()));
 		

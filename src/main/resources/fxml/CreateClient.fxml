@@ -44,6 +44,11 @@
                   <Image url="@../icon/clock.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="38.0" fitWidth="30.0" layoutX="937.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/icon_exit.png" />
+               </image>
+            </ImageView>
             <Text fill="WHITE" layoutX="14.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="car type:" wrappingWidth="64.0">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
@@ -97,24 +102,31 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <ImageView fitHeight="38.0" fitWidth="30.0" layoutX="937.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icon/icon_exit.png" />
-               </image>
-            </ImageView>
-            <JFXButton layoutX="912.0" layoutY="2.0" onAction="#outProgramButton" prefHeight="37.0" prefWidth="110.0" text=" " textFill="#303030" />
-            <JFXButton fx:id="selectSpotButtonID" contentDisplay="RIGHT" layoutX="724.0" layoutY="454.0" onAction="#selectSpotButton" prefHeight="62.0" prefWidth="142.0" text="SELECT" textFill="WHITE">
+            <Label fx:id="firstNameLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="214.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Verdana Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="secondNameLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="270.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Verdana Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="phoneNumberLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="329.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Verdana Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="licensePlateLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="392.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Verdana Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="171.0" layoutY="124.0" text="Please to mark, if you have this same car when" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
-               <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icon/icon_parking.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
+            </Label>
             <TableView fx:id="pPlaceTable" layoutX="724.0" layoutY="54.0" prefHeight="400.0" prefWidth="300.0">
               <columns>
                 <TableColumn fx:id="parkingPlaceColumn" editable="false" prefWidth="148.0" style="-fx-alignment: center;" text="Praking Place" />
@@ -137,8 +149,6 @@
             <TextField fx:id="secondNameTextID" layoutX="190.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0" />
             <TextField fx:id="phoneNumberTextID" layoutX="190.0" layoutY="299.0" prefHeight="30.0" prefWidth="200.0" />
             <TextField fx:id="licensePlateTextID" layoutX="190.0" layoutY="362.0" prefHeight="30.0" prefWidth="200.0" />
-            <JFXComboBox fx:id="typeVehicleClientBoxID" focusColor="#e0cc00" layoutX="82.0" layoutY="69.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: white;" unFocusColor="BLACK" />
-            <JFXComboBox fx:id="timeBoxID" layoutX="190.0" layoutY="441.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
             <JFXButton fx:id="calculatePriceButtonID" layoutX="307.0" layoutY="423.0" onAction="#calculatePriceButton" prefHeight="62.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Calculate" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
@@ -147,6 +157,20 @@
                   <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icon/Calculator.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXComboBox fx:id="timeBoxID" layoutX="190.0" layoutY="441.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white;" visibleRowCount="5" />
+            <JFXButton layoutX="912.0" layoutY="2.0" onAction="#outProgramButton" prefHeight="37.0" prefWidth="110.0" text=" " textFill="#303030" />
+            <JFXButton fx:id="selectSpotButtonID" contentDisplay="RIGHT" layoutX="724.0" layoutY="454.0" onAction="#selectSpotButton" prefHeight="62.0" prefWidth="142.0" text="SELECT" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Italic" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_parking.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -163,16 +187,12 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXCheckBox fx:id="checkBoxCllientID" checkedColor="GOLD" layoutX="200.0" layoutY="129.0" onAction="#checkBoxCllient" prefHeight="18.0" prefWidth="363.0" text="I was already a customer of the parking lot." textAlignment="JUSTIFY" textFill="WHITE" unCheckedColor="WHITE">
+            <JFXCheckBox fx:id="checkBoxCllientID" checkedColor="GOLD" layoutX="149.0" layoutY="150.0" onAction="#checkBoxCllient" prefHeight="18.0" prefWidth="210.0" text="you were here last time." textAlignment="JUSTIFY" textFill="WHITE" unCheckedColor="WHITE">
                <font>
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </JFXCheckBox>
-            <Label layoutX="36.0" layoutY="129.0" text="Please to mark, if" textFill="WHITE">
-               <font>
-                  <Font name="Verdana Italic" size="14.0" />
-               </font>
-            </Label>
+            <JFXComboBox fx:id="typeVehicleClientBoxID" layoutX="85.0" layoutY="61.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="210.0" promptText="Type Vehicle" visibleRowCount="3" />
          </children>
       </Pane>
    </children>

@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
@@ -12,45 +13,70 @@
    <children>
       <Pane prefHeight="550.0" prefWidth="400.0">
          <children>
-            <Pane prefHeight="450.0" prefWidth="400.0" style="-fx-background-color: black;">
+            <Pane prefHeight="469.0" prefWidth="400.0" style="-fx-background-color: black;">
                <children>
-                  <JFXTextField fx:id="nameFieldID" layoutX="75.0" layoutY="32.0" prefHeight="46.0" prefWidth="250.0" promptText="Name" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+                  <Label fx:id="nameLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="66.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
                      <font>
-                        <Font name="System Bold Italic" size="23.0" />
+                        <Font name="Verdana Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="surnameLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="130.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font name="Verdana Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="peselLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="194.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font name="Verdana Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phoneLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="260.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font name="Verdana Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="hourlyWageLabelID" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="324.0" prefHeight="16.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font name="Verdana Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="nameFieldID" layoutX="75.0" layoutY="14.0" prefHeight="46.0" prefWidth="250.0" promptText="Name" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="surnameFieldID" layoutX="75.0" layoutY="82.0" prefHeight="46.0" prefWidth="250.0" promptText="Surname" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+                  <JFXTextField fx:id="peselFieldID" layoutX="75.0" layoutY="138.0" prefHeight="46.0" prefWidth="250.0" promptText="Pesel" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
                      <font>
-                        <Font name="System Bold Italic" size="23.0" />
+                        <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="peselFieldID" layoutX="75.0" layoutY="132.0" prefHeight="46.0" prefWidth="250.0" promptText="Pesel" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+                  <JFXTextField fx:id="phoneFieldID" layoutX="75.0" layoutY="202.0" prefHeight="46.0" prefWidth="250.0" promptText="Phone Number" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
                      <font>
-                        <Font name="System Bold Italic" size="23.0" />
+                        <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="phoneFieldID" layoutX="75.0" layoutY="188.0" prefHeight="46.0" prefWidth="250.0" promptText="Phone Number" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+                  <JFXTextField fx:id="hourlyWageFieldID" layoutX="75.0" layoutY="268.0" prefHeight="46.0" prefWidth="250.0" promptText="Hourly Wage" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
                      <font>
-                        <Font name="System Bold Italic" size="23.0" />
+                        <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="hourlyWageFieldID" layoutX="75.0" layoutY="243.0" prefHeight="46.0" prefWidth="250.0" promptText="Hourly Wage" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+                  <JFXComboBox fx:id="positionBoxID" layoutX="76.0" layoutY="332.0" prefHeight="46.0" prefWidth="250.0" visibleRowCount="3" />
+                  <JFXDatePicker fx:id="dateEmployedID" defaultColor="#4059a9" layoutX="75.0" layoutY="386.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
+                  <JFXTextField fx:id="surnameFieldID" layoutX="75.0" layoutY="74.0" prefHeight="46.0" prefWidth="250.0" promptText="Surname" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
                      <font>
-                        <Font name="System Bold Italic" size="23.0" />
+                        <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXComboBox fx:id="positionBoxID" layoutX="75.0" layoutY="310.0" prefHeight="46.0" prefWidth="250.0" style="-fx-font-size: 20;" visibleRowCount="3" />
-                  <JFXDatePicker fx:id="dateEmployedID" defaultColor="#4059a9" layoutX="75.0" layoutY="356.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
                </children>
             </Pane>
-            <Pane layoutY="450.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: black;">
+            <Pane layoutY="468.0" prefHeight="82.0" prefWidth="400.0" style="-fx-background-color: black;">
                <children>
-                  <JFXButton fx:id="addNewEmployeeButtonID" layoutX="237.0" layoutY="32.0" onAction="#addNewEmployeeButton" prefHeight="51.0" prefWidth="125.0" style="-fx-border-color: white;" text="Add" textFill="WHITE">
+                  <JFXButton fx:id="addNewEmployeeButtonID" layoutX="234.0" layoutY="16.0" onAction="#addNewEmployeeButton" prefHeight="51.0" prefWidth="125.0" style="-fx-border-color: white;" text="Add" textFill="WHITE">
                      <font>
                         <Font name="Verdana Bold Italic" size="24.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="cancelButtonID" layoutX="44.0" layoutY="32.0" onAction="#cancelButton" prefHeight="51.0" prefWidth="125.0" style="-fx-border-color: white;" text="Cancel" textFill="WHITE">
+                  <JFXButton fx:id="cancelButtonID" layoutX="41.0" layoutY="16.0" onAction="#cancelButton" prefHeight="51.0" prefWidth="125.0" style="-fx-border-color: white;" text="Cancel" textFill="WHITE">
                      <font>
                         <Font name="Verdana Bold Italic" size="24.0" />
                      </font>

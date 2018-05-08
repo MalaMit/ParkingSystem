@@ -37,9 +37,4 @@ public class TypeVehicle {
 	public IntegerProperty getPriceForHourProperty() {
 		return priceForHour;
 	}  
-	
-	@Override
-	public String toString() {
-		return type.get();
-	}
 }
