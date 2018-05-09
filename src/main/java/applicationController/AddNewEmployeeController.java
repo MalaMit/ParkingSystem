@@ -66,8 +66,8 @@ public class AddNewEmployeeController implements Initializable{
 
     @FXML
     void addNewEmployeeButton(ActionEvent event) {
-    	boolean name = DataValidation.textAlphabetWithPolishMarks(nameFieldID, nameLabelID, "Name is Required (MAX 20 characters)", "20");
-    	boolean surname = DataValidation.textAlphabetWithPolishMarks(surnameFieldID, surnameLabelID, "Surname is Required (MAX 20 characters)", "20");
+    	boolean name = DataValidation.textAlphabetWithPolishMarks(nameFieldID, nameLabelID, "Name is Required (MAX 20 characters)", "2", "20");
+    	boolean surname = DataValidation.textAlphabetWithPolishMarks(surnameFieldID, surnameLabelID, "Surname is Required (MAX 20 characters)", "2", "20");
     	boolean pesel = DataValidation.textNumber(peselFieldID, peselLabelID, "Pesel is Required (MAX 20 number)", "10", "20");
     	boolean phone = DataValidation.textPhone(phoneFieldID, phoneLabelID, "Phone is Required");
     	boolean hourlyWage = DataValidation.textFloat(hourlyWageFieldID, hourlyWageLabelID, "Name is Required (xxxx.xx)");
@@ -91,9 +91,9 @@ public class AddNewEmployeeController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<EnumEmployeeType> positionList = FXCollections.observableArrayList(EnumEmployeeType.values());
 		positionBoxID.setItems(positionList);
-		//dorobic css
+		//style
 		positionBoxID.setStyle("-fx-text-fill: White; -fx-font-size: 20;");
-		
+		//bind
 		surnameFieldID.disableProperty().bind(Bindings.isEmpty(nameFieldID.textProperty()));
 		peselFieldID.disableProperty().bind(Bindings.isEmpty(surnameFieldID.textProperty()));
 		phoneFieldID.disableProperty().bind(Bindings.isEmpty(peselFieldID.textProperty()));

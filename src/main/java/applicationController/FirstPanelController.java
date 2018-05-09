@@ -37,7 +37,7 @@ public class FirstPanelController implements Initializable {
 		try {
 			parent = FXMLLoader.load(getClass().getResource("/fxml/AdminLoginPanel.fxml"));
 			Scene scene = new Scene(parent);
-
+			
 			Stage window = Main.getPrimaryStage();
 
 			window.setScene(scene);

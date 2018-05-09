@@ -133,7 +133,7 @@
                 <TableColumn fx:id="statusColumn" editable="false" prefWidth="151.0" style="-fx-alignment: center;" text="Status" />
               </columns>
             </TableView>
-            <JFXButton fx:id="searchButtonID" layoutX="290.0" layoutY="57.0" onAction="#searchButton" prefHeight="49.0" prefWidth="136.0" text="SEARCH" textFill="WHITE">
+            <JFXButton fx:id="searchButtonID" layoutX="307.0" layoutY="57.0" onAction="#searchButton" prefHeight="49.0" prefWidth="136.0" text="SEARCH" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="15.0" />
                </font>
@@ -192,7 +192,7 @@
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </JFXCheckBox>
-            <JFXComboBox fx:id="typeVehicleClientBoxID" layoutX="85.0" layoutY="61.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="210.0" promptText="Type Vehicle" visibleRowCount="3" />
+            <JFXComboBox fx:id="typeVehicleClientBoxID" layoutX="85.0" layoutY="61.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" promptText="Type Vehicle" visibleRowCount="3" />
          </children>
       </Pane>
    </children>

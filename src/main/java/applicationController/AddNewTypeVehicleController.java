@@ -36,7 +36,7 @@ public class AddNewTypeVehicleController implements Initializable{
 
     @FXML
     void applyButton(ActionEvent event) {
-    	boolean typeVeh = DataValidation.textAlphabetWithPolishMarks(typeVehicleFieldID, typeVehicleLabelID, "Type Vehicle is Required (MAX 30 characters)", "30");
+    	boolean typeVeh = DataValidation.textAlphabetWithPolishMarks(typeVehicleFieldID, typeVehicleLabelID, "Type Vehicle is Required (MAX 30 characters)", "2",  "30");
     	boolean price = DataValidation.textNumber(priceFieldID, priceLabelID, "Price is Required (MAX 3 number)", "1", "3");
 	    
     	if(typeVeh && price) {

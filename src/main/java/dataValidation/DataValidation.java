@@ -5,49 +5,49 @@ import javafx.scene.control.TextField;
 
 public class DataValidation {
 
-    public static boolean textAlphabetWithPolishMarks(TextField inputTextField, Label inputLabel, String validationText, String requiredLength) {
+    public static boolean textAlphabetWithPolishMarks(TextField inputTextField, Label inputLabel, String validationText, String minimumLength, String requiredLength) {
         boolean isCorrect = true;
         String validationString = null;
 
-        if (!inputTextField.getText().matches("[a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{2,"+ requiredLength +"}")) {
+        if (!inputTextField.getText().matches("[a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{"+ minimumLength +","+ requiredLength +"}")) {
         	isCorrect = false;
             validationString = validationText;
 
         }
         inputLabel.setText(validationString);
 
-        System.out.println(inputTextField.getText().matches("[a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{2,20}"));
+        System.out.println(inputTextField.getText().matches("[a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{"+ minimumLength +","+ requiredLength +"}"));
         return isCorrect;
 
     }
 
-	public static boolean textAlphabetAndNumber(TextField inputTextField, Label inputLabel, String validationText, String requiredLength) {
+	public static boolean textAlphabetAndNumber(TextField inputTextField, Label inputLabel, String validationText, String minimumLength, String requiredLength) {
         boolean isCorrect = true;
         String validationString = null;
 
-        if (!inputTextField.getText().matches("[a-zA-Z0-9]{1,"+ requiredLength +"}")) {
+        if (!inputTextField.getText().matches("[a-zA-Z0-9]{"+ minimumLength +","+ requiredLength +"}")) {
         	isCorrect = false;
             validationString = validationText;
 
         }
         inputLabel.setText(validationString);
 
-        System.out.println(inputTextField.getText().matches("[a-zA-Z0-9]{1,"+ requiredLength +"}"));
+        System.out.println(inputTextField.getText().matches("[a-zA-Z0-9]{"+ minimumLength +","+ requiredLength +"}"));
         return isCorrect;
 	}
 	
-	public static boolean textNumber(TextField inputTextField, Label inputLabel, String validationText,String minimumLengte, String requiredLength) {
+	public static boolean textNumber(TextField inputTextField, Label inputLabel, String validationText, String minimumLength, String requiredLength) {
         boolean isCorrect = true;
         String validationString = null;
 
-        if (!inputTextField.getText().matches("[0-9]{"+ minimumLengte +","+ requiredLength +"}")) {
+        if (!inputTextField.getText().matches("[0-9]{"+ minimumLength +","+ requiredLength +"}")) {
         	isCorrect = false;
             validationString = validationText;
 
         }
         inputLabel.setText(validationString);
 
-        System.out.println(inputTextField.getText().matches("[0-9]{1,"+ requiredLength +"}"));
+        System.out.println(inputTextField.getText().matches("[0-9]{"+ minimumLength +","+ requiredLength +"}"));
         return isCorrect;
 	}
 	
@@ -79,7 +79,7 @@ public class DataValidation {
 
         System.out.println(inputTextField.getText().matches("([+]{0,1})([0-9]{0,2}[\\s]{0,1})([0-9]{0,3}[-]{0,1})([0-9]{0,3}[-]{0,1})([0-9]{0,3})"));
         return isCorrect;
-	}//[0-9]{1,4},[0-9]{2}
+	}
 	
 	public static boolean textPassword(TextField inputTextField, Label inputLabel, String validationText) {
         boolean isCorrect = true;

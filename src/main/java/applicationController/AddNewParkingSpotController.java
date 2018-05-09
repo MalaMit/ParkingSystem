@@ -42,7 +42,7 @@ public class AddNewParkingSpotController implements Initializable {
 
     @FXML
     void applyButton(ActionEvent event) {
-    	boolean numer = DataValidation.textAlphabetAndNumber(numberFieldID, numberLabelID, "Numer is Required (1-5 characters)", "5");
+    	boolean numer = DataValidation.textAlphabetAndNumber(numberFieldID, numberLabelID, "Numer is Required (1-5 characters)", "1",  "5");
 	    
     	if(numer) {
 	    	if(!CreateClientController.parkingSpotDAOImpl.checkNumberFree(numberFieldID.getText())) {
@@ -82,8 +82,9 @@ public class AddNewParkingSpotController implements Initializable {
 		typeVehicleBoxID.getItems().addAll(typeV);
 		
 		typeVehicleBoxID.disableProperty().bind(Bindings.isEmpty(numberFieldID.textProperty()));
-		//dorobic css
+		//style
 		typeVehicleBoxID.setStyle("-fx-background-color: White; -fx-font-size: 16;");
+		//bind
 		applyButtonID.disableProperty().bind(BooleanExpression.booleanExpression(this.typeVehicleBoxID.getSelectionModel().selectedItemProperty().isNull()));
 		
 	}

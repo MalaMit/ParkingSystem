@@ -118,10 +118,10 @@ public class CreateClientController implements Initializable {
 		if (!parkingTimeDAOImpl.checkLicensePlateExist(licensePlateTextID.getText())) {
 			
 			if (!checkBoxCllientID.isSelected()) {
-				boolean name = DataValidation.textAlphabetWithPolishMarks(firstNameTextID, firstNameLabelID, "Name is Required (MAX 20 characters)", "20");
-				boolean secondName = DataValidation.textAlphabetWithPolishMarks(secondNameTextID, secondNameLabelID, "Second name is Required (MAX 20 characters)", "20");
+				boolean name = DataValidation.textAlphabetWithPolishMarks(firstNameTextID, firstNameLabelID, "Name is Required (MAX 20 characters)", "2", "20");
+				boolean secondName = DataValidation.textAlphabetWithPolishMarks(secondNameTextID, secondNameLabelID, "Second name is Required (MAX 20 characters)", "2", "20");
 				boolean phone = DataValidation.textPhone(phoneNumberTextID, phoneNumberLabelID, "Phone is Required");
-				boolean lPlate = DataValidation.textAlphabetAndNumber(licensePlateTextID, licensePlateLabelID, "License plate is Required (1-10 characters)", "10");
+				boolean lPlate = DataValidation.textAlphabetAndNumber(licensePlateTextID, licensePlateLabelID, "License plate is Required (1-10 characters)", "3", "10");
 				
 				if (name && secondName && phone && lPlate) {
 					clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
@@ -226,7 +226,7 @@ public class CreateClientController implements Initializable {
 
 		});
 		typeVehicleClientBoxID.getItems().addAll(typeV);
-		//dorobic css
+		//style
 		typeVehicleClientBoxID.setStyle("-fx-background-color: White; -fx-font-size: 14;");
 		
 		// bind property
