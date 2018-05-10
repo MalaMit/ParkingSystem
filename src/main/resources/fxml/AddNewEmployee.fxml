@@ -45,6 +45,11 @@
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </JFXTextField>
+                  <JFXTextField fx:id="surnameFieldID" layoutX="75.0" layoutY="74.0" prefHeight="46.0" prefWidth="250.0" promptText="Surname" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </JFXTextField>
                   <JFXTextField fx:id="peselFieldID" layoutX="75.0" layoutY="138.0" prefHeight="46.0" prefWidth="250.0" promptText="Pesel" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
@@ -62,11 +67,6 @@
                   </JFXTextField>
                   <JFXComboBox fx:id="positionBoxID" layoutX="76.0" layoutY="332.0" prefHeight="46.0" prefWidth="250.0" visibleRowCount="3" />
                   <JFXDatePicker fx:id="dateEmployedID" defaultColor="#4059a9" layoutX="75.0" layoutY="386.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
-                  <JFXTextField fx:id="surnameFieldID" layoutX="75.0" layoutY="74.0" prefHeight="46.0" prefWidth="250.0" promptText="Surname" style="-fx-text-fill: white;" unFocusColor="#eae9e9">
-                     <font>
-                        <Font name="System Bold Italic" size="20.0" />
-                     </font>
-                  </JFXTextField>
                </children>
             </Pane>
             <Pane layoutY="468.0" prefHeight="82.0" prefWidth="400.0" style="-fx-background-color: black;">
