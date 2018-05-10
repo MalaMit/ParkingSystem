@@ -3,7 +3,8 @@ package databaseUtil;
 import java.sql.*;
 import java.util.Properties;
 
-import com.sun.rowset.CachedRowSetImpl;
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
 
 public class DBUtil {
 
@@ -75,13 +76,13 @@ public class DBUtil {
 	public static ResultSet dbExecute(String sqlQuery) throws ClassNotFoundException, SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
-		CachedRowSetImpl crs = null;
+		CachedRowSet crs = null;
 
 		try {
 			dbConnect();
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(sqlQuery);
-			crs = new CachedRowSetImpl();
+			crs = RowSetProvider.newFactory().createCachedRowSet();
 			crs.populate(rs);
 
 		} catch (SQLException e) {
