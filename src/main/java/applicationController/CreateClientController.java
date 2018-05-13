@@ -2,8 +2,6 @@ package applicationController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
@@ -115,55 +113,63 @@ public class CreateClientController implements Initializable {
 	@FXML
 	void nextPage(ActionEvent event) {
 		// create client
-		if (!parkingTimeDAOImpl.checkLicensePlateExist(licensePlateTextID.getText())) {
+		
+		if(checkBoxCllientID.isSelected() == false) {
+			boolean name = DataValidation.textAlphabetWithPolishMarks(firstNameTextID, firstNameLabelID, "Name is Required (MAX 20 characters)", "2", "20");
+			boolean secondName = DataValidation.textAlphabetWithPolishMarks(secondNameTextID, secondNameLabelID, "Second name is Required (MAX 20 characters)", "2", "20");
+			boolean phone = DataValidation.textPhone(phoneNumberTextID, phoneNumberLabelID, "Phone is Required");
+			boolean lPlate = DataValidation.textAlphabetAndNumber(licensePlateTextID, licensePlateLabelID, "License plate is Required (1-10 characters)", "3", "10");
 			
-			if (!checkBoxCllientID.isSelected()) {
-				boolean name = DataValidation.textAlphabetWithPolishMarks(firstNameTextID, firstNameLabelID, "Name is Required (MAX 20 characters)", "2", "20");
-				boolean secondName = DataValidation.textAlphabetWithPolishMarks(secondNameTextID, secondNameLabelID, "Second name is Required (MAX 20 characters)", "2", "20");
-				boolean phone = DataValidation.textPhone(phoneNumberTextID, phoneNumberLabelID, "Phone is Required");
-				boolean lPlate = DataValidation.textAlphabetAndNumber(licensePlateTextID, licensePlateLabelID, "License plate is Required (1-10 characters)", "3", "10");
-				
-				if (name && secondName && phone && lPlate) {
+			if (name && secondName && phone && lPlate) {
+				if(clientDAOImpl.checkLicensePlate(licensePlateTextID.getText()) == false) {
 					clientDAOImpl.insertClient(licensePlateTextID.getText(), firstNameTextID.getText(),
 							secondNameTextID.getText(), phoneNumberTextID.getText());
 
 					parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
-							dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
-							Integer.parseInt(chargeLabelID.getText()),
+							timeBoxID.getSelectionModel().getSelectedItem(), Integer.parseInt(chargeLabelID.getText()),
 							typeVehicleClientBoxID.getSelectionModel().getSelectedItem().getType(),
 							viewSelectSpotLabelID.getText());
 
 					parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
-					// end view
-					endCreateClientPanel();
-				}
-				
-			} else {
-				if ((checkBoxCllientID.isSelected()) && parkingTimeDAOImpl.checkLicensePlateExist(licensePlateTextID.getText())) {
-					parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
-							dataAndTime(timeBoxID.getSelectionModel().getSelectedItem()),
-							Integer.parseInt(chargeLabelID.getText()),
-							typeVehicleClientBoxID.getSelectionModel().getSelectedItem().getType(),
-							viewSelectSpotLabelID.getText());
-
-					parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
-
 					// end view
 					endCreateClientPanel();
 				}else {
 					Alert alert = new Alert(AlertType.ERROR);
 					alert.setTitle("License Plate error!");
-					alert.setHeaderText("Your license plate is required. Please try again");
+					alert.setHeaderText("Your license plate is existed. Please try again");
 
 					alert.showAndWait();
 				}
 			}
-		} else {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("License Plate error!");
-			alert.setHeaderText("Your license plate is use now. Please try again");
+			
+		}
+			
+		if(checkBoxCllientID.isSelected() == true) {
+			if(clientDAOImpl.checkLicensePlate(licensePlateTextID.getText()) == true) {
+				if(parkingTimeDAOImpl.checkLicensePlateExist(licensePlateTextID.getText()) == false){
+					parkingTimeDAOImpl.insertParkingTime(licensePlateTextID.getText(),
+							timeBoxID.getSelectionModel().getSelectedItem(), Integer.parseInt(chargeLabelID.getText()),
+							typeVehicleClientBoxID.getSelectionModel().getSelectedItem().getType(),
+							viewSelectSpotLabelID.getText());
+	
+					parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
+	
+					// end view
+					endCreateClientPanel();
+				}else {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setTitle("License Plate error!");
+					alert.setHeaderText("Your license plate is use now. Please try again");
+	
+					alert.showAndWait();
+				}
+			}else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("License Plate error!");
+				alert.setHeaderText("Your license plate is no existed. Please try again");
 
-			alert.showAndWait();
+				alert.showAndWait();
+			}
 		}
 	}
 
@@ -290,12 +296,4 @@ public class CreateClientController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
-	public static String dataAndTime(int addHour) {
-		LocalDateTime localTime = LocalDateTime.now().plusHours(addHour);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		String formatDateTime = localTime.format(formatter);
-		return formatDateTime;
-	}
-
 }

@@ -79,7 +79,7 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO {
 
 	@Override
 	public boolean checkLicensePlateExist(String licensePlate) {
-		String sql = "SELECT * FROM parkingtime WHERE licensePlate = '" + licensePlate + "' ";
+		String sql = "SELECT * FROM parkingtime WHERE licensePlate = '"+ licensePlate +"'";
 		boolean isExist = false;
 		try {
 			ResultSet rs = DBUtil.dbExecute(sql);
@@ -93,10 +93,10 @@ public class ParkingTimeDAOImpl implements ParkingTimeDAO {
 	}
 	
 	@Override
-	public void insertParkingTime(String clientLicensePlate, String timeOut, int bill, String typeVehicle,
+	public void insertParkingTime(String clientLicensePlate, int timeOut, int bill, String typeVehicle,
 			String parkingNumber) {
 		String sql = "INSERT INTO parkingTime (licensePlate, timeOut, bill, typeVehicle, parkingNumber) VALUES ('"
-				+ clientLicensePlate + "', '" + timeOut + "', '" + bill + "', '" + typeVehicle + "', '" + parkingNumber
+				+ clientLicensePlate + "', (now() + INTERVAL " + timeOut + " HOUR), '" + bill + "', '" + typeVehicle + "', '" + parkingNumber
 				+ "')";
 		try {
 			DBUtil.dbExcecuteQuery(sql);

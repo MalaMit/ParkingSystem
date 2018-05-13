@@ -62,4 +62,21 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return false;
 	}
 
+	@Override
+	public boolean checkPesel(Long pesel) {
+		String sql = "SELECT pesel FROM employee WHERE pesel = '"+ pesel +"'";
+		boolean isExist = false;
+		try {
+			ResultSet rsSet = DBUtil.dbExecute(sql);
+			if (rsSet.next()) {
+				isExist = true;
+			}	
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return isExist;
+	}
+
 }

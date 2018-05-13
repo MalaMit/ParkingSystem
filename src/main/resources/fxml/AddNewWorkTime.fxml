@@ -29,11 +29,11 @@
                   <Font name="Verdana Italic" size="20.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="workTypeBoxID" layoutX="202.0" layoutY="119.0" prefHeight="46.0" prefWidth="250.0" style="-fx-font-size: 20;" visibleRowCount="3" />
-            <JFXDatePicker fx:id="dateStartID" defaultColor="#4059a9" layoutX="408.0" layoutY="208.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
-            <JFXDatePicker fx:id="dateEndID" defaultColor="#4059a9" layoutX="408.0" layoutY="289.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
-            <JFXTimePicker fx:id="timeStartID" defaultColor="#4059a9" layoutX="202.0" layoutY="208.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
-            <JFXTimePicker fx:id="timeEndID" defaultColor="#4059a9" layoutX="202.0" layoutY="289.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
+            <JFXComboBox fx:id="workTypeBoxID" layoutX="202.0" layoutY="119.0" prefHeight="46.0" prefWidth="250.0" visibleRowCount="3" />
+            <JFXDatePicker fx:id="dateStartID" defaultColor="#4059a9" layoutX="408.0" layoutY="208.0" prefHeight="56.0" prefWidth="155.0" />
+            <JFXDatePicker fx:id="dateEndID" defaultColor="#4059a9" layoutX="408.0" layoutY="289.0" prefHeight="56.0" prefWidth="155.0" />
+            <JFXTimePicker fx:id="timeStartID" defaultColor="#4059a9" layoutX="202.0" layoutY="208.0" prefHeight="56.0" prefWidth="155.0" />
+            <JFXTimePicker fx:id="timeEndID" defaultColor="#4059a9" layoutX="202.0" layoutY="289.0" prefHeight="56.0" prefWidth="155.0" />
             <JFXButton fx:id="cancelButtonID" layoutX="88.0" layoutY="419.0" onAction="#cancelButton" prefHeight="50.0" prefWidth="188.0" style="-fx-border-color: white;" text="Cancel" textFill="WHITE">
                <font>
                   <Font name="Verdana Italic" size="16.0" />

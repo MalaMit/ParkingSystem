@@ -125,5 +125,5 @@ public class AdminPanelAccessController implements Initializable {
 		adminMainStackPane.getChildren().clear();
 		adminMainStackPane.getChildren().add(stackPane);
 	}
-
+	
 }

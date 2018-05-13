@@ -11,7 +11,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.FirstPanelController">
 	<children>
-      <Pane prefHeight="600.0" prefWidth="1024.0">
+      <Pane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;">
          <children>
       		<Label alignment="CENTER" layoutX="262.0" layoutY="348.0" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Entry " textFill="#fcfcfc">
       			<font>
@@ -46,7 +46,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="909.0" layoutY="539.0" onAction="#adminLoginButton" prefHeight="61.0" prefWidth="117.0" style="-fx-background-color: transparent;" text="Admin" textFill="WHITE">
+            <JFXButton layoutX="937.0" layoutY="539.0" onAction="#loginButton" prefHeight="61.0" prefWidth="117.0" style="-fx-background-color: transparent;" text=" " textFill="WHITE">
                <graphic>
       				<ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
       					<image>

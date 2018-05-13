@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationController.ChooseAdmOrEmplPanelController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #303030;">
+         <children>
+            <Label alignment="CENTER" layoutX="202.0" layoutY="323.0" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Employee" textFill="#fcfcfc">
+               <font>
+                  <Font name="Verdana Italic" size="32.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="659.0" layoutY="323.0" prefHeight="61.0" prefWidth="164.0" style="-fx-background-color: transparent;" text="Admin" textFill="#fcfcfc">
+               <font>
+                  <Font name="Verdana Italic" size="32.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="129.0" layoutY="164.0" onAction="#employeeTimeWorkButton" prefHeight="200.0" prefWidth="309.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="120.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_User.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="586.0" layoutY="165.0" onAction="#adminLoginPanelButton" prefHeight="200.0" prefWidth="309.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/icon_admin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#backToMainButton" prefHeight="54.0" prefWidth="48.0" text=" ">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/arrow_back.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

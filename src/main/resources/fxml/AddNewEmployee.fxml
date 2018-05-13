@@ -65,8 +65,8 @@
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </JFXTextField>
-                  <JFXComboBox fx:id="positionBoxID" layoutX="76.0" layoutY="332.0" prefHeight="46.0" prefWidth="250.0" visibleRowCount="3" />
-                  <JFXDatePicker fx:id="dateEmployedID" defaultColor="#4059a9" layoutX="75.0" layoutY="386.0" prefHeight="51.0" prefWidth="163.0" style="-fx-font-size: 20;" />
+                  <JFXComboBox fx:id="positionBoxID" layoutX="76.0" layoutY="348.0" prefHeight="39.0" prefWidth="250.0" unFocusColor="WHITE" visibleRowCount="3" />
+                  <JFXDatePicker fx:id="dateEmployedID" defaultColor="#4059a9" layoutX="186.0" layoutY="408.0" prefHeight="40.0" prefWidth="140.0" />
                </children>
             </Pane>
             <Pane layoutY="468.0" prefHeight="82.0" prefWidth="400.0" style="-fx-background-color: black;">

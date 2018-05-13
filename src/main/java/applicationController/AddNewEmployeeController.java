@@ -18,7 +18,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 
 public class AddNewEmployeeController implements Initializable{
 	
@@ -73,12 +75,20 @@ public class AddNewEmployeeController implements Initializable{
     	boolean hourlyWage = DataValidation.textFloat(hourlyWageFieldID, hourlyWageLabelID, "Name is Required (xxxx.xx)");
     	
     	if(name && surname && pesel && phone && hourlyWage) {
-			EmployeePanelController.employeeDAOImpl.insertEmployee(Long.parseLong(peselFieldID.getText()),
-					nameFieldID.getText(), surnameFieldID.getText(), String.valueOf(dateEmployedID.getValue()),
-					Float.parseFloat(hourlyWageFieldID.getText()), phoneFieldID.getText(),
-					String.valueOf(positionBoxID.getSelectionModel().getSelectedItem()));
-			
-			((Node)(event.getSource())).getScene().getWindow().hide();
+    		if( !EmployeePanelController.employeeDAOImpl.checkPesel(Long.valueOf(peselFieldID.getText()))) {
+				EmployeePanelController.employeeDAOImpl.insertEmployee(Long.parseLong(peselFieldID.getText()),
+						nameFieldID.getText(), surnameFieldID.getText(), String.valueOf(dateEmployedID.getValue()),
+						Float.parseFloat(hourlyWageFieldID.getText()), phoneFieldID.getText(),
+						String.valueOf(positionBoxID.getSelectionModel().getSelectedItem()));
+				
+				((Node)(event.getSource())).getScene().getWindow().hide();
+    		}else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Pesel error!");
+				alert.setHeaderText("Your pesel is exists. Please try again");
+
+				alert.showAndWait();
+    		}
     	}
     }
     
@@ -92,7 +102,8 @@ public class AddNewEmployeeController implements Initializable{
 		ObservableList<EnumEmployeeType> positionList = FXCollections.observableArrayList(EnumEmployeeType.values());
 		positionBoxID.setItems(positionList);
 		//style
-		positionBoxID.setStyle("-fx-text-fill: White; -fx-font-size: 20;");
+		positionBoxID.setStyle("-fx-background-color: White; -fx-font-size: 17;");
+		dateEmployedID.setStyle("-fx-background-color: White; -fx-font-size: 18;");
 		//bind
 		surnameFieldID.disableProperty().bind(Bindings.isEmpty(nameFieldID.textProperty()));
 		peselFieldID.disableProperty().bind(Bindings.isEmpty(surnameFieldID.textProperty()));

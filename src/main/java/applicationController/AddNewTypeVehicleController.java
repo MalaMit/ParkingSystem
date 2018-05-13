@@ -12,7 +12,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 
 public class AddNewTypeVehicleController implements Initializable{
 	
@@ -43,7 +45,13 @@ public class AddNewTypeVehicleController implements Initializable{
     		if(!CreateClientController.typeVehicleDAOImpl.checkTypeVehicleIsExist(typeVehicleFieldID.getText())) {
     				CreateClientController.typeVehicleDAOImpl.insertTypeVehicle(typeVehicleFieldID.getText(),Integer.parseInt(priceFieldID.getText()));
     				((Node)(event.getSource())).getScene().getWindow().hide();
-    		}
+    		}else{
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Number error!");
+				alert.setHeaderText("Name type vehicle is use. Please try again");
+	
+				alert.showAndWait();
+	    	}
     	}
     }
 

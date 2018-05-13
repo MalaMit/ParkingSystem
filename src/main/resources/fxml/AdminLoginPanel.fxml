@@ -52,7 +52,7 @@
 						<Image url="@../icon/icon_Key.png" />
 					</image>
 				</ImageView>
-            <JFXButton layoutX="8.0" layoutY="7.0" onAction="#backToMainButtonAction" prefHeight="54.0" prefWidth="48.0" text=" ">
+            <JFXButton onAction="#backToChooseEmplOrAdmButton" prefHeight="54.0" prefWidth="48.0" text=" ">
                <graphic>
                   <ImageView fitHeight="38.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>

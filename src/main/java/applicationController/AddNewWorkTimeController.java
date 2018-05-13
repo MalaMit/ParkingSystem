@@ -69,6 +69,12 @@ public class AddNewWorkTimeController implements Initializable{
 		dateEndID.disableProperty().bind(Bindings.isNull(timeEndID.valueProperty()));
 		applyButtonID.disableProperty().bind(Bindings.isNull(dateEndID.valueProperty()));
 		
+		//style
+		workTypeBoxID.setStyle("-fx-background-color: White; -fx-font-size: 20;");
+		dateStartID.setStyle("-fx-background-color: White; -fx-font-size: 20;");
+		dateEndID.setStyle("-fx-background-color: White; -fx-font-size: 20;");
+		timeStartID.setStyle("-fx-background-color: White; -fx-font-size: 20;");
+		timeEndID.setStyle("-fx-background-color: White; -fx-font-size: 20;");
 	}
 	
 	public void setPesel(String pesel) {

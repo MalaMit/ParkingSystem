@@ -48,7 +48,7 @@ public class ClientDAOImpl implements ClientDAO {
 
 	@Override
 	public boolean checkLicensePlate(String licensePlate) {
-		String sql = "SELECT licensePlate FROM client WHERE LicensePlate = '" + licensePlate + "' ";
+		String sql = "SELECT LicensePlate FROM client WHERE LicensePlate = '" + licensePlate + "' ";
 		boolean isExist = false;
 		try {
 			ResultSet rs = DBUtil.dbExecute(sql);

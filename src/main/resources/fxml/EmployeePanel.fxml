@@ -40,7 +40,7 @@
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="searchEmployeeID" alignment="CENTER" labelFloat="true" layoutX="44.0" layoutY="26.0" onKeyReleased="#searchClient" prefHeight="38.0" prefWidth="151.0" promptText="Search Employee" style="-fx-text-fill: white;">
+            <JFXTextField fx:id="searchEmployeeID" alignment="CENTER" labelFloat="true" layoutX="44.0" layoutY="26.0" onKeyReleased="#searchEmployee" prefHeight="38.0" prefWidth="151.0" promptText="Search Employee" style="-fx-text-fill: white;">
                <font>
                   <Font name="Verdana Italic" size="16.0" />
                </font>

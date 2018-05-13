@@ -12,10 +12,10 @@ import javafx.collections.ObservableList;
 public class ParkingHistoryDAOImpl implements ParkingHistoryDAO {
 
 	@Override
-	public boolean insertParkingHistory(String timeIN, String timeOut, String bill, String licensePlate,
+	public boolean insertParkingHistory(String timeIN, String bill, String licensePlate,
 			String parkingNumber) {
 		String sql = "INSERT INTO parkinghistory (timeIN, timeOut, bill, licensePlate, parkingNumber) VALUES ('"
-				+ timeIN + "', '" + timeOut + "', '" + bill + "', '" + licensePlate + "', '" + parkingNumber + "')";
+				+ timeIN + "', now(), '" + bill + "', '" + licensePlate + "', '" + parkingNumber + "')";
 		try {
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {

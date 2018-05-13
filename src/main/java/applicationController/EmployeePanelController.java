@@ -99,7 +99,7 @@ public class EmployeePanelController implements Initializable {
 	    }
 
 	    @FXML
-	    void searchClient(KeyEvent event) {
+	    void searchEmployee(KeyEvent event) {
 	    	searchEmployeeID.textProperty().addListener((observable, oldValue, newValue) -> {
 				filter.setPredicate((Predicate<? super Employee>) (Employee employee) -> {
 					if (newValue.isEmpty() || newValue == null) {

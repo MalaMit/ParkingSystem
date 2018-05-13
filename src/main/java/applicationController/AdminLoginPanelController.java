@@ -19,6 +19,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AdminLoginPanelController implements Initializable {
+	
+	private static final String  accessAdmin = "/fxml/AdminPanelAccess.fxml";
+	private static final String backToChoose = "/fxml/ChooseAdminOrEmployeePanel.fxml";
 
 	@FXML
 	private TextField textLogin;
@@ -34,7 +37,7 @@ public class AdminLoginPanelController implements Initializable {
 
 		if (AdminPanelAccessController.adminDAOImpl.getLoginAdminByLoginAndPassword(textLogin.getText(),
 				textPassword.getText())) {
-			adminAccess();
+			loadFxml(accessAdmin);
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Login error!");
@@ -44,40 +47,9 @@ public class AdminLoginPanelController implements Initializable {
 		}
 	}
 
-	private void adminAccess() {
-		Parent parent = null;
-		try {
-			parent = FXMLLoader.load(getClass().getResource("/fxml/AdminPanelAccess.fxml"));
-			Scene scene = new Scene(parent);
-
-			Stage window = Main.getPrimaryStage();
-
-			window.setScene(scene);
-			window.show();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	@FXML
-	public void backToMainButtonAction(ActionEvent event) {
-		Parent parent = null;
-		try {
-			parent = FXMLLoader.load(getClass().getResource("/fxml/FirstPanel.fxml"));
-			Scene scene = new Scene(parent);
-
-			Stage window = Main.getPrimaryStage();
-
-			window.setScene(scene);
-			window.show();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	public void backToChooseEmplOrAdmButton(ActionEvent event) {
+		loadFxml(backToChoose);
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -86,5 +58,22 @@ public class AdminLoginPanelController implements Initializable {
 		
 		accessAdminButton.disableProperty()
 				.bind(Bindings.isEmpty(textLogin.textProperty()).or(Bindings.isEmpty(textPassword.textProperty())));
+	}
+	
+	private void loadFxml(String pathFxml) {
+		Parent parent = null;
+		try {
+			parent = FXMLLoader.load(getClass().getResource(pathFxml));
+			Scene scene = new Scene(parent);
+			
+			Stage window = Main.getPrimaryStage();
+
+			window.setScene(scene);
+			window.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

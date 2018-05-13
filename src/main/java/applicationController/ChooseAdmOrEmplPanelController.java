@@ -3,6 +3,7 @@ package applicationController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import applicationStart.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,30 +13,31 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class FirstPanelController implements Initializable {
-
-	private static final String userPanel = "/fxml/CreateClient.fxml";
-	private static final String login = "/fxml/ChooseAdminOrEmployeePanel.fxml";
-	private static final String exit = "/fxml/ExitClientParking.fxml";
+public class ChooseAdmOrEmplPanelController implements Initializable{
 	
-	@FXML
-	private void userPanelButton(ActionEvent event) {
-		loadFxml(userPanel);
-	}
+	private static final String adminLoginPanel = "/fxml/AdminLoginPanel.fxml";
+	private static final String backToStart = "/fxml/FirstPanel.fxml";
+	private static final String employeeTimeWork = "/fxml/EmployeeStartEndShift.fxml";
 
-	@FXML
-	private void loginButton(ActionEvent event) {
-		loadFxml(login);
-	}
+    @FXML
+    void adminLoginPanelButton(ActionEvent event) {
+		loadFxml(adminLoginPanel);
+    }
 
-	@FXML
-	void exitParking(ActionEvent event) {
-		loadFxml(exit);
-	}
+    @FXML
+    void backToMainButton(ActionEvent event) {
+    	loadFxml(backToStart);
+    }
 
-	public void initialize(URL arg0, ResourceBundle arg1) {
+    @FXML
+    void employeeTimeWorkButton(ActionEvent event) {
+    	loadFxml(employeeTimeWork);
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
+		
 	}
 	
 	private void loadFxml(String pathFxml) {

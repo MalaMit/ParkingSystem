@@ -192,7 +192,7 @@
                   <Font name="Verdana Italic" size="14.0" />
                </font>
             </JFXCheckBox>
-            <JFXComboBox fx:id="typeVehicleClientBoxID" layoutX="85.0" layoutY="61.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" promptText="Type Vehicle" visibleRowCount="3" />
+            <JFXComboBox fx:id="typeVehicleClientBoxID" layoutX="85.0" layoutY="61.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" promptText="     Type Vehicle" visibleRowCount="3" />
          </children>
       </Pane>
    </children>

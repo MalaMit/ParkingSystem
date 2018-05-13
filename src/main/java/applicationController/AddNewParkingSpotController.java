@@ -51,7 +51,7 @@ public class AddNewParkingSpotController implements Initializable {
 	    	}else{
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setTitle("Number error!");
-				alert.setHeaderText("Number is invalid. Please try again");
+				alert.setHeaderText("Number is use. Please try again");
 	
 				alert.showAndWait();
 	    	}
