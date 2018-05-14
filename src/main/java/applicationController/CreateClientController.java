@@ -121,7 +121,7 @@ public class CreateClientController implements Initializable {
 			boolean name = DataValidation.textAlphabetWithPolishMarks(firstNameTextID, firstNameLabelID, "Name is Required (MAX 20 characters)", "2", "20");
 			boolean secondName = DataValidation.textAlphabetWithPolishMarks(secondNameTextID, secondNameLabelID, "Second name is Required (MAX 20 characters)", "2", "20");
 			boolean phone = DataValidation.textPhone(phoneNumberTextID, phoneNumberLabelID, "Phone is Required");
-			boolean lPlate = DataValidation.textAlphabetAndNumber(licensePlateTextID, licensePlateLabelID, "License plate is Required (1-10 characters)", "3", "10");
+			boolean lPlate = DataValidation.textAlphabetAndNumber(licensePlateTextID, licensePlateLabelID, "License plate is Required (3-10 characters)", "3", "10");
 			
 			if (name && secondName && phone && lPlate) {
 				if(clientDAOImpl.checkLicensePlate(licensePlateTextID.getText()) == false) {

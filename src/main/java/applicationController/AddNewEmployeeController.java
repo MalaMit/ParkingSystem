@@ -72,7 +72,7 @@ public class AddNewEmployeeController implements Initializable{
     	boolean surname = DataValidation.textAlphabetWithPolishMarks(surnameFieldID, surnameLabelID, "Surname is Required (MAX 20 characters)", "2", "20");
     	boolean pesel = DataValidation.textNumber(peselFieldID, peselLabelID, "Pesel is Required (MAX 20 number)", "10", "20");
     	boolean phone = DataValidation.textPhone(phoneFieldID, phoneLabelID, "Phone is Required");
-    	boolean hourlyWage = DataValidation.textFloat(hourlyWageFieldID, hourlyWageLabelID, "Name is Required (xxxx.xx)");
+    	boolean hourlyWage = DataValidation.textFloat(hourlyWageFieldID, hourlyWageLabelID, "Hourly wage is Required (xxxx.xx)");
     	
     	if(name && surname && pesel && phone && hourlyWage) {
     		if( !EmployeePanelController.employeeDAOImpl.checkPesel(Long.valueOf(peselFieldID.getText()))) {

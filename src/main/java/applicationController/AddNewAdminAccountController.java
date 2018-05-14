@@ -61,7 +61,7 @@ public class AddNewAdminAccountController implements Initializable{
     	boolean passwordOne = DataValidation.textPassword(passwordOneID, passwordOneLabelID, "Password is Required (5-20 characters)");
     	boolean passwordTwo = DataValidation.textPassword(passwordTwoID, passwordTwoLabelID, "Password is Required (5-20 characters)");
     	boolean fName = DataValidation.textAlphabetWithPolishMarks(firstNameID, firstNameLabelID, "First name is Required (MAX 20 characters)", "2", "20");
-    	boolean sName = DataValidation.textAlphabetWithPolishMarks(secondNameID, secondNameLabelID, "Second Name is Required (MAX 20 characters)", "2", "20");
+    	boolean sName = DataValidation.textAlphabetWithPolishMarks(secondNameID, secondNameLabelID, "Second name is Required (MAX 20 characters)", "2", "20");
     	
     	if(login && passwordOne && passwordTwo && fName && sName) {
 			if (passwordOneID.getText().equals(passwordTwoID.getText())
