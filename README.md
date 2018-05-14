@@ -6,4 +6,4 @@ First for client.
 Second for employee. 
     Employee begin shift and ending shift.    
 Third for admin.
-    Admin can access in all, he  administer all functions for other panels and check all.
+    Admin can access in all, he  administer all functions for other panels and check all.
