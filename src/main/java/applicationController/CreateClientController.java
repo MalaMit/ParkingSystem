@@ -39,6 +39,9 @@ public class CreateClientController implements Initializable {
 	static ClientDAOImpl clientDAOImpl = new ClientDAOImpl();
 	static ParkingTimeDAOImpl parkingTimeDAOImpl = new ParkingTimeDAOImpl();
 	private ArrayList<TypeVehicle> typeV = typeVehicleDAOImpl.getAllTypeVehicle();
+	
+	private static final String exit = "/fxml/FirstPanel.fxml";
+	private static final String endCreate = "/fxml/EndCreateClient.fxml";
 
 	@FXML
 	private JFXComboBox<TypeVehicle> typeVehicleClientBoxID;
@@ -107,7 +110,7 @@ public class CreateClientController implements Initializable {
 
 	@FXML
 	void outProgramButton(ActionEvent event) {
-		backToMain();
+		loadFxml(exit);
 	}
 
 	@FXML
@@ -132,7 +135,7 @@ public class CreateClientController implements Initializable {
 
 					parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
 					// end view
-					endCreateClientPanel();
+					loadFxml(endCreate);
 				}else {
 					Alert alert = new Alert(AlertType.ERROR);
 					alert.setTitle("License Plate error!");
@@ -155,7 +158,7 @@ public class CreateClientController implements Initializable {
 					parkingSpotDAOImpl.changeStatusSpot(viewSelectSpotLabelID.getText());
 	
 					// end view
-					endCreateClientPanel();
+					loadFxml(endCreate);
 				}else {
 					Alert alert = new Alert(AlertType.ERROR);
 					alert.setTitle("License Plate error!");
@@ -265,26 +268,10 @@ public class CreateClientController implements Initializable {
 
 	}
 
-	public void backToMain() {
+	public void loadFxml(String pathFxml) {
 		Parent parent = null;
 		try {
-			parent = FXMLLoader.load(getClass().getResource("/fxml/FirstPanel.fxml"));
-			Scene scene = new Scene(parent);
-
-			Stage window = Main.getPrimaryStage();
-
-			window.setScene(scene);
-			window.show();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void endCreateClientPanel() {
-		Parent parent = null;
-		try {
-			parent = FXMLLoader.load(getClass().getResource("/fxml/EndCreateClient.fxml"));
+			parent = FXMLLoader.load(getClass().getResource(pathFxml));
 			Scene scene = new Scene(parent);
 
 			Stage window = Main.getPrimaryStage();
