@@ -10,8 +10,8 @@ public class DBUtil {
 
 	private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
 	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/parking?useSSL=false";
-	private static final String USERNAME = "root";
-	private static final String PASSWORD = "123";
+	private static final String USERNAME = "USERNAME";
+	private static final String PASSWORD = "PASSWORD";
 
 
 	// init connection object
