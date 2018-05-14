@@ -52,8 +52,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public boolean deleteEmployee(Long employee) {
+		String sqlShift = "DELETE FROM shift WHERE pesel  = '"+ employee +"'";
 		String sql = "DELETE FROM employee WHERE pesel = '"+ employee +"'";
 		try {
+			DBUtil.dbExcecuteQuery(sqlShift);
 			DBUtil.dbExcecuteQuery(sql);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
