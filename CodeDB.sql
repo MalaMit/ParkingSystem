@@ -26,7 +26,7 @@ CREATE TABLE `employee` (
 CREATE TABLE `shift` (
   `idShift` int(11) NOT NULL AUTO_INCREMENT,
   `shiftStart` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `shiftEnd` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `shiftEnd` timestamp NULL,
   `pesel` bigint(20) DEFAULT NULL,
   `shiftType` enum('working','holiday','sick') DEFAULT NULL,
   PRIMARY KEY (`idShift`),
