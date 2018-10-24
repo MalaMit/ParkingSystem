@@ -21,7 +21,7 @@ public class ShiftDAOImpl implements ShiftDAO{
 				Shift shift = new Shift();
 				shift.setShiftID(rsSet.getInt("idShift"));
 				shift.setShiftStart(rsSet.getString("shiftStart").substring(0, (rsSet.getString("shiftStart").indexOf("."))));							
-				if(!rsSet.getTimestamp("shiftStart").equals(rsSet.getTimestamp("shiftEnd")) && (rsSet.getTimestamp("shiftEnd") != null))
+				if(!(rsSet.getTimestamp("shiftStart").equals(rsSet.getTimestamp("shiftEnd"))) && (rsSet.getTimestamp("shiftEnd") != null))
 					shift.setShiftEnd(rsSet.getString("shiftEnd").substring(0, (rsSet.getString("shiftEnd").indexOf("."))));
 				else
 					shift.setShiftEnd("---------");

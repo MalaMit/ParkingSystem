@@ -9,14 +9,14 @@ public class DataValidation {
         boolean isCorrect = true;
         String validationString = null;
 
-        if (!inputTextField.getText().matches("[a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{"+ minimumLength +","+ requiredLength +"}")) {
+        if (!inputTextField.getText().matches("([a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ][ ]{0,5}){"+ minimumLength +","+ requiredLength +"}")) {
         	isCorrect = false;
             validationString = validationText;
 
         }
         inputLabel.setText(validationString);
 
-        System.out.println(inputTextField.getText().matches("[a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ]{"+ minimumLength +","+ requiredLength +"}"));
+        System.out.println(inputTextField.getText().matches("([a-zA-ZąęćżźńłóśĄĆĘŁŃÓŚŹŻ][ ]{0,5}){"+ minimumLength +","+ requiredLength +"}"));
         return isCorrect;
 
     }
